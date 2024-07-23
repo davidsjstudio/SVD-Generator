@@ -1,0 +1,20 @@
+{
+  "name": "cleaned_up_device_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "start:test": "node index-test.js",
+    "installDeps": "npm i jimp sharp webdriverio xml2js"
+  },
+  "author": "rbaekdev",
+  "license": "ISC",
+  "dependencies": {
+    "jimp": "^0.22.12",
+    "sharp": "^0.33.4",
+    "webdriverio": "^8.39.0",
+    "xml2js": "^0.6.2"
+  }
+}
