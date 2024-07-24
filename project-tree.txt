@@ -1,0 +1,40 @@
+.
+|-- config
+|-- create-gitkeep.mjs
+|-- gpt-convo-history.md
+|-- package-lock.json
+|-- package.json
+|-- project-tree.txt
+|-- react-app
+|   |-- package-lock.json
+|   |-- package.json
+|   |-- public
+|   |   `-- index.html
+|   |-- src
+|   |   |-- App.css
+|   |   |-- App.jsx
+|   |   |-- components
+|   |   |-- index.css
+|   |   |-- main.jsx
+|   |   `-- utils
+|   `-- vite.config.js
+`-- src
+    |-- automation
+    |   |-- actions
+    |   |   |-- click-helpers.js
+    |   |   `-- scroll-helpers.js
+    |   |-- image-processing
+    |   |   |-- image-generator.js
+    |   |   `-- image-helpers.js
+    |   |-- index.js
+    |   |-- mapping
+    |   |   |-- iddfs-logic.js
+    |   |   `-- navigation-helpers.js
+    |   `-- parsing
+    |       `-- clickables_v2.mjs
+    `-- utils
+        |-- file-ops.js
+        |-- logger.js
+        `-- misc.js
+
+13 directories, 24 files
