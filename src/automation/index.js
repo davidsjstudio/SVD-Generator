@@ -1,9 +1,10 @@
 import readline from "readline";
 import { remote } from "webdriverio";
-import { navigateAndMap, createImage, clearTestFolder } from "./scripts/solo_helpers.mjs";
-import { existsSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from "fs";
-import './logger.js';
-import { getClickablesFromXML } from "./scripts/clickables_v2.mjs";
+import { getClickablesFromXML } from "./parsing/clickables_v2.mjs";
+import { clearTestFolder } from './../utils/file-ops';
+import { navigateAndMap } from './mapping/iddfs-logic';
+import { createImage } from './image-processing/image-generator';
+import './../utils/logger.js';
 
 let current_back = null;
 

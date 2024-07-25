@@ -1,7 +1,6 @@
 .
 |-- config
 |-- create-gitkeep.mjs
-|-- gpt-convo-history.md
 |-- package-lock.json
 |-- package.json
 |-- project-tree.txt
@@ -37,4 +36,4 @@
         |-- logger.js
         `-- misc.js
 
-13 directories, 24 files
+13 directories, 23 files

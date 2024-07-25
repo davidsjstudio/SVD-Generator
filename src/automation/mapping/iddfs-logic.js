@@ -1,3 +1,8 @@
+import { createImage } from './../image-processing/image-generator';
+import { saveScreenData, saveData } from './../../utils/file-ops';
+import { findAndClickButton } from './../actions/click-helpers';
+import { getButtons, updateButtonTarget, updateCompleteProperty } from './navigation-helpers';
+
 export async function navigateAndMap(driver, workerData, root_screen_hash) {
   console.log("STARTING NAVIGATION AND MAPPING ON: ", root_screen_hash);
 

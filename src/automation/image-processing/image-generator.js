@@ -1,3 +1,9 @@
+import { getScreenshotAsBuffer, consolidateRectanglesByTitle, fillColorAndSaveImage, findLastCommonElement, getCroppedImageBuffer, getVerticallyStitchedImageBuffer2, saveScrollImageAndData } from './image-helpers';
+import { saveBufferToFile, clearTmpFolder } from './../../utils/file-ops';
+import { scrollDown } from './../actions/scroll-helpers';
+import { sleep } from './../../utils/misc';
+import { saveData } from './../../utils/file-ops';
+
 export async function createImage(screen_hash, driver, workerData) {
   const screen_map = {};
   console.log("CREATE IMAGE ", screen_hash);

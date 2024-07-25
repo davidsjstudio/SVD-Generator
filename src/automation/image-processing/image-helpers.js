@@ -1,3 +1,4 @@
+import { saveBufferToFile } from './../../utils/file-ops';
 import sharp from "sharp";
 import pkg from "jimp";
 

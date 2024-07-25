@@ -1,3 +1,5 @@
+import { sleep } from './../../utils/misc';
+
 async function swipeCoords(driver, coords, wait = 3000) {
   const { x1, x2, y1, y2 } = coords;
   await sleep(wait);

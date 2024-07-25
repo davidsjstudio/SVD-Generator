@@ -1,3 +1,5 @@
+import { sleep } from './../../utils/misc';
+
 export async function findAndClickButton(driver, buttonText, resourceId = null) {
   try {
     // First, use UiScrollable to scroll to the button by text
