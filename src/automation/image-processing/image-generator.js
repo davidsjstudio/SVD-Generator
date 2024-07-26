@@ -1,9 +1,10 @@
-import { getScreenshotAsBuffer, consolidateRectanglesByTitle, fillColorAndSaveImage, findLastCommonElement, getCroppedImageBuffer, getVerticallyStitchedImageBuffer2, saveScrollImageAndData } from './image-helpers';
-import { saveBufferToFile, clearTmpFolder, saveData } from './../../utils/file-ops';
-import { scrollDown } from './../actions/scroll-helpers';
-import { sleep } from './../../utils/misc';
-import { paths } from '../../config/paths.js';
+import { getScreenshotAsBuffer, consolidateRectanglesByTitle, fillColorAndSaveImage, findLastCommonElement, getCroppedImageBuffer, getVerticallyStitchedImageBuffer2, saveScrollImageAndData } from './image-helpers.js';
+import { saveBufferToFile, clearTmpFolder, saveData } from './../../utils/file-ops.js';
+import { scrollDown } from './../actions/scroll-helpers.js';
+import { sleep } from './../../utils/misc.js';
+import { paths } from '../../../config/paths.js';
 import fs from 'fs';
+import { getClickablesFromXML } from '../parsing/clickables_v2.mjs';
 
 export async function createImage(screen_hash, driver, device) {
   const screen_map = {};
@@ -112,7 +113,6 @@ export async function takeAndStitchImages(
   console.log('CONSOLIDATED RECTANGLES BEFORE SCROLLING')
   console.log(init)
 
-  debug.push(init);
   let merged_data = [...init];
 
   const imgs = [first_img];
@@ -160,7 +160,6 @@ export async function takeAndStitchImages(
       const img = await getScreenshotAsBuffer(driver);
       imgs.push(img);
       newData.data = consolidateRectanglesByTitle(newData.data);
-      debug.push(newData.data);
       lastY = newData.data[newData.data.length - 2].y;
       const lastCommon = await findLastCommonElement(merged_data, newData.data);
 

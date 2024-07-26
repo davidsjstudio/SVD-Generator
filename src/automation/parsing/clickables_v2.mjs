@@ -1,6 +1,6 @@
 import { parseString } from "xml2js";
-import { scrollDown, scrollUp } from './../actions/scroll-helpers';
-import { sleep } from './../../utils/misc';
+import { scrollDown, scrollUp } from './../actions/scroll-helpers.js';
+import { sleep } from './../../utils/misc.js';
 
 const getClickablesFromXML = async (
   xmlString,

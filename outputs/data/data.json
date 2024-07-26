@@ -1,0 +1,367 @@
+{
+  "settings": {
+    "complete": false,
+    "img_filename": "settings",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "scroll_area": {
+      "x": 0,
+      "y": 334,
+      "width": 1080,
+      "height": 2162,
+      "img_filename": "settings-stitched",
+      "img_height": 6907,
+      "buttons": [
+        {
+          "title": "John Adams",
+          "complete": false,
+          "width": 1080,
+          "height": 276,
+          "x": 0,
+          "y": 0,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-john_adams",
+          "target": "settings-john_adams"
+        },
+        {
+          "title": "Connections",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 336,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-connections"
+        },
+        {
+          "title": "Connected devices",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 545,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-connected_devices"
+        },
+        {
+          "title": "Galaxy AI",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 814,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-galaxy_ai"
+        },
+        {
+          "title": "Modes and Routines",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 1023,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-modes_and_routines"
+        },
+        {
+          "title": "Sounds and vibration",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 1232,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-sounds_and_vibration"
+        },
+        {
+          "title": "Notifications",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 1441,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-notifications"
+        },
+        {
+          "title": "Display",
+          "complete": false,
+          "width": 1080,
+          "height": 260,
+          "x": 0,
+          "y": 1710,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-display"
+        },
+        {
+          "title": "Battery",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 1970,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-battery"
+        },
+        {
+          "title": "Wallpaper and style",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 2239,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-wallpaper_and_style"
+        },
+        {
+          "title": "Themes",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 2448,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-themes"
+        },
+        {
+          "title": "Home screen",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 2657,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-home_screen"
+        },
+        {
+          "title": "Lock screen and AOD",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 2866,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-lock_screen_and_aod"
+        },
+        {
+          "title": "Cover screen",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 3075,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-cover_screen"
+        },
+        {
+          "title": "Security and privacy",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 3344,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-security_and_privacy"
+        },
+        {
+          "title": "Location",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 3553,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-location"
+        },
+        {
+          "title": "Safety and emergency",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 3762,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-safety_and_emergency"
+        },
+        {
+          "title": "Accounts and backup",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 4031,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-accounts_and_backup"
+        },
+        {
+          "title": "Google",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 4240,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-google"
+        },
+        {
+          "title": "Advanced features",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 4509,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-advanced_features"
+        },
+        {
+          "title": "Digital Wellbeing and parental controls",
+          "complete": false,
+          "width": 1080,
+          "height": 277,
+          "x": 0,
+          "y": 4778,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-digital_wellbeing_and_parental_controls"
+        },
+        {
+          "title": "Device care",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 5055,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-device_care"
+        },
+        {
+          "title": "Apps",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 5264,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-apps"
+        },
+        {
+          "title": "General management",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 5533,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-general_management"
+        },
+        {
+          "title": "Accessibility",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 5742,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-accessibility"
+        },
+        {
+          "title": "Software update",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 6011,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-software_update"
+        },
+        {
+          "title": "Tips and user guide",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 6220,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-tips_and_user_guide"
+        },
+        {
+          "title": "About phone",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 6429,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-about_phone"
+        },
+        {
+          "title": "Developer options",
+          "complete": false,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 6638,
+          "from_scrollable": true,
+          "parent": "settings",
+          "slug": "settings-developer_options"
+        }
+      ]
+    }
+  }
+}

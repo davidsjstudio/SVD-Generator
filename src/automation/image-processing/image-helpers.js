@@ -1,12 +1,12 @@
-import { saveBufferToFile } from './../../utils/file-ops';
+import { saveBufferToFile } from './../../utils/file-ops.js';
 import sharp from "sharp";
 import pkg from "jimp";
-import { paths } from '../../config/paths.js';
+import { paths } from '../../../config/paths.js';
 
 const { read, intToRGBA } = pkg;
 
 
-export async function saveScrollImageAndData(
+export function saveScrollImageAndData(
   img,
   height,
   screen_hash,
@@ -72,7 +72,7 @@ export async function fillColorInImage(inputImagePath, outputImagePath, color, f
       background: color,
     },
   })
-    .jpeg()
+    .png()
     .toBuffer();
   console.log({ outputImagePath });
   // Composite the colored overlay onto the original image
@@ -147,15 +147,15 @@ export async function getVerticallyStitchedImageBuffer2(paths) {
       y += metadata.height;
     }
     stitched_image = stitched_image.composite(imgs_to_stitch);
-    const stitched_buffer = await stitched_image.jpeg().toBuffer();
-    return { stitched_buffer, height: totalHeight };
+    const stitched_buffer = await stitched_image.png().toBuffer();
+    return { height: totalHeight, img: stitched_buffer };
   } catch (error) {
     console.error("Error while stitching images:", error);
     throw error;
   }
 }
 
-export async function consolidateRectanglesByTitle(rectangles) {
+export function consolidateRectanglesByTitle(rectangles) {
   const groups = {};
 
   // Group rectangles by title

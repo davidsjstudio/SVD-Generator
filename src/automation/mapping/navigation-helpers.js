@@ -3,42 +3,42 @@ export function getButtons(data, screen_hash) {
   return screen.scroll_area ? screen.scroll_area.buttons : screen.buttons;
 }
 
-export function updateButtonTarget(screen_map, parent, clicked_slug, screen_hash) {
-  const in_buttons = screen_map[parent]?.buttons?.findIndex((el) => el.slug === clicked_slug) > -1;
-  const in_scroll_buttons = screen_map[parent]?.scroll_area?.buttons?.findIndex((el) => el.slug === clicked_slug) > -1;
+export function updateButtonTarget(data, parent, clicked_slug, screen_hash) {
+  const in_buttons = data[parent]?.buttons?.findIndex((el) => el.slug === clicked_slug) > -1;
+  const in_scroll_buttons = data[parent]?.scroll_area?.buttons?.findIndex((el) => el.slug === clicked_slug) > -1;
   const button_index = in_buttons
-    ? screen_map[parent].buttons.findIndex((el) => el.slug === clicked_slug)
-    : screen_map[parent]?.scroll_area?.buttons?.findIndex((el) => el.slug === clicked_slug);
+    ? data[parent].buttons.findIndex((el) => el.slug === clicked_slug)
+    : data[parent]?.scroll_area?.buttons?.findIndex((el) => el.slug === clicked_slug);
 
   if (button_index >= 0) {
     if (in_buttons) {
-      screen_map[parent].buttons[button_index].target = screen_hash;
+      data[parent].buttons[button_index].target = screen_hash;
     }
     if (in_scroll_buttons) {
-      screen_map[parent].scroll_area.buttons[button_index].target = screen_hash;
+      data[parent].scroll_area.buttons[button_index].target = screen_hash;
     }
   }
 }
 
-export function updateCompleteProperty(screen_map, parent, id, buttonClicked) {
+export function updateCompleteProperty(data, parent, id, buttonClicked) {
   try {
-    const in_buttons = screen_map[parent]?.buttons?.findIndex((el) => el.slug === id) > -1;
-    const in_scroll_buttons = screen_map[parent]?.scroll_area?.buttons?.findIndex((el) => el.slug === id) > -1;
+    const in_buttons = data[parent]?.buttons?.findIndex((el) => el.slug === id) > -1;
+    const in_scroll_buttons = data[parent]?.scroll_area?.buttons?.findIndex((el) => el.slug === id) > -1;
     const button_index = in_buttons
-      ? screen_map[parent].buttons.findIndex((el) => el.slug === id)
-      : screen_map[parent]?.scroll_area?.buttons?.findIndex((el) => el.slug === id);
+      ? data[parent].buttons.findIndex((el) => el.slug === id)
+      : data[parent]?.scroll_area?.buttons?.findIndex((el) => el.slug === id);
 
     if (button_index >= 0) {
       if (in_buttons) {
-        screen_map[parent].buttons[button_index].complete = true;
+        data[parent].buttons[button_index].complete = true;
         if (buttonClicked === false) {
-          screen_map[parent].buttons[button_index].target = null;
+          data[parent].buttons[button_index].target = null;
         }
       }
       if (in_scroll_buttons) {
-        screen_map[parent].scroll_area.buttons[button_index].complete = true;
+        data[parent].scroll_area.buttons[button_index].complete = true;
         if (buttonClicked === false) {
-          screen_map[parent].scroll_area.buttons[button_index].target = null;
+          data[parent].scroll_area.buttons[button_index].target = null;
         }
       }
     }

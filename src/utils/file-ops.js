@@ -17,31 +17,40 @@ export function readJSON(filePath) {
 export function saveScreenData(folder, screen_hash, screen_data) {
   const dataFilePath = `./react-app/public/${folder}/data.json`;
   let data = {};
-  if (existsSync(dataFilePath)) {
-    data = JSON.parse(readFileSync(dataFilePath).toString());
+  if (fs.existsSync(dataFilePath)) {
+    data = JSON.parse(fs.readFileSync(dataFilePath).toString());
   }
 
   data[screen_hash] = screen_data;
-  writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
+  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
 }
 
 export function clearTmpFolder() {
-  fs.rmdirSync(paths.tmpFolder, { recursive: true });
+  // Ensure the tmpFolder exists before clearing it
+  if (!fs.existsSync(paths.tmpFolder)) {
+    fs.mkdirSync(paths.tmpFolder, { recursive: true });
+  }
+
+  fs.rmSync(paths.tmpFolder, { recursive: true, force: true });
   fs.mkdirSync(paths.tmpFolder);
 }
 
 export function clearOutputFolders() {
-  fs.rmdirSync(paths.imageOutputPath, { recursive: true });
+  if (fs.existsSync(paths.imageOutputPath)) {
+    fs.rmSync(paths.imageOutputPath, { recursive: true, force: true });
+  }
   fs.mkdirSync(paths.imageOutputPath);
 
-  fs.rmdirSync(paths.dataDir, { recursive: true });
+  if (fs.existsSync(paths.dataDir)) {
+    fs.rmSync(paths.dataDir, { recursive: true, force: true });
+  }
   fs.mkdirSync(paths.dataDir);
 }
 
 export function saveBufferToFile(path, buffer) {
-  writeFileSync(path, buffer);
+  fs.writeFileSync(path, buffer);
 }
 
 export function saveData(path, data) {
-  writeFileSync(path, JSON.stringify(data, null, 2));
+  fs.writeFileSync(path, JSON.stringify(data, null, 2));
 }

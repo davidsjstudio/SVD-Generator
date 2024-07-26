@@ -1,9 +1,10 @@
 import readline from "readline";
 import { remote } from "webdriverio";
 import { getClickablesFromXML } from "./parsing/clickables_v2.mjs";
-import { clearOutputFolders } from './../utils/file-ops';
-import { navigateAndMap } from './mapping/iddfs-logic';
-import { createImage } from './image-processing/image-generator';
+import { clearOutputFolders } from "../utils/file-ops.js";
+import { navigateAndMap } from './mapping/iddfs-logic.js';
+import { createImage } from './image-processing/image-generator.js';
+import { paths } from '../../config/paths.js';
 import './../utils/logger.js';
 
 let current_back = null;

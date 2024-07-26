@@ -1,4 +1,4 @@
-import { sleep } from './../../utils/misc';
+import { sleep } from './../../utils/misc.js';
 
 export async function findAndClickButton(driver, buttonText, resourceId = null) {
   try {

@@ -8,6 +8,6 @@ const dataDir = path.join(outputsDir, 'data');
 export const paths = {
   dataFilePath: path.join(dataDir, 'data.json'),
   imageOutputPath: imagesDir,
-  tmpFolder: path.join(baseDir, 'exports', 'tmp')
-  // Add other paths as needed
+  tmpFolder: path.join(baseDir, 'exports', 'tmp'),
+  dataDir: dataDir,
 };

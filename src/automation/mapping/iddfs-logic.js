@@ -1,8 +1,8 @@
-import { createImage } from './../image-processing/image-generator';
-import { saveScreenData, saveData, readJSON } from './../../utils/file-ops';
-import { findAndClickButton } from './../actions/click-helpers';
-import { getButtons, updateButtonTarget, updateCompleteProperty } from './navigation-helpers';
-import { paths } from '../../config/paths.js';
+import { createImage } from './../image-processing/image-generator.js';
+import { saveScreenData, saveData, readJSON } from './../../utils/file-ops.js';
+import { findAndClickButton } from './../actions/click-helpers.js';
+import { getButtons, updateButtonTarget, updateCompleteProperty } from './navigation-helpers.js';
+import { paths } from '../../../config/paths.js' 
 import fs from 'fs';
 
 let data = {};
@@ -41,13 +41,15 @@ export async function processScreen(driver, device, screen_hash, current_back, d
   // Call createImage only if the screen has not been mapped
   if (!data[screen_hash]?.mapped) {
     const screen_data = await createImage(screen_hash, driver, device);
-    saveScreenData(device.folder, screen_hash, screen_data);
+    // saveScreenData(device.folder, screen_hash, screen_data);
 
-    // Reload data after creating the image
-    if (existsSync(dataFilePath)) {
-      data = JSON.parse(readFileSync(dataFilePath).toString());
+    if (screen_data) {
+      data[screen_hash] = screen_data;
     }
   }
+
+  // Save data in data.json for current screen 
+  saveData(paths.dataFilePath, data);
 
   // Iterate over each button to navigate and map further screens
   const buttonsToCheck = getButtons(data, screen_hash);
@@ -67,7 +69,7 @@ export async function processScreen(driver, device, screen_hash, current_back, d
 
           // Update the target property of the current button
           updateButtonTarget(data, button.parent, clicked_slug, button.slug);
-          saveData(dataFilePath, data);
+          saveData(paths.dataFilePath, data);
 
           // Recurse into the new screen
           await processScreen(driver, device, button.slug, screen_hash, depth - 1);
@@ -87,11 +89,6 @@ export async function processScreen(driver, device, screen_hash, current_back, d
         console.error(`Error: ${button.title}`, error);
       }
     }
-  }
-
-  // Reload the latest data again before checking completion
-  if (existsSync(dataFilePath)) {
-    data = JSON.parse(readFileSync(dataFilePath).toString());
   }
 
   const buttonsToCheckAfterUpdate = getButtons(data, screen_hash);
