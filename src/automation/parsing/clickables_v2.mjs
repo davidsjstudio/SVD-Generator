@@ -8,7 +8,7 @@ const getClickablesFromXML = async (
   scroll_only = false,
   quick_exit = null,
   driver,
-  workerData
+  device
 ) => {
   console.log("GET CLICKABLES FROM XML");
   const bg_els = [];
@@ -28,7 +28,7 @@ const getClickablesFromXML = async (
 
     // Perform the scroll
     const arg_1 = 1500; // Example starting y-coordinate
-    await scrollDown(driver, arg_1, workerData.scroll_distance);
+    await scrollDown(driver, arg_1, device.scroll_distance);
 
     // Wait for a moment to allow the screen to update
     await sleep(3000);
@@ -42,7 +42,7 @@ const getClickablesFromXML = async (
       isScrollable = "true";
 
       // Scroll back up to the initial position
-      await scrollUp(driver, arg_1, workerData.scroll_distance);
+      await scrollUp(driver, arg_1, device.scroll_distance);
     } else {
       isScrollable = "false";
     }

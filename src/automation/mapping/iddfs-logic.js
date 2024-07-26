@@ -1,41 +1,47 @@
 import { createImage } from './../image-processing/image-generator';
-import { saveScreenData, saveData } from './../../utils/file-ops';
+import { saveScreenData, saveData, readJSON } from './../../utils/file-ops';
 import { findAndClickButton } from './../actions/click-helpers';
 import { getButtons, updateButtonTarget, updateCompleteProperty } from './navigation-helpers';
+import { paths } from '../../config/paths.js';
+import fs from 'fs';
 
-export async function navigateAndMap(driver, workerData, root_screen_hash) {
+let data = {};
+
+export async function navigateAndMap(driver, device, root_screen_hash) {
   console.log("STARTING NAVIGATION AND MAPPING ON: ", root_screen_hash);
 
-  const dataFilePath = `./react-app/public/${workerData.folder}/data.json`;
-  let data = {};
-  if (existsSync(dataFilePath)) {
-    data = JSON.parse(readFileSync(dataFilePath).toString());
-  }
+  // Initial load of data
+  data = readJSON(paths.dataFilePath);
 
-  // Outer loop to keep processing until the root screen is complete
-  while (!data[root_screen_hash]?.complete) {
-    await processScreen(driver, workerData, root_screen_hash, null);
+  const maxDepth = 3;  // Set the maximum depth for IDDFS
 
-    // Reload the latest data to check the complete status of the root screen
-    if (existsSync(dataFilePath)) {
-      data = JSON.parse(readFileSync(dataFilePath).toString());
+  for (let depth = 1; depth <= maxDepth; depth++) {
+    console.log(`Processing with depth limit: ${depth}`);
+    await processScreen(driver, device, root_screen_hash, null, depth);
+
+    // Check if the root screen is complete
+    if (data[root_screen_hash]?.complete) {
+      break;
     }
   }
+
+  // Final save to persist any changes
+  saveData(dataFilePath, data);
+  console.log("FINISHED NAVIGATION AND MAPPING ON: ", root_screen_hash);
 }
 
-export async function processScreen(driver, workerData, screen_hash, current_back) {
-  console.log("STARTING NAVIGATION AND MAPPING ON: ", screen_hash);
+export async function processScreen(driver, device, screen_hash, current_back, depth) {
+  console.log("PROCESSING: ", screen_hash, `at depth: ${depth}`);
 
-  const dataFilePath = `./react-app/public/${workerData.folder}/data.json`;
-  let data = {};
-  if (existsSync(dataFilePath)) {
-    data = JSON.parse(readFileSync(dataFilePath).toString());
+  // Check if the maximum depth has been reached
+  if (depth === 0) {
+    return;
   }
 
   // Call createImage only if the screen has not been mapped
   if (!data[screen_hash]?.mapped) {
-    const screen_data = await createImage(screen_hash, driver, workerData);
-    saveScreenData(workerData.folder, screen_hash, screen_data);
+    const screen_data = await createImage(screen_hash, driver, device);
+    saveScreenData(device.folder, screen_hash, screen_data);
 
     // Reload data after creating the image
     if (existsSync(dataFilePath)) {
@@ -64,7 +70,7 @@ export async function processScreen(driver, workerData, screen_hash, current_bac
           saveData(dataFilePath, data);
 
           // Recurse into the new screen
-          await processScreen(driver, workerData, button.slug, screen_hash);
+          await processScreen(driver, device, button.slug, screen_hash, depth - 1);
 
         } else if (buttonClicked === 'wifi-required') {
           // Wi-Fi required popup detected, skip this button and continue with the next one
@@ -104,7 +110,7 @@ export async function processScreen(driver, workerData, screen_hash, current_bac
     // Navigate back to the previous screen and continue processing
     if (current_back) {
       await driver.back();
-      await processScreen(driver, workerData, current_back, null);
+      await processScreen(driver, device, current_back, null, depth - 1);
     } else {
       console.log("NO current_back STATED");
     }

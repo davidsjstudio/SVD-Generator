@@ -1,10 +1,11 @@
 import { getScreenshotAsBuffer, consolidateRectanglesByTitle, fillColorAndSaveImage, findLastCommonElement, getCroppedImageBuffer, getVerticallyStitchedImageBuffer2, saveScrollImageAndData } from './image-helpers';
-import { saveBufferToFile, clearTmpFolder } from './../../utils/file-ops';
+import { saveBufferToFile, clearTmpFolder, saveData } from './../../utils/file-ops';
 import { scrollDown } from './../actions/scroll-helpers';
 import { sleep } from './../../utils/misc';
-import { saveData } from './../../utils/file-ops';
+import { paths } from '../../config/paths.js';
+import fs from 'fs';
 
-export async function createImage(screen_hash, driver, workerData) {
+export async function createImage(screen_hash, driver, device) {
   const screen_map = {};
   console.log("CREATE IMAGE ", screen_hash);
   const img = await getScreenshotAsBuffer(driver);
@@ -15,7 +16,7 @@ export async function createImage(screen_hash, driver, workerData) {
     null,
     null,
     driver,
-    workerData
+    device
   );
 
   // console.log({ isScrollable, data, scroll_bounds, bg_els })
@@ -26,11 +27,11 @@ export async function createImage(screen_hash, driver, workerData) {
   if (isScrollable === "true") {
     try {
       console.log("save scrollable image");
-      await fillColorAndSaveImage(img, scroll_bounds, screen_hash, workerData);
+      await fillColorAndSaveImage(img, scroll_bounds, screen_hash, device);
       screen_map[screen_hash].img_filename = screen_hash;
       screen_map[screen_hash].mapped = false;
       screen_map[screen_hash].bg_els = bg_els.map((el) => ({ ...el, complete: false, from_scrollable: true }));
-      screen_map[screen_hash].statics = workerData.static_buttons;
+      screen_map[screen_hash].statics = device.static_buttons;
 
       console.log('THIS IS THE ROOT SCREEN MAP');
       console.log(screen_map);
@@ -46,7 +47,7 @@ export async function createImage(screen_hash, driver, workerData) {
         scroll_bounds,
         data,
         driver,
-        workerData,
+        device,
         screen_map
       );
     } catch (e) {
@@ -54,11 +55,11 @@ export async function createImage(screen_hash, driver, workerData) {
     }
   } else {
     console.log("Save non-scrollable image");
-    saveBufferToFile(`./react-app/public/${workerData.folder}/${screen_hash}.png`, img);
+    saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}.jpeg`, img);
     screen_map[screen_hash].img_filename = screen_hash;
     screen_map[screen_hash].mapped = true;
     screen_map[screen_hash].bg_els = bg_els.map((el) => ({ ...el, complete: false, from_scrollable: false }));
-    screen_map[screen_hash].statics = workerData.static_buttons;
+    screen_map[screen_hash].statics = device.static_buttons;
     screen_map[screen_hash].buttons = data.map((el) => ({ 
       ...el, 
       complete: false, 
@@ -94,12 +95,12 @@ export async function takeAndStitchImages(
   scroll_bounds,
   data,
   driver,
-  workerData,
+  device,
   screen_map
 ) {
   console.log("TAKE AND STITCH");
   console.log("CLEARING TMP FOLDER")
-  clearTmpFolder(workerData);
+  clearTmpFolder(device);
 
   let prevCommon = null;
   let scrollOffset = 0;
@@ -141,7 +142,7 @@ export async function takeAndStitchImages(
       true,
       recurse,
       driver,
-      workerData
+      device
     );
 
     // console.log('This is the new data at num = ', num)
@@ -249,21 +250,22 @@ export async function takeAndStitchImages(
         y: area.top,
         height: area.height,
       });
-      saveBufferToFile(`./exports/${workerData.folder}/tmp/${a_idx}.png`, scr);
+      saveBufferToFile(`${paths.tmpFolder}/${a_idx}.jpeg`, scr);
       a_idx++;
     }
   }
-  const filenames = readdirSync(`./exports/${workerData.folder}/tmp`).map(
-    (file) => `./exports/${workerData.folder}/tmp/${file}`
+  const filenames = fs.readdirSync(paths.tmpFolder).map(
+    (file) => `${paths.tmpFolder}/${file}`
   );
-  const img = await getVerticallyStitchedImageBuffer2(filenames);
+  const { height, img }= await getVerticallyStitchedImageBuffer2(filenames);
 
   screen_map = saveScrollImageAndData(
     img,
+    height,
     screen_hash,
     scroll_bounds,
     merged_data,
     screen_map,
-    workerData
+    device
   );
 }

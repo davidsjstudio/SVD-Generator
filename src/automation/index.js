@@ -1,7 +1,7 @@
 import readline from "readline";
 import { remote } from "webdriverio";
 import { getClickablesFromXML } from "./parsing/clickables_v2.mjs";
-import { clearTestFolder } from './../utils/file-ops';
+import { clearOutputFolders } from './../utils/file-ops';
 import { navigateAndMap } from './mapping/iddfs-logic';
 import { createImage } from './image-processing/image-generator';
 import './../utils/logger.js';
@@ -72,7 +72,7 @@ const device = {
         break;
       } else {
         if (input.toLowerCase() === "start") {
-          clearTestFolder(device);
+          clearOutputFolders();
           await navigateAndMap(driver, device, "settings");
           } else if (input.toLowerCase() === "1") {
             await createImage('settings-john_adams-galaxy_sharing', driver, device);

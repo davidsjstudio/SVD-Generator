@@ -1,22 +1,24 @@
 import { saveBufferToFile } from './../../utils/file-ops';
 import sharp from "sharp";
 import pkg from "jimp";
+import { paths } from '../../config/paths.js';
 
 const { read, intToRGBA } = pkg;
 
 
 export async function saveScrollImageAndData(
   img,
+  height,
   screen_hash,
   scroll_bounds,
   merged_data,
   screen_map,
-  workerData,
+  device,
   from_scrolling,
   current_back
 ) {
   try {
-    saveBufferToFile(`./react-app/public/${workerData.folder}/${screen_hash}-stitched.png`, img);
+    saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}-stitched.jpeg`, img);
   } catch (e) {
     console.error('Failed to Create New Stitched Image: ', e);
   };
@@ -24,8 +26,9 @@ export async function saveScrollImageAndData(
   screen_map[screen_hash].img_filename = screen_hash;
   screen_map[screen_hash].scroll_area = {
     ...scroll_bounds,
-    height: scroll_bounds.height + workerData.add_to_bottom,
+    height: scroll_bounds.height + device.add_to_bottom,
     img_filename: `${screen_hash}-stitched`,
+    img_height: height,
     buttons: merged_data.map((el) => ({
       ...el,
       y: el.y - scroll_bounds.y,
@@ -52,7 +55,7 @@ export async function fillColorAndSaveImage(img, scroll_bounds, screen_hash, wor
   };
   await fillColorInImage(
     img,
-    `./react-app/public/${workerData.folder}/${screen_hash}.png`,
+    `${paths.imageOutputPath}/${screen_hash}.jpg`,
     { r: color.r, g: color.g, b: color.b, alpha: 1 },
     fillArea
   );
@@ -69,7 +72,7 @@ export async function fillColorInImage(inputImagePath, outputImagePath, color, f
       background: color,
     },
   })
-    .png()
+    .jpeg()
     .toBuffer();
   console.log({ outputImagePath });
   // Composite the colored overlay onto the original image
@@ -144,7 +147,8 @@ export async function getVerticallyStitchedImageBuffer2(paths) {
       y += metadata.height;
     }
     stitched_image = stitched_image.composite(imgs_to_stitch);
-    return await stitched_image.png().toBuffer();
+    const stitched_buffer = await stitched_image.jpeg().toBuffer();
+    return { stitched_buffer, height: totalHeight };
   } catch (error) {
     console.error("Error while stitching images:", error);
     throw error;

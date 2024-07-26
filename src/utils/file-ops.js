@@ -1,3 +1,19 @@
+import fs from 'fs';
+import { paths } from '../../config/paths.js';
+
+/**
+ * Reads and parses JSON data from a file.
+ * @param {string} filePath - The path to the JSON file.
+ * @returns {object} - The parsed JSON data.
+ */
+export function readJSON(filePath) {
+  if (fs.existsSync(filePath)) {
+    const fileData = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(fileData);
+  }
+  return {};
+}
+
 export function saveScreenData(folder, screen_hash, screen_data) {
   const dataFilePath = `./react-app/public/${folder}/data.json`;
   let data = {};
@@ -9,36 +25,17 @@ export function saveScreenData(folder, screen_hash, screen_data) {
   writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
 }
 
-export function clearTmpFolder(workerData) {
-  const tmpDirPath = `./exports/${workerData.folder}/tmp`;
-
-  if (!existsSync(tmpDirPath)) {
-    console.error(`Directory ${tmpDirPath} does not exist.`);
-    mkdirSync(tmpDirPath, { recursive: true });
-    console.log(`Created directory ${tmpDirPath}.`);
-  }
-
-  const files = readdirSync(tmpDirPath);
-  files.forEach((file) => {
-    const filePath = `${tmpDirPath}/${file}`;
-    unlinkSync(filePath);
-  });
+export function clearTmpFolder() {
+  fs.rmdirSync(paths.tmpFolder, { recursive: true });
+  fs.mkdirSync(paths.tmpFolder);
 }
 
-export function clearTestFolder(workerData) {
-  const testDirPath = `./react-app/public/${workerData.folder}`;
+export function clearOutputFolders() {
+  fs.rmdirSync(paths.imageOutputPath, { recursive: true });
+  fs.mkdirSync(paths.imageOutputPath);
 
-  if (!existsSync(testDirPath)) {
-    console.error(`Directory ${testDirPath} does not exist.`);
-    mkdirSync(testDirPath, { recursive: true });
-    console.log(`Created directory ${testDirPath}.`);
-  }
-
-  const files = readdirSync(testDirPath);
-  files.forEach((file) => {
-    const filePath = `${testDirPath}/${file}`;
-    unlinkSync(filePath);
-  });
+  fs.rmdirSync(paths.dataDir, { recursive: true });
+  fs.mkdirSync(paths.dataDir);
 }
 
 export function saveBufferToFile(path, buffer) {
