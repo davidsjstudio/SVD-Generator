@@ -25,7 +25,7 @@ export async function createImage(screen_hash, driver, device) {
   // const { isScrollable, data, scroll_bounds, bg_els } = await getClickables(null, null, null, driver);
   screen_map[screen_hash] = { complete: false };
 
-  if (isScrollable === "true") {
+  if (isScrollable === "true" && data.length > 2) {
     try {
       console.log("save scrollable image");
       await fillColorAndSaveImage(img, scroll_bounds, screen_hash, device);
@@ -123,7 +123,7 @@ export async function takeAndStitchImages(
   let crop_height = 0;
   let tmp_data = null;
   const logs = [];
-  let lastY = merged_data.length > 1 ? merged_data[merged_data.length - 2].y : scroll_bounds.y;
+  let lastY = merged_data.length > 1 ? merged_data[merged_data.length - 2].y : 2126;
 
   async function recurseScreenCapture(recurse = null) {
     await scrollDown(
@@ -203,7 +203,7 @@ export async function takeAndStitchImages(
       }
 
       // Calculate scrollOffset safely
-      scrollOffset = lastCommon ? lastCommon.lastInFirst.y - lastCommon.lastInSecond.y : cumulativeScrollOffset;
+      let scrollOffset = lastCommon ? lastCommon.lastInFirst.y - lastCommon.lastInSecond.y : cumulativeScrollOffset;
       const newDataCopy = newData.data.map((elem) => ({
         ...elem,
         y: elem.y + scrollOffset,
