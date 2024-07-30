@@ -1,6 +1,43 @@
 .
 |-- config
+|   `-- paths.js
 |-- create-gitkeep.mjs
+|-- exports
+|   `-- tmp
+|-- hard-screenshot.sh
+|-- outputs
+|   |-- data
+|   |   `-- data.json
+|   `-- images
+|       |-- settings-connected_devices-auto_switch_buds.jpeg
+|       |-- settings-connected_devices-continue_apps_on_other_devices.jpg
+|       |-- settings-connected_devices-music_share.jpeg
+|       |-- settings-connected_devices-quick_share-stitched.jpeg
+|       |-- settings-connected_devices-quick_share.jpg
+|       |-- settings-connected_devices-stitched.jpeg
+|       |-- settings-connected_devices.jpg
+|       |-- settings-connections-airplane_mode.jpeg
+|       |-- settings-connections-bluetooth.jpeg
+|       |-- settings-connections-data_usage.jpeg
+|       |-- settings-connections-mobile_hotspot_and_tethering.jpeg
+|       |-- settings-connections-more_connection_settings.jpeg
+|       |-- settings-connections-nfc_and_contactless_payments.jpeg
+|       |-- settings-connections-sim_manager.jpeg
+|       |-- settings-connections-stitched.jpeg
+|       |-- settings-connections-wi_fi.jpeg
+|       |-- settings-connections.jpg
+|       |-- settings-john_adams-galaxy_ai-stitched.jpeg
+|       |-- settings-john_adams-galaxy_ai.jpg
+|       |-- settings-john_adams-galaxy_sharing.jpeg
+|       |-- settings-john_adams-payment_methods.jpeg
+|       |-- settings-john_adams-samsung_find.jpeg
+|       |-- settings-john_adams-samsung_pass.jpeg
+|       |-- settings-john_adams-stitched.jpeg
+|       |-- settings-john_adams.jpg
+|       |-- settings-stitched.jpeg
+|       `-- settings.jpg
+|-- outputs (2).zip
+|-- outputs.zip
 |-- package-lock.json
 |-- package.json
 |-- project-tree.txt
@@ -21,6 +58,7 @@
     |-- automation
     |   |-- actions
     |   |   |-- click-helpers.js
+    |   |   |-- hardware-helpers.js
     |   |   `-- scroll-helpers.js
     |   |-- image-processing
     |   |   |-- image-generator.js
@@ -34,6 +72,10 @@
     `-- utils
         |-- file-ops.js
         |-- logger.js
-        `-- misc.js
+        |-- misc.js
+        `-- react-app
+            `-- public
+                `-- logs
+                    `-- logs.md
 
-13 directories, 23 files
+21 directories, 57 files

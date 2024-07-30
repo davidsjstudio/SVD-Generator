@@ -15,12 +15,12 @@ const getClickablesFromXML = async (
   let isScrollable = "false";
   const hierarchy = await parseXML(xmlString);
 
-  console.log("THIS IS THE HIERARCHY: ", hierarchy);
+  // console.log("THIS IS THE HIERARCHY: ", hierarchy);
 
   // Find the RecyclerView or content_frame element
   let rv = findElementByResourceId(hierarchy, "/recycler_view");
 
-  console.log("THIS IS THE RV: ", rv);
+  // console.log("THIS IS THE RV: ", rv);
 
   if (rv && !scroll_only) {
     // Scroll and compare hierarchies
@@ -61,7 +61,7 @@ const getClickablesFromXML = async (
   // Find clickable elements within the RecyclerView or content_frame
   const clickableElements = getClickableElements(rv);
 
-  console.log("THESE ARE THE CLICKABLE ELEMENTS: ", clickableElements);
+  // console.log("THESE ARE THE CLICKABLE ELEMENTS: ", clickableElements);
 
   let data = [];
   // writeFileSync("./clics.json", JSON.stringify(clickableElements));

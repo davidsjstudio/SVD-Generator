@@ -56,7 +56,7 @@ export async function createImage(screen_hash, driver, device) {
     }
   } else {
     console.log("Save non-scrollable image");
-    saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}.jpeg`, img);
+    saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}.jpg`, img);
     screen_map[screen_hash].img_filename = screen_hash;
     screen_map[screen_hash].mapped = true;
     screen_map[screen_hash].bg_els = bg_els.map((el) => ({ ...el, complete: false, from_scrollable: false }));
@@ -104,7 +104,7 @@ export async function takeAndStitchImages(
   clearTmpFolder(device);
 
   let prevCommon = null;
-  let scrollOffset = 0;
+  let cumulativeScrollOffset = 0;  // Track cumulative scroll offset
   const visibleAreaLimit = scroll_bounds.y + scroll_bounds.height;
   const init = consolidateRectanglesByTitle([
     ...data.filter((elem) => elem.y + elem.height <= visibleAreaLimit),
@@ -123,7 +123,7 @@ export async function takeAndStitchImages(
   let crop_height = 0;
   let tmp_data = null;
   const logs = [];
-  let lastY = merged_data[merged_data.length - 2].y;
+  let lastY = merged_data.length > 1 ? merged_data[merged_data.length - 2].y : scroll_bounds.y;
 
   async function recurseScreenCapture(recurse = null) {
     await scrollDown(
@@ -160,7 +160,7 @@ export async function takeAndStitchImages(
       const img = await getScreenshotAsBuffer(driver);
       imgs.push(img);
       newData.data = consolidateRectanglesByTitle(newData.data);
-      lastY = newData.data[newData.data.length - 2].y;
+      lastY = newData.data.length > 1 ? newData.data[newData.data.length - 2].y : scroll_bounds.y + scroll_bounds.height;
       const lastCommon = await findLastCommonElement(merged_data, newData.data);
 
       if (lastCommon?.firstIndex && lastCommon?.firstIndex >= 0) {
@@ -202,7 +202,8 @@ export async function takeAndStitchImages(
         tmp_data = newData?.data?.length ? newData.data[newData.data.length - 1] : [];
       }
 
-      scrollOffset = lastCommon.lastInFirst.y - lastCommon.lastInSecond.y;
+      // Calculate scrollOffset safely
+      scrollOffset = lastCommon ? lastCommon.lastInFirst.y - lastCommon.lastInSecond.y : cumulativeScrollOffset;
       const newDataCopy = newData.data.map((elem) => ({
         ...elem,
         y: elem.y + scrollOffset,
@@ -233,6 +234,9 @@ export async function takeAndStitchImages(
       logs.push({ crop_top, num });
       num++;
 
+      // Update cumulative scroll offset
+      cumulativeScrollOffset += scroll_bounds.height;
+
       await recurseScreenCapture();
       // await recurseScreenCapture(lastCommon.lastInSecond)
     }
@@ -249,7 +253,7 @@ export async function takeAndStitchImages(
         y: area.top,
         height: area.height,
       });
-      saveBufferToFile(`${paths.tmpFolder}/${a_idx}.jpeg`, scr);
+      saveBufferToFile(`${paths.tmpFolder}/${a_idx}.jpg`, scr);
       a_idx++;
     }
   }

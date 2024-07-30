@@ -6,6 +6,8 @@ import { navigateAndMap } from './mapping/iddfs-logic.js';
 import { createImage } from './image-processing/image-generator.js';
 import { paths } from '../../config/paths.js';
 import './../utils/logger.js';
+import path from 'path';
+import { pressPowerAndVolumeDownSimultaneously, clickScrollCaptureButton, waitForSmartCaptureToolbar } from '../automation/actions/hardware-helpers.js'
 
 let current_back = null;
 
@@ -62,7 +64,8 @@ const device = {
     output: process.stdout,
   });
   
-  async function getUserInput() {
+
+async function getUserInput() {
     while (true) {
       const input = await new Promise((resolve) => {
         rl.question('Enter "start" or "quit" :  ', resolve);
@@ -75,19 +78,29 @@ const device = {
         if (input.toLowerCase() === "start") {
           clearOutputFolders();
           await navigateAndMap(driver, device, "settings");
-          } else if (input.toLowerCase() === "1") {
-            await createImage('settings-john_adams-galaxy_sharing', driver, device);
-          } else if (input.toLowerCase() === "2") {
-            const xml_string = await driver.getPageSource();
-            await getClickablesFromXML(xml_string, null, null, null, driver, device);
+        } else if (input.toLowerCase() === "1") {
+          await createImage('settings-john_adams-galaxy_sharing', driver, device);
+        } else if (input.toLowerCase() === "2") {
+          const xml_string = await driver.getPageSource();
+          await getClickablesFromXML(xml_string, null, null, null, driver, device);
+        } else if (input.toLowerCase() === "4") {
+          await pressPowerAndVolumeDownSimultaneously();
+          let smartcapture;
+          try {
+            smartcapture = await waitForSmartCaptureToolbar(driver);
+          } catch (error) {
+            console.error(error);
+            continue;
           }
-          else {
+  
+          await clickScrollCaptureButton(smartcapture);
+        } else {
           console.log("error input");
           break;
         }
       }
     }
-  }
+}
   
   async function cleanup() {
     console.log("Cleaning up resources...");

@@ -6,37 +6,24 @@ import { paths } from '../../../config/paths.js'
 import fs from 'fs';
 
 let data = {};
+const maxDepth = 3;
 
 export async function navigateAndMap(driver, device, root_screen_hash) {
   console.log("STARTING NAVIGATION AND MAPPING ON: ", root_screen_hash);
 
-  // Initial load of data
-  data = readJSON(paths.dataFilePath);
 
-  const maxDepth = 3;  // Set the maximum depth for IDDFS
-
-  for (let depth = 1; depth <= maxDepth; depth++) {
-    console.log(`Processing with depth limit: ${depth}`);
-    await processScreen(driver, device, root_screen_hash, null, depth);
-
-    // Check if the root screen is complete
-    if (data[root_screen_hash]?.complete) {
-      break;
-    }
+  while (!data[root_screen_hash]?.complete) {
+    console.log(`Processing App: Settings`);
+    await processScreen(driver, device, root_screen_hash, null, 1, maxDepth);
   }
 
   // Final save to persist any changes
-  saveData(dataFilePath, data);
-  console.log("FINISHED NAVIGATION AND MAPPING ON: ", root_screen_hash);
+  saveData(paths.dataFilePath, data);
+  console.log("FINISHED MAPPING SETTINGS");
 }
 
-export async function processScreen(driver, device, screen_hash, current_back, depth) {
+export async function processScreen(driver, device, screen_hash, current_back, depth, maxDepth) {
   console.log("PROCESSING: ", screen_hash, `at depth: ${depth}`);
-
-  // Check if the maximum depth has been reached
-  if (depth === 0) {
-    return;
-  }
 
   // Call createImage only if the screen has not been mapped
   if (!data[screen_hash]?.mapped) {
@@ -51,42 +38,62 @@ export async function processScreen(driver, device, screen_hash, current_back, d
   // Save data in data.json for current screen 
   saveData(paths.dataFilePath, data);
 
+  // Variable to control whether buttons should be processed
+  let pass = false;
+
+  // Check if the current depth has reached maxDepth
+  if (depth >= maxDepth) {
+    // Mark all buttons as complete without clicking them
+    pass = true;
+    const buttonsToCheck = getButtons(data, screen_hash);
+    buttonsToCheck.forEach(button => {
+      button.complete = true;
+    });
+    console.log(`Max depth reached at screen: ${screen_hash}. Marking all buttons as complete.`);
+    saveData(paths.dataFilePath, data);
+  }
+
   // Iterate over each button to navigate and map further screens
   const buttonsToCheck = getButtons(data, screen_hash);
-  for (const [index, button] of buttonsToCheck.entries()) {
-    // Log the current iteration
-    console.log("CHECKING BUTTON: ", button.slug);
 
-    // Check for completion dynamically
-    if (!button.complete) {
-      try {
-        const buttonClicked = await findAndClickButton(driver, button.title, button.resourceId);
-        if (buttonClicked === true) {
-
-          console.log("SUCCESSFULLY CLICKED BUTTON: ", button.slug);
-
-          const clicked_slug = button.slug;
-
-          // Update the target property of the current button
-          updateButtonTarget(data, button.parent, clicked_slug, button.slug);
-          saveData(paths.dataFilePath, data);
-
-          // Recurse into the new screen
-          await processScreen(driver, device, button.slug, screen_hash, depth - 1);
-
-        } else if (buttonClicked === 'wifi-required') {
-          // Wi-Fi required popup detected, skip this button and continue with the next one
-          continue;
-        } else if (buttonClicked === false) {
-
-          console.log("BUTTON DOES NOT LEAD TO A NEW SCREEN: ", button.slug);
-
-          // Update the complete property of the current button
-          updateCompleteProperty(data, button.parent, button.slug, buttonClicked);
-          saveData(dataFilePath, data);
+  if (!pass) {
+    for (const [index, button] of buttonsToCheck.entries()) {
+      // Log the current iteration
+      console.log("CHECKING BUTTON: ", button.slug);
+  
+      // Check for completion dynamically
+      if (!button.complete) {
+        try {
+          const buttonClicked = await findAndClickButton(driver, button.title, button.resourceId);
+          if (buttonClicked === true) {
+  
+            console.log("SUCCESSFULLY CLICKED BUTTON: ", button.slug);
+  
+            const clicked_slug = button.slug;
+  
+            // Update the target property of the current button
+            updateButtonTarget(data, button.parent, clicked_slug, button.slug);
+            saveData(paths.dataFilePath, data);
+  
+            // Recurse into the new screen with increased depth if depth < maxDepth
+            if (depth < maxDepth) {
+              await processScreen(driver, device, button.slug, screen_hash, depth + 1, maxDepth);
+            }
+  
+          } else if (buttonClicked === 'wifi-required') {
+            // Wi-Fi required popup detected, skip this button and continue with the next one
+            continue;
+          } else if (buttonClicked === false) {
+  
+            console.log("BUTTON DOES NOT LEAD TO A NEW SCREEN: ", button.slug);
+  
+            // Update the complete property of the current button
+            updateCompleteProperty(data, button.parent, button.slug, buttonClicked);
+            saveData(paths.dataFilePath, data);
+          }
+        } catch (error) {
+          console.error(`Error: ${button.title}`, error);
         }
-      } catch (error) {
-        console.error(`Error: ${button.title}`, error);
       }
     }
   }
@@ -102,12 +109,12 @@ export async function processScreen(driver, device, screen_hash, current_back, d
     } else {
       console.log("NO current_back STATED");
     }
-    saveData(dataFilePath, data);
+    saveData(paths.dataFilePath, data);
 
     // Navigate back to the previous screen and continue processing
     if (current_back) {
       await driver.back();
-      await processScreen(driver, device, current_back, null, depth - 1);
+      await processScreen(driver, device, current_back, null, depth - 1, maxDepth);
     } else {
       console.log("NO current_back STATED");
     }

@@ -43,7 +43,7 @@
       "buttons": [
         {
           "title": "John Adams",
-          "complete": false,
+          "complete": true,
           "width": 1080,
           "height": 276,
           "x": 0,
@@ -55,14 +55,15 @@
         },
         {
           "title": "Connections",
-          "complete": false,
+          "complete": true,
           "width": 1080,
           "height": 209,
           "x": 0,
           "y": 336,
           "from_scrollable": true,
           "parent": "settings",
-          "slug": "settings-connections"
+          "slug": "settings-connections",
+          "target": "settings-connections"
         },
         {
           "title": "Connected devices",
@@ -73,7 +74,8 @@
           "y": 545,
           "from_scrollable": true,
           "parent": "settings",
-          "slug": "settings-connected_devices"
+          "slug": "settings-connected_devices",
+          "target": "settings-connected_devices"
         },
         {
           "title": "Galaxy AI",
@@ -363,5 +365,1596 @@
         }
       ]
     }
+  },
+  "settings-john_adams": {
+    "complete": true,
+    "img_filename": "settings-john_adams",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "scroll_area": {
+      "x": 0,
+      "y": 865,
+      "width": 1080,
+      "height": 1631,
+      "img_filename": "settings-john_adams-stitched",
+      "img_height": 2789,
+      "buttons": [
+        {
+          "title": "Profile info",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 0,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-profile_info",
+          "target": null
+        },
+        {
+          "title": "Family",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 168,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-family",
+          "target": null
+        },
+        {
+          "title": "Devices",
+          "complete": true,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 336,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-devices",
+          "target": null
+        },
+        {
+          "title": "Places",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 545,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-places",
+          "target": null
+        },
+        {
+          "title": "Payment methods",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 713,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-payment_methods",
+          "target": "settings-john_adams-payment_methods"
+        },
+        {
+          "title": "Security and privacy",
+          "complete": true,
+          "width": 1080,
+          "height": 157,
+          "x": 0,
+          "y": 881,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-security_and_privacy",
+          "target": null
+        },
+        {
+          "title": "Samsung Cloud",
+          "complete": true,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 1147,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-samsung_cloud",
+          "target": null
+        },
+        {
+          "title": "Galaxy AI",
+          "complete": true,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 1356,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-galaxy_ai",
+          "target": "settings-john_adams-galaxy_ai"
+        },
+        {
+          "title": "Galaxy sharing",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1625,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-galaxy_sharing",
+          "target": "settings-john_adams-galaxy_sharing"
+        },
+        {
+          "title": "Samsung Pass",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1793,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-samsung_pass",
+          "target": "settings-john_adams-samsung_pass"
+        },
+        {
+          "title": "Samsung Find",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1961,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-samsung_find",
+          "target": "settings-john_adams-samsung_find"
+        },
+        {
+          "title": "Samsung apps and services",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 2129,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-samsung_apps_and_services",
+          "target": null
+        },
+        {
+          "title": "Linked accounts",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 2357,
+          "from_scrollable": true,
+          "parent": "settings-john_adams",
+          "slug": "settings-john_adams-linked_accounts",
+          "target": null
+        }
+      ]
+    }
+  },
+  "settings-john_adams-payment_methods": {
+    "complete": true,
+    "img_filename": "settings-john_adams-payment_methods",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Payment methods",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 443,
+        "from_scrollable": false,
+        "parent": "settings-john_adams-payment_methods",
+        "slug": "settings-john_adams-payment_methods-payment_methods"
+      }
+    ]
+  },
+  "settings-john_adams-galaxy_ai": {
+    "complete": true,
+    "img_filename": "settings-john_adams-galaxy_ai",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "scroll_area": {
+      "x": 0,
+      "y": 334,
+      "width": 1080,
+      "height": 2162,
+      "img_filename": "settings-john_adams-galaxy_ai-stitched",
+      "img_height": 4658,
+      "buttons": [
+        {
+          "title": "Call assist",
+          "complete": true,
+          "width": 1080,
+          "height": 260,
+          "x": 0,
+          "y": 174,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-call_assist"
+        },
+        {
+          "title": "Chat assist",
+          "complete": true,
+          "width": 1080,
+          "height": 520,
+          "x": 0,
+          "y": 434,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-chat_assist"
+        },
+        {
+          "title": "Interpreter",
+          "complete": true,
+          "width": 1080,
+          "height": 312,
+          "x": 0,
+          "y": 954,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-interpreter"
+        },
+        {
+          "title": "Note assist",
+          "complete": true,
+          "width": 1080,
+          "height": 312,
+          "x": 0,
+          "y": 1314,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-note_assist"
+        },
+        {
+          "title": "Transcript assist",
+          "complete": true,
+          "width": 1080,
+          "height": 312,
+          "x": 0,
+          "y": 1626,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-transcript_assist"
+        },
+        {
+          "title": "Browsing assist",
+          "complete": true,
+          "width": 1080,
+          "height": 260,
+          "x": 0,
+          "y": 1938,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-browsing_assist"
+        },
+        {
+          "title": "Photo assist",
+          "complete": true,
+          "width": 1080,
+          "height": 416,
+          "x": 0,
+          "y": 2246,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-photo_assist"
+        },
+        {
+          "title": "Drawing assist",
+          "complete": true,
+          "width": 1080,
+          "height": 364,
+          "x": 0,
+          "y": 2662,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-drawing_assist"
+        },
+        {
+          "title": "Photo ambient wallpaper",
+          "complete": true,
+          "width": 1080,
+          "height": 260,
+          "x": 0,
+          "y": 3026,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-photo_ambient_wallpaper"
+        },
+        {
+          "title": "Health assist",
+          "complete": true,
+          "width": 1080,
+          "height": 364,
+          "x": 0,
+          "y": 3334,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-health_assist"
+        },
+        {
+          "title": "Process data only on device",
+          "complete": true,
+          "width": 1080,
+          "height": 468,
+          "x": 0,
+          "y": 3746,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-process_data_only_on_device"
+        },
+        {
+          "title": "About advanced intelligence",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 4262,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-about_advanced_intelligence"
+        },
+        {
+          "title": "Terms and Conditions",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 4430,
+          "from_scrollable": true,
+          "parent": "settings-john_adams-galaxy_ai",
+          "slug": "settings-john_adams-galaxy_ai-terms_and_conditions"
+        }
+      ]
+    }
+  },
+  "settings-john_adams-galaxy_sharing": {
+    "complete": true,
+    "img_filename": "settings-john_adams-galaxy_sharing",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Find people you can share with",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 656,
+        "from_scrollable": false,
+        "parent": "settings-john_adams-galaxy_sharing",
+        "slug": "settings-john_adams-galaxy_sharing-find_people_you_can_share_with"
+      },
+      {
+        "title": "Phone number",
+        "complete": true,
+        "width": 1080,
+        "height": 260,
+        "x": 0,
+        "y": 865,
+        "from_scrollable": false,
+        "parent": "settings-john_adams-galaxy_sharing",
+        "slug": "settings-john_adams-galaxy_sharing-phone_number"
+      },
+      {
+        "title": "Profile card and picture",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 1234,
+        "from_scrollable": false,
+        "parent": "settings-john_adams-galaxy_sharing",
+        "slug": "settings-john_adams-galaxy_sharing-profile_card_and_picture"
+      },
+      {
+        "title": "Quick Share",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 1402,
+        "from_scrollable": false,
+        "parent": "settings-john_adams-galaxy_sharing",
+        "slug": "settings-john_adams-galaxy_sharing-quick_share"
+      },
+      {
+        "title": "Group Sharing",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 1570,
+        "from_scrollable": false,
+        "parent": "settings-john_adams-galaxy_sharing",
+        "slug": "settings-john_adams-galaxy_sharing-group_sharing"
+      }
+    ]
+  },
+  "settings-john_adams-samsung_pass": {
+    "complete": true,
+    "img_filename": "settings-john_adams-samsung_pass",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-john_adams-samsung_find": {
+    "complete": true,
+    "img_filename": "settings-john_adams-samsung_find",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-connections": {
+    "complete": true,
+    "img_filename": "settings-connections",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "scroll_area": {
+      "x": 0,
+      "y": 334,
+      "width": 1080,
+      "height": 2162,
+      "img_filename": "settings-connections-stitched",
+      "img_height": 2293,
+      "buttons": [
+        {
+          "title": "Wi-Fi",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 0,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-wi_fi",
+          "target": "settings-connections-wi_fi"
+        },
+        {
+          "title": "Bluetooth",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 168,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-bluetooth",
+          "target": "settings-connections-bluetooth"
+        },
+        {
+          "title": "NFC and contactless payments",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 336,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-nfc_and_contactless_payments",
+          "target": "settings-connections-nfc_and_contactless_payments"
+        },
+        {
+          "title": "Airplane mode",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 564,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-airplane_mode",
+          "target": "settings-connections-airplane_mode"
+        },
+        {
+          "title": "SIM manager",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 792,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-sim_manager",
+          "target": "settings-connections-sim_manager"
+        },
+        {
+          "title": "Data usage",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 960,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-data_usage",
+          "target": "settings-connections-data_usage"
+        },
+        {
+          "title": "Mobile Hotspot and Tethering",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1128,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-mobile_hotspot_and_tethering",
+          "target": "settings-connections-mobile_hotspot_and_tethering"
+        },
+        {
+          "title": "More connection settings",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1356,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-more_connection_settings",
+          "target": "settings-connections-more_connection_settings"
+        }
+      ]
+    }
+  },
+  "settings-connections-wi_fi": {
+    "complete": true,
+    "img_filename": "settings-connections-wi_fi",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-connections-bluetooth": {
+    "complete": true,
+    "img_filename": "settings-connections-bluetooth",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-connections-nfc_and_contactless_payments": {
+    "complete": true,
+    "img_filename": "settings-connections-nfc_and_contactless_payments",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Contactless payments",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 1517,
+        "from_scrollable": false,
+        "parent": "settings-connections-nfc_and_contactless_payments",
+        "slug": "settings-connections-nfc_and_contactless_payments-contactless_payments"
+      }
+    ]
+  },
+  "settings-connections-airplane_mode": {
+    "complete": true,
+    "img_filename": "settings-connections-airplane_mode",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-connections-sim_manager": {
+    "complete": true,
+    "img_filename": "settings-connections-sim_manager",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "More SIM settings",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 1398,
+        "from_scrollable": false,
+        "parent": "settings-connections-sim_manager",
+        "slug": "settings-connections-sim_manager-more_sim_settings"
+      },
+      {
+        "title": "Primary SIM",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 1170,
+        "from_scrollable": false,
+        "parent": "settings-connections-sim_manager",
+        "slug": "settings-connections-sim_manager-primary_sim"
+      }
+    ]
+  },
+  "settings-connections-data_usage": {
+    "complete": true,
+    "img_filename": "settings-connections-data_usage",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Wi-Fi data usage",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 750,
+        "from_scrollable": false,
+        "parent": "settings-connections-data_usage",
+        "slug": "settings-connections-data_usage-wi_fi_data_usage"
+      }
+    ]
+  },
+  "settings-connections-mobile_hotspot_and_tethering": {
+    "complete": true,
+    "img_filename": "settings-connections-mobile_hotspot_and_tethering",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Mobile Hotspot",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 334,
+        "from_scrollable": false,
+        "parent": "settings-connections-mobile_hotspot_and_tethering",
+        "slug": "settings-connections-mobile_hotspot_and_tethering-mobile_hotspot"
+      },
+      {
+        "title": "Bluetooth tethering",
+        "complete": true,
+        "width": 1080,
+        "height": 260,
+        "x": 0,
+        "y": 502,
+        "from_scrollable": false,
+        "parent": "settings-connections-mobile_hotspot_and_tethering",
+        "slug": "settings-connections-mobile_hotspot_and_tethering-bluetooth_tethering"
+      },
+      {
+        "title": "USB tethering",
+        "complete": true,
+        "width": 1080,
+        "height": 260,
+        "x": 0,
+        "y": 762,
+        "from_scrollable": false,
+        "parent": "settings-connections-mobile_hotspot_and_tethering",
+        "slug": "settings-connections-mobile_hotspot_and_tethering-usb_tethering"
+      },
+      {
+        "title": "Ethernet tethering",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 1022,
+        "from_scrollable": false,
+        "parent": "settings-connections-mobile_hotspot_and_tethering",
+        "slug": "settings-connections-mobile_hotspot_and_tethering-ethernet_tethering"
+      }
+    ]
+  },
+  "settings-connections-more_connection_settings": {
+    "complete": true,
+    "img_filename": "settings-connections-more_connection_settings",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Nearby device scanning",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 334,
+        "from_scrollable": false,
+        "parent": "settings-connections-more_connection_settings",
+        "slug": "settings-connections-more_connection_settings-nearby_device_scanning"
+      },
+      {
+        "title": "Printing",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 502,
+        "from_scrollable": false,
+        "parent": "settings-connections-more_connection_settings",
+        "slug": "settings-connections-more_connection_settings-printing"
+      },
+      {
+        "title": "VPN",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 730,
+        "from_scrollable": false,
+        "parent": "settings-connections-more_connection_settings",
+        "slug": "settings-connections-more_connection_settings-vpn"
+      },
+      {
+        "title": "Private DNS",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 939,
+        "from_scrollable": false,
+        "parent": "settings-connections-more_connection_settings",
+        "slug": "settings-connections-more_connection_settings-private_dns"
+      },
+      {
+        "title": "Ethernet",
+        "complete": true,
+        "width": 1080,
+        "height": 168,
+        "x": 0,
+        "y": 1148,
+        "from_scrollable": false,
+        "parent": "settings-connections-more_connection_settings",
+        "slug": "settings-connections-more_connection_settings-ethernet"
+      },
+      {
+        "title": "Auto update system configurations",
+        "complete": true,
+        "width": 1080,
+        "height": 432,
+        "x": 0,
+        "y": 1376,
+        "from_scrollable": false,
+        "parent": "settings-connections-more_connection_settings",
+        "slug": "settings-connections-more_connection_settings-auto_update_system_configurations"
+      }
+    ]
+  },
+  "settings-connected_devices": {
+    "complete": false,
+    "img_filename": "settings-connected_devices",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "scroll_area": {
+      "x": 0,
+      "y": 334,
+      "width": 1080,
+      "height": 2162,
+      "img_filename": "settings-connected_devices-stitched",
+      "img_height": 2867,
+      "buttons": [
+        {
+          "title": "Quick Share",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 0,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-quick_share",
+          "target": "settings-connected_devices-quick_share"
+        },
+        {
+          "title": "Music Share",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 168,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-music_share",
+          "target": "settings-connected_devices-music_share"
+        },
+        {
+          "title": "Auto switch Buds",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 396,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-auto_switch_buds",
+          "target": "settings-connected_devices-auto_switch_buds"
+        },
+        {
+          "title": "Call & text on other devices",
+          "complete": true,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 564,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-call_&_text_on_other_devices",
+          "target": null
+        },
+        {
+          "title": "Continue apps on other devices",
+          "complete": false,
+          "width": 1080,
+          "height": 222,
+          "x": 0,
+          "y": 732,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-continue_apps_on_other_devices",
+          "target": "settings-connected_devices-continue_apps_on_other_devices"
+        },
+        {
+          "title": "Camera sharing",
+          "complete": false,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 954,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-camera_sharing"
+        },
+        {
+          "title": "Link to Windows",
+          "complete": false,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1182,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-link_to_windows"
+        },
+        {
+          "title": "Multi control",
+          "complete": false,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1350,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-multi_control"
+        },
+        {
+          "title": "Smart View",
+          "complete": false,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1578,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-smart_view"
+        },
+        {
+          "title": "Galaxy Wearable",
+          "complete": false,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1806,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-galaxy_wearable"
+        },
+        {
+          "title": "SmartThings",
+          "complete": false,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 1974,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-smartthings"
+        },
+        {
+          "title": "Android Auto",
+          "complete": false,
+          "width": 1080,
+          "height": 168,
+          "x": 0,
+          "y": 2142,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-android_auto"
+        }
+      ]
+    }
+  },
+  "settings-connected_devices-quick_share": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-quick_share",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "scroll_area": {
+      "x": 0,
+      "y": 334,
+      "width": 1080,
+      "height": 527,
+      "img_filename": "settings-connected_devices-quick_share-stitched",
+      "img_height": 611,
+      "buttons": [
+        {
+          "title": "Share with Galaxy devices",
+          "complete": true,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 109,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-share_with_galaxy_devices"
+        },
+        {
+          "title": "Share with non-Galaxy devices",
+          "complete": true,
+          "width": 1080,
+          "height": 209,
+          "x": 0,
+          "y": 318,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-share_with_non_galaxy_devices"
+        }
+      ]
+    }
+  },
+  "settings-connected_devices-music_share": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-music_share",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Share devices with",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 1286,
+        "from_scrollable": false,
+        "parent": "settings-connected_devices-music_share",
+        "slug": "settings-connected_devices-music_share-share_devices_with"
+      },
+      {
+        "title": "Ask for permission to connect",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 1495,
+        "from_scrollable": false,
+        "parent": "settings-connected_devices-music_share",
+        "slug": "settings-connected_devices-music_share-ask_for_permission_to_connect"
+      },
+      {
+        "title": "Disconnect when nothing is played for",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 1704,
+        "from_scrollable": false,
+        "parent": "settings-connected_devices-music_share",
+        "slug": "settings-connected_devices-music_share-disconnect_when_nothing_is_played_for"
+      }
+    ]
+  },
+  "settings-connected_devices-auto_switch_buds": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-auto_switch_buds",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Samsung account",
+        "complete": true,
+        "width": 1080,
+        "height": 209,
+        "x": 0,
+        "y": 1939,
+        "from_scrollable": false,
+        "parent": "settings-connected_devices-auto_switch_buds",
+        "slug": "settings-connected_devices-auto_switch_buds-samsung_account"
+      }
+    ]
+  },
+  "settings-connected_devices-continue_apps_on_other_devices": {
+    "complete": false,
+    "img_filename": "settings-connected_devices-continue_apps_on_other_devices",
+    "mapped": false,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ]
   }
 }
