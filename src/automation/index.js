@@ -1,13 +1,11 @@
 import readline from "readline";
 import { remote } from "webdriverio";
-import { getClickablesFromXML } from "./parsing/clickables_v2.mjs";
+import { getClickablesFromXML } from "./data-extraction/clickables_v2.mjs";
 import { clearOutputFolders } from "../utils/file-ops.js";
 import { navigateAndMap } from './mapping/iddfs-logic.js';
-import { createImage } from './image-processing/image-generator.js';
+import { createImage, scrollCapture } from './image-processing/image-generator.js';
 import { paths } from '../../config/paths.js';
 import './../utils/logger.js';
-import path from 'path';
-import { pressPowerAndVolumeDownSimultaneously, clickScrollCaptureButton, waitForSmartCaptureToolbar } from '../automation/actions/hardware-helpers.js'
 
 let current_back = null;
 
@@ -83,17 +81,8 @@ async function getUserInput() {
         } else if (input.toLowerCase() === "2") {
           const xml_string = await driver.getPageSource();
           await getClickablesFromXML(xml_string, null, null, null, driver, device);
-        } else if (input.toLowerCase() === "4") {
-          await pressPowerAndVolumeDownSimultaneously();
-          let smartcapture;
-          try {
-            smartcapture = await waitForSmartCaptureToolbar(driver);
-          } catch (error) {
-            console.error(error);
-            continue;
-          }
-  
-          await clickScrollCaptureButton(smartcapture);
+        } else if (input.toLowerCase() === "3") {
+          await scrollCapture(driver, "settings");
         } else {
           console.log("error input");
           break;

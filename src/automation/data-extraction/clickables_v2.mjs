@@ -120,7 +120,7 @@ const getClickablesFromXML = async (
   return { isScrollable, scroll_bounds, data, bg_els };
 };
 
-function parseXML(xmlString) {
+export function parseXML(xmlString) {
   return new Promise((resolve, reject) => {
     parseString(xmlString, (err, result) => {
       if (err) {

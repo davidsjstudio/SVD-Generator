@@ -4,39 +4,264 @@
 |-- create-gitkeep.mjs
 |-- exports
 |   `-- tmp
-|-- hard-screenshot.sh
+|       |-- 0.jpg
+|       |-- 1.jpg
+|       `-- 2.jpg
 |-- outputs
 |   |-- data
 |   |   `-- data.json
-|   `-- images
-|       |-- settings-connected_devices-auto_switch_buds.jpeg
-|       |-- settings-connected_devices-continue_apps_on_other_devices.jpg
-|       |-- settings-connected_devices-music_share.jpeg
-|       |-- settings-connected_devices-quick_share-stitched.jpeg
-|       |-- settings-connected_devices-quick_share.jpg
-|       |-- settings-connected_devices-stitched.jpeg
-|       |-- settings-connected_devices.jpg
-|       |-- settings-connections-airplane_mode.jpeg
-|       |-- settings-connections-bluetooth.jpeg
-|       |-- settings-connections-data_usage.jpeg
-|       |-- settings-connections-mobile_hotspot_and_tethering.jpeg
-|       |-- settings-connections-more_connection_settings.jpeg
-|       |-- settings-connections-nfc_and_contactless_payments.jpeg
-|       |-- settings-connections-sim_manager.jpeg
-|       |-- settings-connections-stitched.jpeg
-|       |-- settings-connections-wi_fi.jpeg
-|       |-- settings-connections.jpg
-|       |-- settings-john_adams-galaxy_ai-stitched.jpeg
-|       |-- settings-john_adams-galaxy_ai.jpg
-|       |-- settings-john_adams-galaxy_sharing.jpeg
-|       |-- settings-john_adams-payment_methods.jpeg
-|       |-- settings-john_adams-samsung_find.jpeg
-|       |-- settings-john_adams-samsung_pass.jpeg
-|       |-- settings-john_adams-stitched.jpeg
-|       |-- settings-john_adams.jpg
-|       |-- settings-stitched.jpeg
-|       `-- settings.jpg
+|   |-- images
+|   |   |-- settings-about_phone-battery_information.jpg
+|   |   |-- settings-about_phone-legal_information.jpg
+|   |   |-- settings-about_phone-software_information-stitched.jpeg
+|   |   |-- settings-about_phone-software_information.jpg
+|   |   |-- settings-about_phone-status_information-stitched.jpeg
+|   |   |-- settings-about_phone-status_information.jpg
+|   |   |-- settings-about_phone-stitched.jpeg
+|   |   |-- settings-about_phone.jpg
+|   |   |-- settings-accessibility-about_accessibility.jpg
+|   |   |-- settings-accessibility-advanced_settings.jpg
+|   |   |-- settings-accessibility-contact_us.jpg
+|   |   |-- settings-accessibility-hearing_enhancements-stitched.jpeg
+|   |   |-- settings-accessibility-hearing_enhancements.jpg
+|   |   |-- settings-accessibility-installed_apps.jpg
+|   |   |-- settings-accessibility-interaction_and_dexterity-stitched.jpeg
+|   |   |-- settings-accessibility-interaction_and_dexterity.jpg
+|   |   |-- settings-accessibility-recommended_for_you.jpg
+|   |   |-- settings-accessibility-talkback.jpg
+|   |   |-- settings-accessibility-vision_enhancements-stitched.jpeg
+|   |   |-- settings-accessibility-vision_enhancements.jpg
+|   |   |-- settings-accessibility.jpg
+|   |   |-- settings-accounts_and_backup-back_up_data.jpg
+|   |   |-- settings-accounts_and_backup-external_storage_transfer.jpg
+|   |   |-- settings-accounts_and_backup-manage_accounts.jpg
+|   |   |-- settings-accounts_and_backup-restore_data.jpg
+|   |   |-- settings-accounts_and_backup-transfer_data_for_device_setup.jpg
+|   |   |-- settings-accounts_and_backup.jpg
+|   |   |-- settings-advanced_features-bixby-stitched.jpeg
+|   |   |-- settings-advanced_features-bixby.jpg
+|   |   |-- settings-advanced_features-dual_messenger.jpg
+|   |   |-- settings-advanced_features-flex_mode_panel-stitched.jpeg
+|   |   |-- settings-advanced_features-flex_mode_panel.jpg
+|   |   |-- settings-advanced_features-labs-stitched.jpeg
+|   |   |-- settings-advanced_features-labs.jpg
+|   |   |-- settings-advanced_features-motions_and_gestures.jpg
+|   |   |-- settings-advanced_features-multi_window.jpg
+|   |   |-- settings-advanced_features-one_handed_mode.jpg
+|   |   |-- settings-advanced_features-screenshots_and_screen_recordings-stitched.jpeg
+|   |   |-- settings-advanced_features-screenshots_and_screen_recordings.jpg
+|   |   |-- settings-advanced_features-side_button.jpg
+|   |   |-- settings-advanced_features-smart_suggestions.jpg
+|   |   |-- settings-advanced_features-stitched.jpeg
+|   |   |-- settings-advanced_features-video_brightness.jpg
+|   |   |-- settings-advanced_features-video_call_effects.jpg
+|   |   |-- settings-advanced_features.jpg
+|   |   |-- settings-apps-aicore-stitched.jpeg
+|   |   |-- settings-apps-aicore.jpg
+|   |   |-- settings-apps-amazon_shopping-stitched.jpeg
+|   |   |-- settings-apps-amazon_shopping.jpg
+|   |   |-- settings-apps-android_auto-stitched.jpeg
+|   |   |-- settings-apps-android_auto.jpg
+|   |   |-- settings-apps-android_system_intelligence-stitched.jpeg
+|   |   |-- settings-apps-android_system_intelligence.jpg
+|   |   |-- settings-apps-android_system_webview-stitched.jpeg
+|   |   |-- settings-apps-android_system_webview.jpg
+|   |   |-- settings-apps-appium_settings-stitched.jpeg
+|   |   |-- settings-apps-appium_settings.jpg
+|   |   |-- settings-apps-ar_doodle-stitched.jpeg
+|   |   |-- settings-apps-ar_doodle.jpg
+|   |   |-- settings-apps.jpg
+|   |   |-- settings-battery-background_usage_limits.jpg
+|   |   |-- settings-battery-battery_information.jpg
+|   |   |-- settings-battery-battery_protection.jpg
+|   |   |-- settings-battery-charging_settings.jpg
+|   |   |-- settings-battery-power_saving.jpg
+|   |   |-- settings-battery-show_battery_percentage.jpg
+|   |   |-- settings-battery-stitched.jpeg
+|   |   |-- settings-battery-wireless_power_sharing.jpg
+|   |   |-- settings-battery.jpg
+|   |   |-- settings-connected_devices-android_auto-stitched.jpeg
+|   |   |-- settings-connected_devices-android_auto.jpg
+|   |   |-- settings-connected_devices-auto_switch_buds.jpg
+|   |   |-- settings-connected_devices-camera_sharing.jpg
+|   |   |-- settings-connected_devices-continue_apps_on_other_devices.jpg
+|   |   |-- settings-connected_devices-galaxy_wearable.jpg
+|   |   |-- settings-connected_devices-link_to_windows.jpg
+|   |   |-- settings-connected_devices-multi_control.jpg
+|   |   |-- settings-connected_devices-music_share.jpg
+|   |   |-- settings-connected_devices-quick_share.jpg
+|   |   |-- settings-connected_devices-smartthings.jpg
+|   |   |-- settings-connected_devices-stitched.jpeg
+|   |   |-- settings-connected_devices.jpg
+|   |   |-- settings-connections-airplane_mode.jpg
+|   |   |-- settings-connections-bluetooth.jpg
+|   |   |-- settings-connections-data_usage.jpg
+|   |   |-- settings-connections-mobile_hotspot_and_tethering.jpg
+|   |   |-- settings-connections-more_connection_settings.jpg
+|   |   |-- settings-connections-nfc_and_contactless_payments.jpg
+|   |   |-- settings-connections-sim_manager.jpg
+|   |   |-- settings-connections-stitched.jpeg
+|   |   |-- settings-connections-wi_fi.jpg
+|   |   |-- settings-connections.jpg
+|   |   |-- settings-cover_screen-cover_screen_timeout.jpg
+|   |   |-- settings-cover_screen-quick_responses.jpg
+|   |   |-- settings-cover_screen-show_notifications.jpg
+|   |   |-- settings-cover_screen-stitched.jpeg
+|   |   |-- settings-cover_screen-widgets.jpg
+|   |   |-- settings-cover_screen.jpg
+|   |   |-- settings-device_care.jpg
+|   |   |-- settings-digital_wellbeing_and_parental_controls.jpg
+|   |   |-- settings-display-accidental_touch_protection-stitched.jpeg
+|   |   |-- settings-display-accidental_touch_protection.jpg
+|   |   |-- settings-display-adaptive_brightness-stitched.jpeg
+|   |   |-- settings-display-adaptive_brightness.jpg
+|   |   |-- settings-display-adaptive_color_tone.jpg
+|   |   |-- settings-display-camera_cutout.jpg
+|   |   |-- settings-display-dark_mode_settings.jpg
+|   |   |-- settings-display-easy_mode.jpg
+|   |   |-- settings-display-edge_panels-stitched.jpeg
+|   |   |-- settings-display-edge_panels.jpg
+|   |   |-- settings-display-eye_comfort_shield.jpg
+|   |   |-- settings-display-font_size_and_style.jpg
+|   |   |-- settings-display-full_screen_apps.jpg
+|   |   |-- settings-display-motion_smoothness.jpg
+|   |   |-- settings-display-navigation_bar.jpg
+|   |   |-- settings-display-screen_mode.jpg
+|   |   |-- settings-display-screen_saver.jpg
+|   |   |-- settings-display-screen_timeout.jpg
+|   |   |-- settings-display-screen_zoom.jpg
+|   |   |-- settings-display-show_charging_information.jpg
+|   |   |-- settings-display-stitched.jpeg
+|   |   |-- settings-display-touch_sensitivity.jpg
+|   |   |-- settings-display.jpg
+|   |   |-- settings-galaxy_ai-about_advanced_intelligence.jpg
+|   |   |-- settings-galaxy_ai-browsing_assist.jpg
+|   |   |-- settings-galaxy_ai-call_assist-stitched.jpeg
+|   |   |-- settings-galaxy_ai-call_assist.jpg
+|   |   |-- settings-galaxy_ai-chat_assist.jpg
+|   |   |-- settings-galaxy_ai-drawing_assist.jpg
+|   |   |-- settings-galaxy_ai-health_assist.jpg
+|   |   |-- settings-galaxy_ai-interpreter-stitched.jpeg
+|   |   |-- settings-galaxy_ai-interpreter.jpg
+|   |   |-- settings-galaxy_ai-note_assist-stitched.jpeg
+|   |   |-- settings-galaxy_ai-note_assist.jpg
+|   |   |-- settings-galaxy_ai-photo_ambient_wallpaper.jpg
+|   |   |-- settings-galaxy_ai-process_data_only_on_device.jpg
+|   |   |-- settings-galaxy_ai-stitched.jpeg
+|   |   |-- settings-galaxy_ai-terms_and_conditions.jpg
+|   |   |-- settings-galaxy_ai-transcript_assist.jpg
+|   |   |-- settings-galaxy_ai.jpg
+|   |   |-- settings-general_management-app_languages.jpg
+|   |   |-- settings-general_management-contact_us.jpg
+|   |   |-- settings-general_management-customization_service-stitched.jpeg
+|   |   |-- settings-general_management-customization_service.jpg
+|   |   |-- settings-general_management-date_and_time.jpg
+|   |   |-- settings-general_management-keyboard_list_and_default.jpg
+|   |   |-- settings-general_management-language.jpg
+|   |   |-- settings-general_management-language_packs.jpg
+|   |   |-- settings-general_management-mouse_and_trackpad-stitched.jpeg
+|   |   |-- settings-general_management-mouse_and_trackpad.jpg
+|   |   |-- settings-general_management-passwords,_passkeys,_and_autofill.jpg
+|   |   |-- settings-general_management-physical_keyboard.jpg
+|   |   |-- settings-general_management-reset-stitched.jpeg
+|   |   |-- settings-general_management-reset.jpg
+|   |   |-- settings-general_management-samsung_keyboard_settings-stitched.jpeg
+|   |   |-- settings-general_management-samsung_keyboard_settings.jpg
+|   |   |-- settings-general_management-stitched.jpeg
+|   |   |-- settings-general_management.jpg
+|   |   |-- settings-google.jpg
+|   |   |-- settings-home_screen-about_home_screen.jpg
+|   |   |-- settings-home_screen-add_media_page_to_home_screen.jpg
+|   |   |-- settings-home_screen-app_icon_badges.jpg
+|   |   |-- settings-home_screen-apps_screen_grid.jpg
+|   |   |-- settings-home_screen-contact_us.jpg
+|   |   |-- settings-home_screen-folder_grid.jpg
+|   |   |-- settings-home_screen-hide_apps_on_home_and_apps_screens.jpg
+|   |   |-- settings-home_screen-home_screen_grid.jpg
+|   |   |-- settings-home_screen-home_screen_layout.jpg
+|   |   |-- settings-home_screen-stitched.jpeg
+|   |   |-- settings-home_screen.jpg
+|   |   |-- settings-john_adams-galaxy_ai-stitched.jpeg
+|   |   |-- settings-john_adams-galaxy_ai.jpg
+|   |   |-- settings-john_adams-galaxy_sharing.jpg
+|   |   |-- settings-john_adams-payments_and_benefits.jpg
+|   |   |-- settings-john_adams-samsung_find.jpg
+|   |   |-- settings-john_adams-samsung_pass.jpg
+|   |   |-- settings-john_adams-stitched.jpeg
+|   |   |-- settings-john_adams.jpg
+|   |   |-- settings-location-android_auto.jpg
+|   |   |-- settings-location-app_permissions.jpg
+|   |   |-- settings-location-appium_settings.jpg
+|   |   |-- settings-location-google.jpg
+|   |   |-- settings-location-location_services.jpg
+|   |   |-- settings-location.jpg
+|   |   |-- settings-lock_screen_and_aod-about_lock_screen.jpg
+|   |   |-- settings-lock_screen_and_aod-always_on_display-stitched.jpeg
+|   |   |-- settings-lock_screen_and_aod-always_on_display.jpg
+|   |   |-- settings-lock_screen_and_aod-roaming_clock.jpg
+|   |   |-- settings-lock_screen_and_aod-screen_lock_type.jpg
+|   |   |-- settings-lock_screen_and_aod-widgets.jpg
+|   |   |-- settings-lock_screen_and_aod.jpg
+|   |   |-- settings-modes_and_routines.jpg
+|   |   |-- settings-notifications-advanced_settings-stitched.jpeg
+|   |   |-- settings-notifications-advanced_settings.jpg
+|   |   |-- settings-notifications-app_notifications.jpg
+|   |   |-- settings-notifications-do_not_disturb.jpg
+|   |   |-- settings-notifications-lock_screen_notifications.jpg
+|   |   |-- settings-notifications-notification_pop_up_style.jpg
+|   |   |-- settings-notifications-sort_notifications.jpg
+|   |   |-- settings-notifications.jpg
+|   |   |-- settings-safety_and_emergency-earthquake_alerts.jpg
+|   |   |-- settings-safety_and_emergency-emergency_contacts.jpg
+|   |   |-- settings-safety_and_emergency-emergency_location_service.jpg
+|   |   |-- settings-safety_and_emergency-emergency_sharing.jpg
+|   |   |-- settings-safety_and_emergency-emergency_sos.jpg
+|   |   |-- settings-safety_and_emergency-medical_info.jpg
+|   |   |-- settings-safety_and_emergency-silence_notifications_while_driving.jpg
+|   |   |-- settings-safety_and_emergency-unknown_tracker_alerts.jpg
+|   |   |-- settings-safety_and_emergency-wireless_emergency_alerts.jpg
+|   |   |-- settings-safety_and_emergency.jpg
+|   |   |-- settings-security_and_privacy-account_security.jpg
+|   |   |-- settings-security_and_privacy-additional_privacy_controls.jpg
+|   |   |-- settings-security_and_privacy-app_security.jpg
+|   |   |-- settings-security_and_privacy-auto_blocker.jpg
+|   |   |-- settings-security_and_privacy-biometrics.jpg
+|   |   |-- settings-security_and_privacy-lock_screen.jpg
+|   |   |-- settings-security_and_privacy-lost_device_protection.jpg
+|   |   |-- settings-security_and_privacy-more_privacy_settings.jpg
+|   |   |-- settings-security_and_privacy-more_security_settings-stitched.jpeg
+|   |   |-- settings-security_and_privacy-more_security_settings.jpg
+|   |   |-- settings-security_and_privacy-permission_manager.jpg
+|   |   |-- settings-security_and_privacy-stitched.jpeg
+|   |   |-- settings-security_and_privacy-updates.jpg
+|   |   |-- settings-security_and_privacy.jpg
+|   |   |-- settings-software_update-download_and_install.jpg
+|   |   |-- settings-software_update.jpg
+|   |   |-- settings-sounds_and_vibration-call_vibration.jpg
+|   |   |-- settings-sounds_and_vibration-notification_sound.jpg
+|   |   |-- settings-sounds_and_vibration-notification_vibration.jpg
+|   |   |-- settings-sounds_and_vibration-ringtone.jpg
+|   |   |-- settings-sounds_and_vibration-separate_app_sound.jpg
+|   |   |-- settings-sounds_and_vibration-sound_quality_and_effects.jpg
+|   |   |-- settings-sounds_and_vibration-stitched.jpeg
+|   |   |-- settings-sounds_and_vibration-system_sound.jpg
+|   |   |-- settings-sounds_and_vibration-system_vibration.jpg
+|   |   |-- settings-sounds_and_vibration-vibrate_while_ringing-stitched.jpeg
+|   |   |-- settings-sounds_and_vibration-vibrate_while_ringing.jpg
+|   |   |-- settings-sounds_and_vibration-vibration_intensity.jpg
+|   |   |-- settings-sounds_and_vibration-volume.jpg
+|   |   |-- settings-sounds_and_vibration.jpg
+|   |   |-- settings-stitched.jpeg
+|   |   |-- settings-themes.jpg
+|   |   |-- settings-tips_and_user_guide.jpg
+|   |   |-- settings-wallpaper_and_style-change_wallpapers.jpg
+|   |   |-- settings-wallpaper_and_style-color_palette.jpg
+|   |   |-- settings-wallpaper_and_style.jpg
+|   |   `-- settings.jpg
+|   `-- scroll-capture
+|       `-- settings-stitched.jpg
 |-- outputs (2).zip
+|-- outputs (3).zip
 |-- outputs.zip
 |-- package-lock.json
 |-- package.json
@@ -58,17 +283,16 @@
     |-- automation
     |   |-- actions
     |   |   |-- click-helpers.js
-    |   |   |-- hardware-helpers.js
     |   |   `-- scroll-helpers.js
+    |   |-- data-extraction
+    |   |   `-- clickables_v2.mjs
     |   |-- image-processing
     |   |   |-- image-generator.js
     |   |   `-- image-helpers.js
     |   |-- index.js
-    |   |-- mapping
-    |   |   |-- iddfs-logic.js
-    |   |   `-- navigation-helpers.js
-    |   `-- parsing
-    |       `-- clickables_v2.mjs
+    |   `-- mapping
+    |       |-- iddfs-logic.js
+    |       `-- navigation-helpers.js
     `-- utils
         |-- file-ops.js
         |-- logger.js
@@ -78,4 +302,4 @@
                 `-- logs
                     `-- logs.md
 
-21 directories, 57 files
+22 directories, 280 files

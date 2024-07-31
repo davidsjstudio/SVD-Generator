@@ -1,10 +1,13 @@
 import { getScreenshotAsBuffer, consolidateRectanglesByTitle, fillColorAndSaveImage, findLastCommonElement, getCroppedImageBuffer, getVerticallyStitchedImageBuffer2, saveScrollImageAndData } from './image-helpers.js';
 import { saveBufferToFile, clearTmpFolder, saveData } from './../../utils/file-ops.js';
-import { scrollDown } from './../actions/scroll-helpers.js';
+import { scrollDown, swipeCoords } from './../actions/scroll-helpers.js';
 import { sleep } from './../../utils/misc.js';
 import { paths } from '../../../config/paths.js';
 import fs from 'fs';
-import { getClickablesFromXML } from '../parsing/clickables_v2.mjs';
+import { getClickablesFromXML } from '../data-extraction/clickables_v2.mjs';
+import { findAndClickScreenshotButton, waitForAndLongClickScrollCaptureButton } from '../actions/click-helpers.js';
+import { execSync } from 'child_process';
+
 
 export async function createImage(screen_hash, driver, device) {
   const screen_map = {};
@@ -271,4 +274,60 @@ export async function takeAndStitchImages(
     screen_map,
     device
   );
+}  
+
+
+// This function imitates the behavior of using Samsung Galaxy's native feature Smart Capture (specifically Scroll Capture) to capture full screenshots of scrollable screens, 
+// in an attempt to bypass the time inefficiency of stitching multiple screenshots together while scrolling incrementally.
+// Note: Since Smart Capture is native to Samsung as of 2024, the feature may not be available or accessible on other devices/models/versions.
+
+export async function scrollCapture(driver, screen_hash) {
+  try {
+    // Quick settings instant access: Pull down from the top right corner of the screen to access the full quick settings panel without notifications
+    let coords = {
+      x1: 990,
+      x2: 990,
+      y1: 45,
+      y2: 942
+    };
+    await swipeCoords(driver, coords, 1000);
+
+    // Click on Take screenshot button from quick settings panel (Preset required)
+    await findAndClickScreenshotButton(driver);
+
+    // Click on Scroll Capture button from the transient Smart Capture toolbar that appears after screenshot has been taken 
+    await waitForAndLongClickScrollCaptureButton(driver);
+
+    console.log("DONE SCROLL CAPTURING");
+
+    // Define the destination file path
+    const destinationFilePath = `${paths.scrollCaptureOutputPath}/${screen_hash}-stitched.jpg`;
+
+    // Pull the most recent screenshot from the device and save it directly to the final destination
+    const deviceScreenshotPath = '/sdcard/DCIM/Screenshots';
+    const screenshots = execSync(`adb shell ls -t ${deviceScreenshotPath}/*.jpg`).toString().split('\n');
+    const mostRecentScreenshot = screenshots[0].trim();
+
+    if (mostRecentScreenshot) {
+      await pullScreenshot(driver, mostRecentScreenshot, destinationFilePath);
+      console.log(`Screenshot saved to ${destinationFilePath}`);
+    } else {
+      throw new Error("No screenshots found on device.");
+    }
+  } catch (error) {
+    console.error("Error during scroll capture:", error);
+    throw error;
+  }
+}
+
+// Function to pull the screenshot from the device and save it locally
+async function pullScreenshot(driver, sourcePath, destinationPath) {
+  try {
+    const base64Data = await driver.pullFile(sourcePath);
+    const buffer = Buffer.from(base64Data, 'base64');
+    fs.writeFileSync(destinationPath, buffer);
+    console.log(`Screenshot pulled from ${sourcePath} and saved to ${destinationPath}`);
+  } catch (error) {
+    console.error("Error pulling screenshot:", error);
+  }
 }
