@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { paths } from '../../config/paths.js';
+import path from 'path';
 
 /**
  * Reads and parses JSON data from a file.
@@ -53,4 +54,18 @@ export function saveBufferToFile(path, buffer) {
 
 export function saveData(path, data) {
   fs.writeFileSync(path, JSON.stringify(data, null, 2));
+}
+
+// Function to clear a directory
+export function clearDirectory(directoryPath) {
+  try {
+    const files = fs.readdirSync(directoryPath);
+    for (const file of files) {
+      const filePath = path.join(directoryPath, file);
+      fs.unlinkSync(filePath);
+    }
+    console.log(`Cleared directory: ${directoryPath}`);
+  } catch (error) {
+    console.error('Error clearing directory:', error);
+  }
 }

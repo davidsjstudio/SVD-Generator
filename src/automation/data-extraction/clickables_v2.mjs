@@ -3,6 +3,7 @@ import { scrollDown, scrollUp } from './../actions/scroll-helpers.js';
 import { sleep } from './../../utils/misc.js';
 
 const getClickablesFromXML = async (
+  screen_hash,
   xmlString,
   y_limit = 100000,
   scroll_only = false,
@@ -10,19 +11,31 @@ const getClickablesFromXML = async (
   driver,
   device
 ) => {
-  console.log("GET CLICKABLES FROM XML");
+  console.log(`GETTING CLICKABLES FROM ${screen_hash}`);
   const bg_els = [];
   let isScrollable = "false";
   const hierarchy = await parseXML(xmlString);
 
   // console.log("THIS IS THE HIERARCHY: ", hierarchy);
 
+  // Find the ScrollV
+  let sv = findElementByResourceId(hierarchy, "/scroll_area")
+
+  if (!sv) {
+    sv = findElementByResourceId(hierarchy, "/scroll_view");
+  }
+
   // Find the RecyclerView or content_frame element
   let rv = findElementByResourceId(hierarchy, "/recycler_view");
 
+  let cf = findElementByResourceId(hierarchy, "/content_frame");
+
   // console.log("THIS IS THE RV: ", rv);
 
-  if (rv && !scroll_only) {
+  if (sv && !scroll_only) {
+    isScrollable = "true";
+    console.log(`${screen_hash} HAS A SCROLL VIEW`);
+  } else if (!sv && rv && !scroll_only) {
     // Scroll and compare hierarchies
     const initialHierarchy = hierarchy;
 
@@ -40,30 +53,42 @@ const getClickablesFromXML = async (
     // Compare the initial hierarchy with the new hierarchy
     if (JSON.stringify(initialHierarchy) !== JSON.stringify(newHierarchy)) {
       isScrollable = "true";
+      console.log(`${screen_hash} HAS A SCROLLABLE RECYCLER VIEW`);
 
       // Scroll back up to the initial position
       await scrollUp(driver, arg_1, device.scroll_distance);
+    } else if (cf) {
+      isScrollable = "false";
     } else {
       isScrollable = "false";
     }
-  } else if (rv && scroll_only) {
+  } else if ((sv || rv) && scroll_only) {
       isScrollable = "true";
   } else {
-      rv = findElementByResourceId(hierarchy, "content_frame");
-      if (!rv) {
-        rv = hierarchy;
-      }
+      isScrollable = "false"
+  }
+
+  // Determine the view to extract data from 
+  let view = null 
+
+  if (sv) {
+    view = sv;
+  } else if (!sv && rv) {
+    view = rv;
+  } else if (!sv && !rv && cf) {
+    view = cf;
   }
 
   // Find the scroll bounds
-  const scroll_bounds = isScrollable === "true" ? getBoundsFromElement(rv) : null;
+  const scroll_bounds = isScrollable === "true" ? getBoundsFromElement(view) : null;
 
   // Find clickable elements within the RecyclerView or content_frame
-  const clickableElements = getClickableElements(rv);
+  const clickableElements = getClickableElements(view);
 
   // console.log("THESE ARE THE CLICKABLE ELEMENTS: ", clickableElements);
 
   let data = [];
+  // let recyclerViews = findChildrenByClass(sv, "androidx.recyclerview.widget.RecyclerView");
   // writeFileSync("./clics.json", JSON.stringify(clickableElements));
   for (const el of clickableElements) {
     let title = false;
@@ -81,7 +106,7 @@ const getClickablesFromXML = async (
       }
 
       const bounds = getBoundsFromElement(el);
-
+      
       if (
         quick_exit
         // quick_exit &&
@@ -95,13 +120,12 @@ const getClickablesFromXML = async (
       }
 
       if (title) {
-        if (isScrollable) {
           data.push({
             title,
             complete: false,
             width: bounds.width,
             height: bounds.height,
-            x: isScrollable ? 0 : bounds.x,
+            x: bounds.x,
             y: bounds.y,
           });
         } else {
@@ -110,12 +134,11 @@ const getClickablesFromXML = async (
             complete: false,
             width: bounds.width,
             height: bounds.height,
-            x: isScrollable ? 0 : bounds.x,
+            x: bounds.x,
             y: bounds.y,
           });
         }
       }
-    }
   }
   return { isScrollable, scroll_bounds, data, bg_els };
 };

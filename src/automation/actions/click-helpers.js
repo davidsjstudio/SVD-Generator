@@ -6,32 +6,6 @@ export async function findAndClickButton(driver, buttonText, resourceId = null) 
     // First, use UiScrollable to scroll to the button by text
     let button = await driver.$(`android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("${buttonText}")`);
 
-    // If the element is not found or not visible, use additional selectors as a fallback
-    if (!button || !(await button.isDisplayed())) {
-      if (resourceId) {
-        // Try finding by resource ID
-        button = await driver.$(`android=new UiSelector().resourceId("${resourceId}")`);
-        if (button && !(await button.isDisplayed())) {
-          await button.scrollIntoView();
-        }
-      }
-
-      // If not found by resource ID, try finding by description
-      if (!button || !(await button.isDisplayed())) {
-        button = await driver.$(`android=new UiSelector().description("${buttonText}")`);
-        if (button && !(await button.isDisplayed())) {
-          await button.scrollIntoView();
-        }
-      }
-
-      // If not found by description, try finding by class name and text
-      if (!button || !(await button.isDisplayed())) {
-        button = await driver.$(`android=new UiSelector().className("android.widget.TextView").text("${buttonText}")`);
-        if (button && !(await button.isDisplayed())) {
-          await button.scrollIntoView();
-        }
-      }
-
       // If still not found, fallback to finding by text
       if (!button || !(await button.isDisplayed())) {
         button = await driver.$(`android=new UiSelector().text("${buttonText}")`);
@@ -39,7 +13,6 @@ export async function findAndClickButton(driver, buttonText, resourceId = null) 
           await button.scrollIntoView();
         }
       }
-    }
 
     if (button && await button.isDisplayed()) {
       // Capture the UI hierarchy before clicking the button
@@ -49,6 +22,11 @@ export async function findAndClickButton(driver, buttonText, resourceId = null) 
 
       // Capture the UI hierarchy after clicking the button
       await sleep(5000); // Wait for the UI to update
+      let progressLayout = await driver.$(`android=new UiSelector().resourceId("com.osp.app.signin:id/progress_layout")`);
+      if (progressLayout) {
+        await sleep(5000);
+      }
+
       const afterClickHierarchy = await driver.getPageSource();
 
       // Check for the Wi-Fi required popup message

@@ -34,7 +34,8 @@ export function saveScrollImageAndData(
       y: el.y - scroll_bounds.y,
       from_scrollable: true,
       parent: screen_hash,
-      slug: `${screen_hash}-` + el.title.toLowerCase().replaceAll(" ", "_").replaceAll("-", "_")
+      slug: `${screen_hash}-` + el.title.toLowerCase().replaceAll(" ", "_").replaceAll("-", "_"),
+      show: true
     }))
   };
   screen_map[screen_hash].mapped = true;

@@ -6,6 +6,7 @@ import { navigateAndMap } from './mapping/iddfs-logic.js';
 import { createImage, scrollCapture } from './image-processing/image-generator.js';
 import { paths } from '../../config/paths.js';
 import './../utils/logger.js';
+import { root_screen_hash, rootDepth, maxDepth, loadTopics } from "../../config/apps/settings/config.js";
 
 let current_back = null;
 
@@ -64,29 +65,42 @@ const device = {
   
 
 async function getUserInput() {
+  const topics = loadTopics();
     while (true) {
       const input = await new Promise((resolve) => {
-        rl.question('Enter "start" or "quit" :  ', resolve);
+        rl.question('What would you like to map? :  ', resolve);
       });
       if (input.toLowerCase() === "quit") {
         await cleanup();
         rl.close();
         break;
+      } 
+
+      if (input.toLowerCase() === "start") {
+        clearOutputFolders();
+        await navigateAndMap(driver, device, root_screen_hash, rootDepth, maxDepth);
+        console.log(`FINISHED MAPPING SETTINGS TO DEPTH: ${maxDepth}`);
+        continue;
+      } 
+      
+      // Find the topic based on user input
+      const selectedTopic = topics.find(
+        topic => topic.name.toLowerCase() === input.toLowerCase()
+      );
+
+      if (selectedTopic) {
+        clearOutputFolders();
+        console.log(`Mapping topic: ${selectedTopic.name}`);
+        await navigateAndMap(
+          driver,
+          device,
+          selectedTopic.screenHash,
+          selectedTopic.startingDepth,
+          maxDepth
+        );
+        console.log(`FINISHED MAPPING ${selectedTopic.name} TO DEPTH: ${maxDepth}`)
       } else {
-        if (input.toLowerCase() === "start") {
-          clearOutputFolders();
-          await navigateAndMap(driver, device, "settings");
-        } else if (input.toLowerCase() === "1") {
-          await createImage('settings-john_adams-galaxy_sharing', driver, device);
-        } else if (input.toLowerCase() === "2") {
-          const xml_string = await driver.getPageSource();
-          await getClickablesFromXML(xml_string, null, null, null, driver, device);
-        } else if (input.toLowerCase() === "3") {
-          await scrollCapture(driver, "settings");
-        } else {
-          console.log("error input");
-          break;
-        }
+          console.log("Invalid topic name. Please try again.");
       }
     }
 }

@@ -1,20 +1,23 @@
 import { getScreenshotAsBuffer, consolidateRectanglesByTitle, fillColorAndSaveImage, findLastCommonElement, getCroppedImageBuffer, getVerticallyStitchedImageBuffer2, saveScrollImageAndData } from './image-helpers.js';
-import { saveBufferToFile, clearTmpFolder, saveData } from './../../utils/file-ops.js';
+import { saveBufferToFile, clearTmpFolder, saveData, clearDirectory } from './../../utils/file-ops.js';
 import { scrollDown, swipeCoords } from './../actions/scroll-helpers.js';
 import { sleep } from './../../utils/misc.js';
 import { paths } from '../../../config/paths.js';
+import path from 'path';
 import fs from 'fs';
 import { getClickablesFromXML } from '../data-extraction/clickables_v2.mjs';
-import { findAndClickScreenshotButton, waitForAndLongClickScrollCaptureButton } from '../actions/click-helpers.js';
+import { findAndClickButton, findAndClickScreenshotButton, waitForAndLongClickScrollCaptureButton } from '../actions/click-helpers.js';
 import { execSync } from 'child_process';
+import { getCroppedImageBuffer } from './image-helpers.js';
 
 
-export async function createImage(screen_hash, driver, device) {
+export async function createImage(buttonName, screen_hash, driver, device) {
   const screen_map = {};
   console.log("CREATE IMAGE ", screen_hash);
   const img = await getScreenshotAsBuffer(driver);
   const xml_string = await driver.getPageSource();
   const { isScrollable, data, scroll_bounds, bg_els } = await getClickablesFromXML(
+    screen_hash,
     xml_string,
     null,
     null,
@@ -28,7 +31,7 @@ export async function createImage(screen_hash, driver, device) {
   // const { isScrollable, data, scroll_bounds, bg_els } = await getClickables(null, null, null, driver);
   screen_map[screen_hash] = { complete: false };
 
-  if (isScrollable === "true" && data.length > 2) {
+  if (isScrollable === "true") {
     try {
       console.log("save scrollable image");
       await fillColorAndSaveImage(img, scroll_bounds, screen_hash, device);
@@ -52,10 +55,22 @@ export async function createImage(screen_hash, driver, device) {
         data,
         driver,
         device,
-        screen_map
+        screen_map,
+        // buttonName
       );
     } catch (e) {
       console.log("error stitching: ", e);
+      // try {
+      //   // Fallback to scroll capture if stitching fails
+
+      //   await driver.back();
+      //   await findAndClickButton(driver, buttonName);
+      //   await sleep(3000);
+
+      //   await scrollCapture(driver, screen_hash);
+      // } catch (captureError) {
+      //   console.log("Error during scroll capture:", captureError);
+      // }
     }
   } else {
     console.log("Save non-scrollable image");
@@ -69,7 +84,8 @@ export async function createImage(screen_hash, driver, device) {
       complete: false, 
       from_scrollable: false,
       parent: screen_hash,
-      slug: `${screen_hash}-` + el.title.toLowerCase().replaceAll(" ", "_").replaceAll("-", "_")
+      slug: `${screen_hash}-` + el.title.toLowerCase().replaceAll(" ", "_").replaceAll("-", "_"),
+      show: true
     }));
 
     if (screen_map[screen_hash].buttons.length === 0) {
@@ -107,7 +123,7 @@ export async function takeAndStitchImages(
   clearTmpFolder(device);
 
   let prevCommon = null;
-  let cumulativeScrollOffset = 0;  // Track cumulative scroll offset
+  let scrollOffset = 0;
   const visibleAreaLimit = scroll_bounds.y + scroll_bounds.height;
   const init = consolidateRectanglesByTitle([
     ...data.filter((elem) => elem.y + elem.height <= visibleAreaLimit),
@@ -126,7 +142,7 @@ export async function takeAndStitchImages(
   let crop_height = 0;
   let tmp_data = null;
   const logs = [];
-  let lastY = merged_data.length > 1 ? merged_data[merged_data.length - 2].y : 2126;
+  let lastY = merged_data[merged_data.length - 2].y;
 
   async function recurseScreenCapture(recurse = null) {
     await scrollDown(
@@ -140,6 +156,7 @@ export async function takeAndStitchImages(
     await sleep(1000);
     const xml_string = await driver.getPageSource();
     const newData = await getClickablesFromXML(
+      screen_hash,
       xml_string,
       scroll_bounds.y + scroll_bounds.height,
       true,
@@ -206,7 +223,7 @@ export async function takeAndStitchImages(
       }
 
       // Calculate scrollOffset safely
-      let scrollOffset = lastCommon ? lastCommon.lastInFirst.y - lastCommon.lastInSecond.y : cumulativeScrollOffset;
+      scrollOffset = lastCommon.lastInFirst.y - lastCommon.lastInSecond.y;
       const newDataCopy = newData.data.map((elem) => ({
         ...elem,
         y: elem.y + scrollOffset,
@@ -236,9 +253,6 @@ export async function takeAndStitchImages(
       }
       logs.push({ crop_top, num });
       num++;
-
-      // Update cumulative scroll offset
-      cumulativeScrollOffset += scroll_bounds.height;
 
       await recurseScreenCapture();
       // await recurseScreenCapture(lastCommon.lastInSecond)
@@ -301,8 +315,8 @@ export async function scrollCapture(driver, screen_hash) {
     console.log("DONE SCROLL CAPTURING");
 
     // Define the destination file path
-    const destinationFilePath = `${paths.scrollCaptureOutputPath}/${screen_hash}-stitched.jpg`;
-
+    const destinationFileName = `${screen_hash}-stitched.jpg`;
+    const destinationFilePath = path.join(paths.scrollCaptureOutputPath, destinationFileName);
     // Pull the most recent screenshot from the device and save it directly to the final destination
     const deviceScreenshotPath = '/sdcard/DCIM/Screenshots';
     const screenshots = execSync(`adb shell ls -t ${deviceScreenshotPath}/*.jpg`).toString().split('\n');
@@ -311,6 +325,13 @@ export async function scrollCapture(driver, screen_hash) {
     if (mostRecentScreenshot) {
       await pullScreenshot(driver, mostRecentScreenshot, destinationFilePath);
       console.log(`Screenshot saved to ${destinationFilePath}`);
+
+      // Crop the image
+      await cropImage(destinationFileName);
+
+      // Clear the scroll capture output directory
+      clearDirectory(paths.scrollCaptureOutputPath);
+
     } else {
       throw new Error("No screenshots found on device.");
     }
@@ -329,5 +350,39 @@ async function pullScreenshot(driver, sourcePath, destinationPath) {
     console.log(`Screenshot pulled from ${sourcePath} and saved to ${destinationPath}`);
   } catch (error) {
     console.error("Error pulling screenshot:", error);
+  }
+}
+
+async function cropImage(fileName) {
+  try {
+    const inputFilePath = path.join(paths.scrollCaptureOutputPath, fileName);
+    const outputFilePath = path.join(paths.imageOutputPath, fileName);
+
+    // Ensure the input file exists
+    if (!fs.existsSync(inputFilePath)) {
+      console.error(`File not found: ${inputFilePath}`);
+      return;
+    }
+
+    // Use Sharp to read and crop the image
+    const image = sharp(paths.scrollCaptureOutputPath);
+
+    // Get the image metadata to know the dimensions
+    const metadata = await image.metadata();
+    
+    // Define the cropping dimensions
+    const extractOptions = {
+      left: 0,
+      top: 334, // Start cropping from 334 pixels from the top
+      width: metadata.width,
+      height: metadata.height - 334, // Reduce the height by 334 pixels
+    };
+
+    // Perform the crop operation
+    await image.extract(extractOptions).toFile(outputFilePath);
+
+    console.log(`Cropped image saved to: ${outputFilePath}`);
+  } catch (error) {
+    console.error('Error cropping image:', error);
   }
 }

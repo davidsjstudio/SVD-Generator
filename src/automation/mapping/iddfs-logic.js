@@ -6,20 +6,18 @@ import { paths } from '../../../config/paths.js'
 import fs from 'fs';
 
 let data = {};
-const maxDepth = 3;
 
-export async function navigateAndMap(driver, device, root_screen_hash) {
+export async function navigateAndMap(driver, device, root_screen_hash, startingDepth, maxDepth) {
   console.log("STARTING NAVIGATION AND MAPPING ON: ", root_screen_hash);
 
 
   while (!data[root_screen_hash]?.complete) {
     console.log(`Processing App: Settings`);
-    await processScreen(driver, device, root_screen_hash, null, 1, maxDepth);
+    await processScreen(driver, device, root_screen_hash, null, startingDepth, maxDepth);
   }
 
   // Final save to persist any changes
   saveData(paths.dataFilePath, data);
-  console.log("FINISHED MAPPING SETTINGS");
 }
 
 export async function processScreen(driver, device, screen_hash, current_back, depth, maxDepth) {
@@ -48,8 +46,10 @@ export async function processScreen(driver, device, screen_hash, current_back, d
     const buttonsToCheck = getButtons(data, screen_hash);
     buttonsToCheck.forEach(button => {
       button.complete = true;
+      button.show = false;
     });
-    console.log(`Max depth reached at screen: ${screen_hash}. Marking all buttons as complete.`);
+    console.log(`Max depth reached at screen: ${screen_hash}. Marking all buttons as complete and invisible.`);
+    
     saveData(paths.dataFilePath, data);
   }
 

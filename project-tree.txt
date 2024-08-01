@@ -1,5 +1,12 @@
 .
 |-- config
+|   |-- apps
+|   |   |-- samsung-notes
+|   |   `-- settings
+|   |       |-- button.js
+|   |       |-- config.js
+|   |       |-- screen.js
+|   |       `-- topics.js
 |   `-- paths.js
 |-- create-gitkeep.mjs
 |-- exports
@@ -7,6 +14,7 @@
 |       |-- 0.jpg
 |       |-- 1.jpg
 |       `-- 2.jpg
+|-- gpt.txt
 |-- outputs
 |   |-- data
 |   |   `-- data.json
@@ -302,4 +310,4 @@
                 `-- logs
                     `-- logs.md
 
-22 directories, 280 files
+25 directories, 285 files

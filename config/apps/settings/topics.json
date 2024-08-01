@@ -1,0 +1,137 @@
+[
+  {
+    "name": "John Adams",
+    "screenHash": "settings-john_adams",
+    "startingDepth": 2
+  },
+  {
+    "name": "Connections",
+    "screenHash": "settings-connections",
+    "startingDepth": 2
+  },
+  {
+    "name": "Connected Devices",
+    "screenHash": "settings-connected_devices",
+    "startingDepth": 2
+  },
+  {
+    "name": "Galaxy AI",
+    "screenHash": "settings-galaxy_ai",
+    "startingDepth": 2
+  },
+  {
+    "name": "Modes and Routines",
+    "screenHash": "settings-modes_and_routines",
+    "startingDepth": 2
+  },
+  {
+    "name": "Sounds and Vibration",
+    "screenHash": "settings-sounds_and_vibration",
+    "startingDepth": 2
+  },
+  {
+    "name": "Notifications",
+    "screenHash": "settings-notifications",
+    "startingDepth": 2
+  },
+  {
+    "name": "Display",
+    "screenHash": "settings-display",
+    "startingDepth": 2
+  },
+  {
+    "name": "Battery",
+    "screenHash": "settings-battery",
+    "startingDepth": 2
+  },
+  {
+    "name": "Wallpaper and Style",
+    "screenHash": "settings-wallpaper_and_style",
+    "startingDepth": 2
+  },
+  {
+    "name": "Themes",
+    "screenHash": "settings-themes",
+    "startingDepth": 2
+  },
+  {
+    "name": "Home Screen",
+    "screenHash": "settings-home_screen",
+    "startingDepth": 2
+  },
+  {
+    "name": "Lock Screen and AOD",
+    "screenHash": "settings-lock_screen_and_aod",
+    "startingDepth": 2
+  },
+  {
+    "name": "Cover Screen",
+    "screenHash": "settings-cover_screen",
+    "startingDepth": 2
+  },
+  {
+    "name": "Security and Privacy",
+    "screenHash": "settings-security_and_privacy",
+    "startingDepth": 2
+  },
+  {
+    "name": "Location",
+    "screenHash": "settings-location",
+    "startingDepth": 2
+  },
+  {
+    "name": "Safety and Emergency",
+    "screenHash": "settings-safety_and_emergency",
+    "startingDepth": 2
+  },
+  {
+    "name": "Accounts and Backup",
+    "screenHash": "settings-accounts_and_backup",
+    "startingDepth": 2
+  },
+  {
+    "name": "Google",
+    "screenHash": "settings-google",
+    "startingDepth": 2
+  },
+  {
+    "name": "Advanced Features",
+    "screenHash": "settings-advanced_features",
+    "startingDepth": 2
+  },
+  {
+    "name": "Digital Wellbeing and Parental Controls",
+    "screenHash": "settings-digital_wellbeing_and_parental_controls",
+    "startingDepth": 2
+  },
+  {
+    "name": "Device Care",
+    "screenHash": "settings-device_care",
+    "startingDepth": 2
+  },
+  {
+    "name": "General Management",
+    "screenHash": "settings-general_management",
+    "startingDepth": 2
+  },
+  {
+    "name": "Accessibility",
+    "screenHash": "settings-accessibility",
+    "startingDepth": 2
+  },
+  {
+    "name": "Software Update",
+    "screenHash": "settings-software_update",
+    "startingDepth": 2
+  },
+  {
+    "name": "Tips and User Guide",
+    "screenHash": "settings-tips_and_user_guide",
+    "startingDepth": 2
+  },
+  {
+    "name": "About Phone",
+    "screenHash": "settings-about_phone",
+    "startingDepth": 2
+  }
+]
