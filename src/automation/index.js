@@ -45,23 +45,24 @@ const device = {
       },
     ],
   };
-  const capabilities = {
-    platformName: "Android",
-    "appium:automationName": "UiAutomator2",
-    "appium:appPackage": "com.android.settings",
-    "appium:appActivity": ".Settings",
-    "appium:newCommandTimeout": 3000,
-  };
-  let driver = await remote({
-    hostname: "127.0.0.1",
-    port: 4723,
-    capabilities,
-  });
-  
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+const capabilities = {
+  platformName: "Android",
+  "appium:automationName": "UiAutomator2",
+  "appium:appPackage": "com.android.settings",
+  "appium:appActivity": ".Settings",
+  "appium:newCommandTimeout": 3000,
+};
+let driver = await remote({
+  hostname: "127.0.0.1",
+  port: 4723,
+  capabilities,
+});
+
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
   
 
 async function getUserInput() {

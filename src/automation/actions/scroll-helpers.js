@@ -22,7 +22,9 @@ export async function scrollDown(driver, startY, scrollDistance) {
     x2: 200,
     y1: startY + scrollDistance,
     y2: startY
-  });
+    },
+    2000
+  );
   await sleep(1000);
 }
 
@@ -32,6 +34,8 @@ export async function scrollUp(driver, startY, scrollDistance) {
     x2: 200,
     y1: startY,
     y2: startY + scrollDistance
-  });
+    },
+    2000
+  );
   await sleep(1000);
 }

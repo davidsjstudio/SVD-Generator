@@ -9,7 +9,8 @@ const getClickablesFromXML = async (
   scroll_only = false,
   quick_exit = null,
   driver,
-  device
+  device,
+  depth
 ) => {
   console.log(`GETTING CLICKABLES FROM ${screen_hash}`);
   const bg_els = [];
@@ -28,14 +29,22 @@ const getClickablesFromXML = async (
   // Find the RecyclerView or content_frame element
   let rv = findElementByResourceId(hierarchy, "/recycler_view");
 
+  let recycler = findElementByResourceId(hierarchy, "/recycler");
+
+  let appsList = findElementByResourceId(hierarchy, "id/apps_list");
+
+  let appPickerView = findElementByResourceId(hierarchy, "id/app_picker_view");
+
   let cf = findElementByResourceId(hierarchy, "/content_frame");
+
+  let otherView = null;
 
   // console.log("THIS IS THE RV: ", rv);
 
   if (sv && !scroll_only) {
     isScrollable = "true";
     console.log(`${screen_hash} HAS A SCROLL VIEW`);
-  } else if (!sv && rv && !scroll_only) {
+  } else if (!sv && (rv || recycler || appsList || appPickerView) && !scroll_only) {
     // Scroll and compare hierarchies
     const initialHierarchy = hierarchy;
 
@@ -57,15 +66,16 @@ const getClickablesFromXML = async (
 
       // Scroll back up to the initial position
       await scrollUp(driver, arg_1, device.scroll_distance);
-    } else if (cf) {
-      isScrollable = "false";
     } else {
       isScrollable = "false";
     }
-  } else if ((sv || rv) && scroll_only) {
+  } else if (cf) {
+    isScrollable = "false";
+  } else if ((sv || rv || recycler || appsList || appPickerView) && scroll_only) {
       isScrollable = "true";
   } else {
-      isScrollable = "false"
+      isScrollable = "false";
+      otherView = hierarchy
   }
 
   // Determine the view to extract data from 
@@ -75,8 +85,16 @@ const getClickablesFromXML = async (
     view = sv;
   } else if (!sv && rv) {
     view = rv;
+  } else if (!sv && recycler) {
+    view = recycler;
+  } else if (!sv && appsList) {
+    view = appsList;
+  } else if (!sv && appPickerView) {
+    view = appPickerView;
   } else if (!sv && !rv && cf) {
     view = cf;
+  } else if (otherView) {
+    view = otherView
   }
 
   // Find the scroll bounds
@@ -96,17 +114,27 @@ const getClickablesFromXML = async (
     // let isToggle = findElementByResourceId(el, "android:id/switch_widget");
 
     if (!isToggle) {
-      const titleElement = await findTextInElement(el, "android:id/title");
+      const titleElement = await findTextInElement(el, "id/title");
+
+      // SETTINGS-JOHNADAMS-FAMILY-DEPTH3
+      const familyElement = await findTextInElement(el, "_name");
+      const inviteFamilyElement = await findTextInElement(el, "id/add_member_text");
+
+      // SETTINGS-MODESANDROUTINES-DEPTH2
+      const modeElement = await findTextInElement(el, "id/routine_main_item_title");
+
+      // SETTINGS-SOUNDSANDVIBRATION-DEPTH3
+      const soundPickerElement = await findTextInElement(el, "id/radiobuttion_checkedtextview");
+
+      // TOGGLES
+      const hasToggle = await findElementByResourceId(el, "android:id/switch_widget");
+
       if (titleElement) {
         title = titleElement;
-      } else {
-        // console.log("This clickable element does not have text: ", el);
-        // console.log({ quick_exit });
-        continue;
-      }
+      } 
 
       const bounds = getBoundsFromElement(el);
-      
+
       if (
         quick_exit
         // quick_exit &&
@@ -119,6 +147,7 @@ const getClickablesFromXML = async (
         break;
       }
 
+
       if (title) {
           data.push({
             title,
@@ -128,8 +157,45 @@ const getClickablesFromXML = async (
             x: bounds.x,
             y: bounds.y,
           });
-        } else {
-          bg_els.push({
+        } 
+
+      if (hasToggle) {
+        data.push({
+          title,
+          complete: false,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        })
+      }
+
+      if (depth >= 3) {
+        if (!title && familyElement) {
+          title = familyElement;
+            data.push({
+            title,
+            complete: false,
+            width: bounds.width,
+            height: bounds.height,
+            x: bounds.x,
+            y: bounds.y,
+          });
+        }
+        if (!title && inviteFamilyElement) {
+          title = inviteFamilyElement;
+            data.push({
+            title,
+            complete: false,
+            width: bounds.width,
+            height: bounds.height,
+            x: bounds.x,
+            y: bounds.y,
+          });
+        }
+        if (soundPickerElement) {
+          title = soundPickerElement;
+          data.push({
             title,
             complete: false,
             width: bounds.width,
@@ -139,8 +205,12 @@ const getClickablesFromXML = async (
           });
         }
       }
+    }
   }
-  return { isScrollable, scroll_bounds, data, bg_els };
+
+
+
+  return { isScrollable, data, scroll_bounds, bg_els };
 };
 
 export function parseXML(xmlString) {
@@ -221,6 +291,7 @@ function getClickableElements(element) {
   function traverseElement(el) {
     if (el.$ && el.$.clickable === "true") {
       clickableElements.push(el);
+      console.log("Clickable Element Found:", el);
     }
 
     for (const childElement of Object.values(el)) {
@@ -232,6 +303,7 @@ function getClickableElements(element) {
 
   traverseElement(element);
 
+  console.log("Total Clickable Elements Found:", clickableElements.length);
   return clickableElements;
 }
 

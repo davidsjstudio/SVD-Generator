@@ -14,14 +14,15 @@ export function saveScrollImageAndData(
   merged_data,
   screen_map,
   device,
-  from_scrolling,
-  current_back
 ) {
-  try {
-    saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}-stitched.jpeg`, img);
-  } catch (e) {
-    console.error('Failed to Create New Stitched Image: ', e);
-  };
+
+  if (img) {
+    try {
+      saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}-stitched.jpg`, img);
+    } catch (e) {
+      console.error('Failed to Create New Stitched Image: ', e);
+    };
+  } 
   
   screen_map[screen_hash].img_filename = screen_hash;
   screen_map[screen_hash].scroll_area = {
@@ -98,6 +99,8 @@ export async function getColorFromBase64Image(buffer, x, y) {
   }
 
 export async function getScreenshotAsBuffer(driver) {
+  console.log(typeof driver.getPageSource); // Should output 'function'
+
   try {
     let screenshotBase64 = await driver.takeScreenshot();
     return Buffer.from(screenshotBase64, "base64");

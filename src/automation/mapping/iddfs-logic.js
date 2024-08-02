@@ -10,7 +10,6 @@ let data = {};
 export async function navigateAndMap(driver, device, root_screen_hash, startingDepth, maxDepth) {
   console.log("STARTING NAVIGATION AND MAPPING ON: ", root_screen_hash);
 
-
   while (!data[root_screen_hash]?.complete) {
     console.log(`Processing App: Settings`);
     await processScreen(driver, device, root_screen_hash, null, startingDepth, maxDepth);
@@ -25,7 +24,7 @@ export async function processScreen(driver, device, screen_hash, current_back, d
 
   // Call createImage only if the screen has not been mapped
   if (!data[screen_hash]?.mapped) {
-    const screen_data = await createImage(screen_hash, driver, device);
+    const screen_data = await createImage(screen_hash, driver, device, depth);
     // saveScreenData(device.folder, screen_hash, screen_data);
 
     if (screen_data) {

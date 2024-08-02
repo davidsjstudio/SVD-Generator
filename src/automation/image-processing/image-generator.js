@@ -8,10 +8,10 @@ import fs from 'fs';
 import { getClickablesFromXML } from '../data-extraction/clickables_v2.mjs';
 import { findAndClickButton, findAndClickScreenshotButton, waitForAndLongClickScrollCaptureButton } from '../actions/click-helpers.js';
 import { execSync } from 'child_process';
-import { getCroppedImageBuffer } from './image-helpers.js';
+import sharp from "sharp";
 
 
-export async function createImage(buttonName, screen_hash, driver, device) {
+export async function createImage(screen_hash, driver, device, depth) {
   const screen_map = {};
   console.log("CREATE IMAGE ", screen_hash);
   const img = await getScreenshotAsBuffer(driver);
@@ -23,76 +23,93 @@ export async function createImage(buttonName, screen_hash, driver, device) {
     null,
     null,
     driver,
-    device
+    device,
+    depth
   );
-
-  // console.log({ isScrollable, data, scroll_bounds, bg_els })
 
   // const { isScrollable, data, scroll_bounds, bg_els } = await getClickables(null, null, null, driver);
   screen_map[screen_hash] = { complete: false };
 
   if (isScrollable === "true") {
-    try {
-      console.log("save scrollable image");
-      await fillColorAndSaveImage(img, scroll_bounds, screen_hash, device);
+
+    if (screen_hash === "settings-john_adams-devices") {
+      saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}.jpg`, img);
       screen_map[screen_hash].img_filename = screen_hash;
-      screen_map[screen_hash].mapped = false;
-      screen_map[screen_hash].bg_els = bg_els.map((el) => ({ ...el, complete: false, from_scrollable: true }));
+      screen_map[screen_hash].mapped = true;
+      screen_map[screen_hash].bg_els = bg_els.map((el) => ({ ...el, complete: false, from_scrollable: false }));
       screen_map[screen_hash].statics = device.static_buttons;
+      screen_map[screen_hash].buttons = data.map((el) => ({ 
+        ...el, 
+        complete: false, 
+        from_scrollable: false,
+        parent: screen_hash,
+        slug: `${screen_hash}-` + el.title.toLowerCase().replaceAll(" ", "_").replaceAll("-", "_"),
+        show: true
+    }))}
 
-      console.log('THIS IS THE ROOT SCREEN MAP');
-      console.log(screen_map);
+    else {
+      try {
+        console.log("save scrollable image");
+        await fillColorAndSaveImage(img, scroll_bounds, screen_hash, device);
+        screen_map[screen_hash].img_filename = screen_hash;
+        screen_map[screen_hash].mapped = false;
+        screen_map[screen_hash].bg_els = bg_els.map((el) => ({ ...el, complete: false, from_scrollable: true }));
+        screen_map[screen_hash].statics = device.static_buttons;
 
-    } catch (e) {
-      console.log("Scrollable error: ", e);
-    }
+        console.log('THIS IS THE ROOT SCREEN MAP');
+        console.log(screen_map);
 
-    try {
-      await takeAndStitchImages(
-        img,
-        screen_hash,
-        scroll_bounds,
-        data,
-        driver,
-        device,
-        screen_map,
-        // buttonName
-      );
-    } catch (e) {
-      console.log("error stitching: ", e);
-      // try {
-      //   // Fallback to scroll capture if stitching fails
+      } catch (e) {
+        console.log("Scrollable error: ", e);
+      }
 
-      //   await driver.back();
-      //   await findAndClickButton(driver, buttonName);
-      //   await sleep(3000);
+      try {
+        await takeAndStitchImages(
+          img,
+          screen_hash,
+          scroll_bounds,
+          data,
+          driver,
+          device,
+          screen_map,
+          depth
+          // buttonName
+        );
+      } catch (e) {
+        console.log("error stitching: ", e);
+        // try {
+        //   // Fallback to scroll capture if stitching fails
 
-      //   await scrollCapture(driver, screen_hash);
-      // } catch (captureError) {
-      //   console.log("Error during scroll capture:", captureError);
-      // }
-    }
-  } else {
-    console.log("Save non-scrollable image");
-    saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}.jpg`, img);
-    screen_map[screen_hash].img_filename = screen_hash;
-    screen_map[screen_hash].mapped = true;
-    screen_map[screen_hash].bg_els = bg_els.map((el) => ({ ...el, complete: false, from_scrollable: false }));
-    screen_map[screen_hash].statics = device.static_buttons;
-    screen_map[screen_hash].buttons = data.map((el) => ({ 
-      ...el, 
-      complete: false, 
-      from_scrollable: false,
-      parent: screen_hash,
-      slug: `${screen_hash}-` + el.title.toLowerCase().replaceAll(" ", "_").replaceAll("-", "_"),
-      show: true
-    }));
+        //   await driver.back();
+        //   await findAndClickButton(driver, buttonName);
+        //   await sleep(3000);
 
-    if (screen_map[screen_hash].buttons.length === 0) {
-      screen_map[screen_hash].complete = true;
-    }
+        //   await scrollCapture(driver, screen_hash);
+        // } catch (captureError) {
+        //   console.log("Error during scroll capture:", captureError);
+        // }
+      }
+      } 
+    } else {
+        console.log("Save non-scrollable image");
+        saveBufferToFile(`${paths.imageOutputPath}/${screen_hash}.jpg`, img);
+        screen_map[screen_hash].img_filename = screen_hash;
+        screen_map[screen_hash].mapped = true;
+        screen_map[screen_hash].bg_els = bg_els.map((el) => ({ ...el, complete: false, from_scrollable: false }));
+        screen_map[screen_hash].statics = device.static_buttons;
+        screen_map[screen_hash].buttons = data.map((el) => ({ 
+          ...el, 
+          complete: false, 
+          from_scrollable: false,
+          parent: screen_hash,
+          slug: `${screen_hash}-` + el.title.toLowerCase().replaceAll(" ", "_").replaceAll("-", "_"),
+          show: true
+        }));
+
+        if (screen_map[screen_hash].buttons.length === 0) {
+        screen_map[screen_hash].complete = true;
+        }
   }
-
   console.log("THIS IS FULL SCREEN MAP");
   console.log(screen_map);
   console.log('\n');
@@ -116,11 +133,14 @@ export async function takeAndStitchImages(
   data,
   driver,
   device,
-  screen_map
+  screen_map,
+  depth
 ) {
   console.log("TAKE AND STITCH");
   console.log("CLEARING TMP FOLDER")
   clearTmpFolder(device);
+
+  console.log(data);
 
   let prevCommon = null;
   let scrollOffset = 0;
@@ -133,6 +153,8 @@ export async function takeAndStitchImages(
   console.log(init)
 
   let merged_data = [...init];
+  console.log("THIS IS merged_data:");
+  console.log(merged_data);
 
   const imgs = [first_img];
   const crop_areas = [];
@@ -142,6 +164,28 @@ export async function takeAndStitchImages(
   let crop_height = 0;
   let tmp_data = null;
   const logs = [];
+
+
+  // LOGIC FOR BYPASSING SCROLLABLE EDGECASES WITH SCROLLCAPTURE
+  if (merged_data.length < 3) {
+
+    console.log("THIS SCREEN IS SCROLLABLE BUT TOO FEW BUTTONS FOR STITCHING.");
+    console.log("NOW SCROLL CAPTURING INSTEAD");
+    const height = await scrollCapture(driver, screen_hash, scroll_bounds);
+    await saveScrollImageAndData(
+      null,
+      height,
+      screen_hash,
+      scroll_bounds,
+      merged_data,
+      screen_map,
+      device,
+    );
+    return;
+  }
+
+
+
   let lastY = merged_data[merged_data.length - 2].y;
 
   async function recurseScreenCapture(recurse = null) {
@@ -162,7 +206,8 @@ export async function takeAndStitchImages(
       true,
       recurse,
       driver,
-      device
+      device,
+      depth
     );
 
     // console.log('This is the new data at num = ', num)
@@ -295,7 +340,7 @@ export async function takeAndStitchImages(
 // in an attempt to bypass the time inefficiency of stitching multiple screenshots together while scrolling incrementally.
 // Note: Since Smart Capture is native to Samsung as of 2024, the feature may not be available or accessible on other devices/models/versions.
 
-export async function scrollCapture(driver, screen_hash) {
+export async function scrollCapture(driver, screen_hash, scroll_bounds) {
   try {
     // Quick settings instant access: Pull down from the top right corner of the screen to access the full quick settings panel without notifications
     let coords = {
@@ -327,10 +372,11 @@ export async function scrollCapture(driver, screen_hash) {
       console.log(`Screenshot saved to ${destinationFilePath}`);
 
       // Crop the image
-      await cropImage(destinationFileName);
+      const imageHeight = await cropImage(destinationFileName, scroll_bounds);
+      return imageHeight;
 
       // Clear the scroll capture output directory
-      clearDirectory(paths.scrollCaptureOutputPath);
+      // clearDirectory(paths.scrollCaptureOutputPath);
 
     } else {
       throw new Error("No screenshots found on device.");
@@ -353,7 +399,7 @@ async function pullScreenshot(driver, sourcePath, destinationPath) {
   }
 }
 
-async function cropImage(fileName) {
+async function cropImage(fileName, scroll_bounds) {
   try {
     const inputFilePath = path.join(paths.scrollCaptureOutputPath, fileName);
     const outputFilePath = path.join(paths.imageOutputPath, fileName);
@@ -365,7 +411,7 @@ async function cropImage(fileName) {
     }
 
     // Use Sharp to read and crop the image
-    const image = sharp(paths.scrollCaptureOutputPath);
+    const image = sharp(inputFilePath);
 
     // Get the image metadata to know the dimensions
     const metadata = await image.metadata();
@@ -373,15 +419,19 @@ async function cropImage(fileName) {
     // Define the cropping dimensions
     const extractOptions = {
       left: 0,
-      top: 334, // Start cropping from 334 pixels from the top
+      top: scroll_bounds.y, // Start cropping from 334 pixels from the top
       width: metadata.width,
-      height: metadata.height - 334, // Reduce the height by 334 pixels
+      height: metadata.height - scroll_bounds.y, // Reduce the height by 334 pixels
     };
 
     // Perform the crop operation
     await image.extract(extractOptions).toFile(outputFilePath);
 
     console.log(`Cropped image saved to: ${outputFilePath}`);
+
+    const img_height = extractOptions.height;
+    return img_height;
+
   } catch (error) {
     console.error('Error cropping image:', error);
   }

@@ -23,8 +23,9 @@ export async function findAndClickButton(driver, buttonText, resourceId = null) 
       // Capture the UI hierarchy after clicking the button
       await sleep(5000); // Wait for the UI to update
       let progressLayout = await driver.$(`android=new UiSelector().resourceId("com.osp.app.signin:id/progress_layout")`);
-      if (progressLayout) {
-        await sleep(5000);
+      let progressBar = await driver.$(`android=new UiSelector().className("android.widget.ProgressBar")`);
+      if (progressLayout || progressBar) {
+        await sleep(10000);
       }
 
       const afterClickHierarchy = await driver.getPageSource();
