@@ -128,6 +128,7 @@ const getClickablesFromXML = async (
 
       // TOGGLES
       const hasToggle = await findElementByResourceId(el, "android:id/switch_widget");
+      const hasSwitchDivider = await findElementByResourceId(el, "id/switch_divider_normal")
 
       if (titleElement) {
         title = titleElement;
@@ -159,7 +160,7 @@ const getClickablesFromXML = async (
           });
         } 
 
-      if (hasToggle) {
+      if (hasToggle && hasSwitchDivider) {
         data.push({
           title,
           complete: false,

@@ -1,7 +1,7 @@
 {
-  "settings-john_adams": {
-    "complete": true,
-    "img_filename": "settings-john_adams",
+  "settings-connections": {
+    "complete": false,
+    "img_filename": "settings-connections",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -34,554 +34,130 @@
       }
     ],
     "scroll_area": {
-      "x": 130,
+      "x": 129,
       "y": 328,
-      "width": 1596,
+      "width": 1597,
       "height": 1683,
-      "img_filename": "settings-john_adams-stitched",
-      "img_height": 3470,
+      "img_filename": "settings-connections-stitched",
+      "img_height": 2695,
       "buttons": [
         {
-          "title": "Profile info",
+          "title": "Wi-Fi",
           "complete": true,
-          "width": 1596,
+          "width": 1597,
           "height": 174,
-          "x": 130,
-          "y": 548,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-profile_info",
-          "show": true,
-          "target": "settings-john_adams-profile_info"
-        },
-        {
-          "title": "Family",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 722,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-family",
-          "show": true,
-          "target": "settings-john_adams-family"
-        },
-        {
-          "title": "Devices",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 896,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-devices",
-          "show": true,
-          "target": "settings-john_adams-devices"
-        },
-        {
-          "title": "Places",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 1111,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-places",
-          "show": true,
-          "target": "settings-john_adams-places"
-        },
-        {
-          "title": "Payments and benefits",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 1285,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-payments_and_benefits",
-          "show": true,
-          "target": "settings-john_adams-payments_and_benefits"
-        },
-        {
-          "title": "Security and privacy",
-          "complete": true,
-          "width": 1596,
-          "height": 162,
-          "x": 130,
-          "y": 1459,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-security_and_privacy",
-          "show": true,
-          "target": "settings-john_adams-security_and_privacy"
-        },
-        {
-          "title": "Samsung Cloud",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 1733,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-samsung_cloud",
-          "show": true,
-          "target": "settings-john_adams-samsung_cloud"
-        },
-        {
-          "title": "Galaxy AI",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 1948,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-galaxy_ai",
-          "show": true,
-          "target": "settings-john_adams-galaxy_ai"
-        },
-        {
-          "title": "Galaxy sharing",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 2225,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-galaxy_sharing",
-          "show": true,
-          "target": "settings-john_adams-galaxy_sharing"
-        },
-        {
-          "title": "Samsung Pass",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 2399,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-samsung_pass",
-          "show": true,
-          "target": "settings-john_adams-samsung_pass"
-        },
-        {
-          "title": "Samsung Find",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 2573,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-samsung_find",
-          "show": true,
-          "target": "settings-john_adams-samsung_find"
-        },
-        {
-          "title": "Samsung apps and services",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 2747,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-samsung_apps_and_services",
-          "show": true,
-          "target": "settings-john_adams-samsung_apps_and_services"
-        },
-        {
-          "title": "Linked accounts",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 2983,
-          "from_scrollable": true,
-          "parent": "settings-john_adams",
-          "slug": "settings-john_adams-linked_accounts",
-          "show": true,
-          "target": "settings-john_adams-linked_accounts"
-        }
-      ]
-    }
-  },
-  "settings-john_adams-profile_info": {
-    "complete": true,
-    "img_filename": "settings-john_adams-profile_info",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "scroll_area": {
-      "x": 130,
-      "y": 328,
-      "width": 1596,
-      "height": 1683,
-      "img_filename": "settings-john_adams-profile_info-stitched",
-      "img_height": 2640,
-      "buttons": [
-        {
-          "title": "Email",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 112,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-email",
-          "show": false
-        },
-        {
-          "title": "Google",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 439,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-google",
-          "show": false
-        },
-        {
-          "title": "Name",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 766,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-name",
-          "show": false
-        },
-        {
-          "title": "Date of birth",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 981,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-date_of_birth",
-          "show": false
-        },
-        {
-          "title": "Phone number",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 1196,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-phone_number",
-          "show": false
-        },
-        {
-          "title": "Nickname",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 1411,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-nickname",
-          "show": false
-        },
-        {
-          "title": "Status message",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 1585,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-status_message",
-          "show": false
-        },
-        {
-          "title": "Work",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 1759,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-work",
-          "show": false
-        },
-        {
-          "title": "Language",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 1933,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-language",
-          "show": false
-        },
-        {
-          "title": "Country or region",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 2148,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-country_or_region",
-          "show": false
-        },
-        {
-          "title": "Zip code",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 2363,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-profile_info",
-          "slug": "settings-john_adams-profile_info-zip_code",
-          "show": false
-        }
-      ]
-    }
-  },
-  "settings-john_adams-family": {
-    "complete": true,
-    "img_filename": "settings-john_adams-family",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "scroll_area": {
-      "x": 130,
-      "y": 328,
-      "width": 1596,
-      "height": 1683,
-      "img_filename": "settings-john_adams-family-stitched",
-      "img_height": 2580,
-      "buttons": [
-        {
-          "title": "John Adams (Me)",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
+          "x": 129,
           "y": 0,
           "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-john_adams_(me)",
-          "show": false
+          "parent": "settings-connections",
+          "slug": "settings-connections-wi_fi",
+          "show": true,
+          "target": "settings-connections-wi_fi"
         },
         {
-          "title": "Brandon Adams",
+          "title": "Bluetooth",
           "complete": true,
-          "width": 1596,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 174,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-bluetooth",
+          "show": true,
+          "target": "settings-connections-bluetooth"
+        },
+        {
+          "title": "NFC and contactless payments",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 348,
+          "from_scrollable": true,
+          "parent": "settings-connections",
+          "slug": "settings-connections-nfc_and_contactless_payments",
+          "show": true,
+          "target": "settings-connections-nfc_and_contactless_payments"
+        },
+        {
+          "title": "Ultra-wideband (UWB)",
+          "complete": false,
+          "width": 1597,
           "height": 215,
-          "x": 130,
-          "y": 215,
+          "x": 129,
+          "y": 522,
           "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-brandon_adams",
-          "show": false
+          "parent": "settings-connections",
+          "slug": "settings-connections-ultra_wideband_(uwb)",
+          "show": true
         },
         {
-          "title": "David Adams",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 430,
+          "title": "Airplane mode",
+          "complete": false,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 799,
           "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-david_adams",
-          "show": false
+          "parent": "settings-connections",
+          "slug": "settings-connections-airplane_mode",
+          "show": true
         },
         {
-          "title": "James Adams",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 645,
+          "title": "SIM manager",
+          "complete": false,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1035,
           "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-james_adams",
-          "show": false
+          "parent": "settings-connections",
+          "slug": "settings-connections-sim_manager",
+          "show": true
         },
         {
-          "title": "John Jr Adams",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 860,
+          "title": "Data usage",
+          "complete": false,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1209,
           "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-john_jr_adams",
-          "show": false
+          "parent": "settings-connections",
+          "slug": "settings-connections-data_usage",
+          "show": true
         },
         {
-          "title": "Josh Adams",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 1075,
+          "title": "Mobile Hotspot and Tethering",
+          "complete": false,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1383,
           "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-josh_adams",
-          "show": false
+          "parent": "settings-connections",
+          "slug": "settings-connections-mobile_hotspot_and_tethering",
+          "show": true
         },
         {
-          "title": "Family payment method",
-          "complete": true,
-          "width": 1596,
-          "height": 145,
-          "x": 130,
-          "y": 1538,
+          "title": "More connection settings",
+          "complete": false,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1619,
           "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-family_payment_method",
-          "show": false
-        },
-        {
-          "title": "Invite family member",
-          "complete": true,
-          "width": 1596,
-          "height": 186,
-          "x": 130,
-          "y": 1290,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-invite_family_member",
-          "show": false
-        },
-        {
-          "title": "Family requests",
-          "complete": true,
-          "width": 1596,
-          "height": 186,
-          "x": 130,
-          "y": 1724,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-family_requests",
-          "show": false
-        },
-        {
-          "title": "Find family members",
-          "complete": true,
-          "width": 1596,
-          "height": 186,
-          "x": 130,
-          "y": 2022,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-find_family_members",
-          "show": false
-        },
-        {
-          "title": "Family health data",
-          "complete": true,
-          "width": 1596,
-          "height": 186,
-          "x": 130,
-          "y": 2208,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-family_health_data",
-          "show": false
-        },
-        {
-          "title": "Shared family album",
-          "complete": true,
-          "width": 1596,
-          "height": 186,
-          "x": 130,
-          "y": 2394,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-family",
-          "slug": "settings-john_adams-family-shared_family_album",
-          "show": false
+          "parent": "settings-connections",
+          "slug": "settings-connections-more_connection_settings",
+          "show": true
         }
       ]
     }
   },
-  "settings-john_adams-devices": {
+  "settings-connections-wi_fi": {
     "complete": true,
-    "img_filename": "settings-john_adams-devices",
+    "img_filename": "settings-connections-wi_fi",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -615,9 +191,9 @@
     ],
     "buttons": []
   },
-  "settings-john_adams-places": {
+  "settings-connections-bluetooth": {
     "complete": true,
-    "img_filename": "settings-john_adams-places",
+    "img_filename": "settings-connections-bluetooth",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -651,9 +227,9 @@
     ],
     "buttons": []
   },
-  "settings-john_adams-payments_and_benefits": {
+  "settings-connections-nfc_and_contactless_payments": {
     "complete": true,
-    "img_filename": "settings-john_adams-payments_and_benefits",
+    "img_filename": "settings-connections-nfc_and_contactless_payments",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -687,842 +263,17 @@
     ],
     "buttons": [
       {
-        "title": "Payment methods",
+        "title": "Contactless payments",
         "complete": true,
-        "width": 1596,
+        "width": 1597,
         "height": 174,
-        "x": 130,
-        "y": 440,
+        "x": 129,
+        "y": 1761,
         "from_scrollable": false,
-        "parent": "settings-john_adams-payments_and_benefits",
-        "slug": "settings-john_adams-payments_and_benefits-payment_methods",
-        "show": false
-      },
-      {
-        "title": "Samsung Rewards",
-        "complete": true,
-        "width": 1596,
-        "height": 174,
-        "x": 130,
-        "y": 726,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-payments_and_benefits",
-        "slug": "settings-john_adams-payments_and_benefits-samsung_rewards",
+        "parent": "settings-connections-nfc_and_contactless_payments",
+        "slug": "settings-connections-nfc_and_contactless_payments-contactless_payments",
         "show": false
       }
     ]
-  },
-  "settings-john_adams-security_and_privacy": {
-    "complete": true,
-    "img_filename": "settings-john_adams-security_and_privacy",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "scroll_area": {
-      "x": 130,
-      "y": 328,
-      "width": 1596,
-      "height": 1683,
-      "img_filename": "settings-john_adams-security_and_privacy-stitched",
-      "img_height": 1974,
-      "buttons": [
-        {
-          "title": "Password",
-          "complete": true,
-          "width": 1596,
-          "height": 162,
-          "x": 130,
-          "y": 112,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-password",
-          "show": false
-        },
-        {
-          "title": "Recent account activity",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 274,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-recent_account_activity",
-          "show": false
-        },
-        {
-          "title": "Two-step verification",
-          "complete": true,
-          "width": 1596,
-          "height": 215,
-          "x": 130,
-          "y": 489,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-two_step_verification",
-          "show": false
-        },
-        {
-          "title": "Account recovery methods",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 704,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-account_recovery_methods",
-          "show": false
-        },
-        {
-          "title": "Privacy Notice",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 990,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-privacy_notice",
-          "show": false
-        },
-        {
-          "title": "Samsung privacy website",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 1164,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-samsung_privacy_website",
-          "show": false
-        },
-        {
-          "title": "Customization Service",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 1338,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-customization_service",
-          "show": false
-        },
-        {
-          "title": "Get special offers and product news through email, push notifications, and third-party platforms",
-          "complete": true,
-          "width": 1596,
-          "height": 230,
-          "x": 130,
-          "y": 1512,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-get_special_offers_and_product_news_through_email,_push_notifications,_and_third_party_platforms",
-          "show": false
-        },
-        {
-          "title": "Improve personalized ads with Samsung account data",
-          "complete": true,
-          "width": 1596,
-          "height": 170,
-          "x": 130,
-          "y": 1742,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-security_and_privacy",
-          "slug": "settings-john_adams-security_and_privacy-improve_personalized_ads_with_samsung_account_data",
-          "show": false
-        }
-      ]
-    }
-  },
-  "settings-john_adams-samsung_cloud": {
-    "complete": true,
-    "img_filename": "settings-john_adams-samsung_cloud",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "buttons": [
-      {
-        "title": "Gallery",
-        "complete": true,
-        "width": 1598,
-        "height": 218,
-        "x": 129,
-        "y": 440,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-samsung_cloud",
-        "slug": "settings-john_adams-samsung_cloud-gallery",
-        "show": false
-      },
-      {
-        "title": "AR Emoji",
-        "complete": true,
-        "width": 1598,
-        "height": 218,
-        "x": 129,
-        "y": 720,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-samsung_cloud",
-        "slug": "settings-john_adams-samsung_cloud-ar_emoji",
-        "show": false
-      },
-      {
-        "title": "Bluetooth",
-        "complete": true,
-        "width": 1598,
-        "height": 218,
-        "x": 129,
-        "y": 938,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-samsung_cloud",
-        "slug": "settings-john_adams-samsung_cloud-bluetooth",
-        "show": false
-      },
-      {
-        "title": "Calendar",
-        "complete": true,
-        "width": 1598,
-        "height": 218,
-        "x": 129,
-        "y": 1156,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-samsung_cloud",
-        "slug": "settings-john_adams-samsung_cloud-calendar",
-        "show": false
-      },
-      {
-        "title": "Contacts",
-        "complete": true,
-        "width": 1598,
-        "height": 218,
-        "x": 129,
-        "y": 1374,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-samsung_cloud",
-        "slug": "settings-john_adams-samsung_cloud-contacts",
-        "show": false
-      },
-      {
-        "title": "Reminder",
-        "complete": true,
-        "width": 1598,
-        "height": 218,
-        "x": 129,
-        "y": 1592,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-samsung_cloud",
-        "slug": "settings-john_adams-samsung_cloud-reminder",
-        "show": false
-      },
-      {
-        "title": "Samsung Internet",
-        "complete": true,
-        "width": 1598,
-        "height": 201,
-        "x": 129,
-        "y": 1810,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-samsung_cloud",
-        "slug": "settings-john_adams-samsung_cloud-samsung_internet",
-        "show": false
-      }
-    ]
-  },
-  "settings-john_adams-galaxy_ai": {
-    "complete": true,
-    "img_filename": "settings-john_adams-galaxy_ai",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "buttons": [
-      {
-        "title": "Call assist",
-        "complete": true,
-        "width": 1597,
-        "height": 215,
-        "x": 129,
-        "y": 506,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_ai",
-        "slug": "settings-john_adams-galaxy_ai-call_assist",
-        "show": false
-      },
-      {
-        "title": "Chat assist",
-        "complete": true,
-        "width": 1597,
-        "height": 320,
-        "x": 129,
-        "y": 721,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_ai",
-        "slug": "settings-john_adams-galaxy_ai-chat_assist",
-        "show": false
-      },
-      {
-        "title": "Interpreter",
-        "complete": true,
-        "width": 1597,
-        "height": 267,
-        "x": 129,
-        "y": 1041,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_ai",
-        "slug": "settings-john_adams-galaxy_ai-interpreter",
-        "show": false
-      },
-      {
-        "title": "Note assist",
-        "complete": true,
-        "width": 1597,
-        "height": 267,
-        "x": 129,
-        "y": 1358,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_ai",
-        "slug": "settings-john_adams-galaxy_ai-note_assist",
-        "show": false
-      },
-      {
-        "title": "Transcript assist",
-        "complete": true,
-        "width": 1597,
-        "height": 267,
-        "x": 129,
-        "y": 1625,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_ai",
-        "slug": "settings-john_adams-galaxy_ai-transcript_assist",
-        "show": false
-      },
-      {
-        "title": "Browsing assist",
-        "complete": true,
-        "width": 1597,
-        "height": 119,
-        "x": 129,
-        "y": 1892,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_ai",
-        "slug": "settings-john_adams-galaxy_ai-browsing_assist",
-        "show": false
-      }
-    ]
-  },
-  "settings-john_adams-galaxy_sharing": {
-    "complete": true,
-    "img_filename": "settings-john_adams-galaxy_sharing",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "buttons": [
-      {
-        "title": "Find people you can share with",
-        "complete": true,
-        "width": 1596,
-        "height": 215,
-        "x": 130,
-        "y": 587,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_sharing",
-        "slug": "settings-john_adams-galaxy_sharing-find_people_you_can_share_with",
-        "show": false
-      },
-      {
-        "title": "Phone number",
-        "complete": true,
-        "width": 1596,
-        "height": 215,
-        "x": 130,
-        "y": 802,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_sharing",
-        "slug": "settings-john_adams-galaxy_sharing-phone_number",
-        "show": false
-      },
-      {
-        "title": "Profile card and picture",
-        "complete": true,
-        "width": 1596,
-        "height": 174,
-        "x": 130,
-        "y": 1129,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_sharing",
-        "slug": "settings-john_adams-galaxy_sharing-profile_card_and_picture",
-        "show": false
-      },
-      {
-        "title": "Quick Share",
-        "complete": true,
-        "width": 1596,
-        "height": 174,
-        "x": 130,
-        "y": 1303,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_sharing",
-        "slug": "settings-john_adams-galaxy_sharing-quick_share",
-        "show": false
-      },
-      {
-        "title": "Group Sharing",
-        "complete": true,
-        "width": 1596,
-        "height": 174,
-        "x": 130,
-        "y": 1477,
-        "from_scrollable": false,
-        "parent": "settings-john_adams-galaxy_sharing",
-        "slug": "settings-john_adams-galaxy_sharing-group_sharing",
-        "show": false
-      }
-    ]
-  },
-  "settings-john_adams-samsung_pass": {
-    "complete": true,
-    "img_filename": "settings-john_adams-samsung_pass",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "buttons": []
-  },
-  "settings-john_adams-samsung_find": {
-    "complete": true,
-    "img_filename": "settings-john_adams-samsung_find",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "buttons": []
-  },
-  "settings-john_adams-samsung_apps_and_services": {
-    "complete": true,
-    "img_filename": "settings-john_adams-samsung_apps_and_services",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "scroll_area": {
-      "x": 130,
-      "y": 328,
-      "width": 1596,
-      "height": 1683,
-      "img_filename": "settings-john_adams-samsung_apps_and_services-stitched",
-      "img_height": 3685,
-      "buttons": [
-        {
-          "title": "Find my mobile",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 112,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-find_my_mobile",
-          "show": false
-        },
-        {
-          "title": "Group Sharing",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 339,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-group_sharing",
-          "show": false
-        },
-        {
-          "title": "Samsung Cloud",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 566,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-samsung_cloud",
-          "show": false
-        },
-        {
-          "title": "Samsung Find",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 793,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-samsung_find",
-          "show": false
-        },
-        {
-          "title": "Samsung Members",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 1020,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-samsung_members",
-          "show": false
-        },
-        {
-          "title": "Samsung Pass",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 1247,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-samsung_pass",
-          "show": false
-        },
-        {
-          "title": "Samsung Visit In",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 1474,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-samsung_visit_in",
-          "show": false
-        },
-        {
-          "title": "Bixby",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 1810,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-bixby",
-          "show": false
-        },
-        {
-          "title": "Galaxy Store",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 2037,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-galaxy_store",
-          "show": false
-        },
-        {
-          "title": "Galaxy Wearable",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 2264,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-galaxy_wearable",
-          "show": false
-        },
-        {
-          "title": "PENUP",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 2491,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-penup",
-          "show": false
-        },
-        {
-          "title": "Samsung Health",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 2718,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-samsung_health",
-          "show": false
-        },
-        {
-          "title": "Samsung Internet",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 2945,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-samsung_internet",
-          "show": false
-        },
-        {
-          "title": "Samsung Wallet",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 3172,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-samsung_wallet",
-          "show": false
-        },
-        {
-          "title": "SmartThings",
-          "complete": true,
-          "width": 1596,
-          "height": 224,
-          "x": 130,
-          "y": 3399,
-          "from_scrollable": true,
-          "parent": "settings-john_adams-samsung_apps_and_services",
-          "slug": "settings-john_adams-samsung_apps_and_services-smartthings",
-          "show": false
-        }
-      ]
-    }
-  },
-  "settings-john_adams-linked_accounts": {
-    "complete": true,
-    "img_filename": "settings-john_adams-linked_accounts",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "buttons": []
   }
 }
