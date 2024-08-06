@@ -1,20 +1,34 @@
 import { sleep } from './../../utils/misc.js';
 import { parseXML } from '../data-extraction/clickables_v2.mjs';
 
-export async function findAndClickButton(driver, buttonText, resourceId = null) {
+export async function findAndClickButton(driver, buttonText, resourceId = null, checked) {
+
+  let twins = null;
+  let button = null;
+  let existsTwins = null 
+
+  if (buttonText === "Back up data") {
+     twins = await driver.$$(`android=new UiSelector().text("${buttonText}")`);
+  }
+
   try {
     // First, use UiScrollable to scroll to the button by text
-    let button = await driver.$(`android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("${buttonText}")`);
+    if (buttonText !== "Back up data") {
+       existsTwins = true
+       button = await driver.$(`android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("${buttonText}")`);
+    } else {
+      button = checked ? twins[1] : twins[0];
+    }
 
       // If still not found, fallback to finding by text
       if (!button || !(await button.isDisplayed())) {
-        button = await driver.$(`android=new UiSelector().text("${buttonText}")`);
+        button = existsTwins ? button : await driver.$(`android=new UiSelector().text("${buttonText}")`);
         if (button && !(await button.isDisplayed())) {
           await button.scrollIntoView();
         }
       }
 
-    if (button && await button.isDisplayed()) {
+      if (button && await button.isDisplayed()) {
       // Capture the UI hierarchy before clicking the button
       const beforeClickHierarchy = await driver.getPageSource();
 

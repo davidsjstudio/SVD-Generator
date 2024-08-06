@@ -110,6 +110,11 @@
     "startingDepth": 2
   },
   {
+    "name": "Apps",
+    "screenHash": "settings-apps",
+    "startingDepth": 2
+  },
+  {
     "name": "General Management",
     "screenHash": "settings-general_management",
     "startingDepth": 2

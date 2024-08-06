@@ -2,11 +2,12 @@ import { saveBufferToFile } from './../../utils/file-ops.js';
 import sharp from "sharp";
 import pkg from "jimp";
 import { paths } from '../../../config/paths.js';
+import { scrollCapture } from './image-generator.js';
 
 const { read, intToRGBA } = pkg;
 
 
-export function saveScrollImageAndData(
+export async function saveScrollImageAndData(
   img,
   height,
   screen_hash,
@@ -14,6 +15,7 @@ export function saveScrollImageAndData(
   merged_data,
   screen_map,
   device,
+  driver
 ) {
 
   if (img) {

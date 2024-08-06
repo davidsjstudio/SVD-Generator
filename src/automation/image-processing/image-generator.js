@@ -11,7 +11,7 @@ import { execSync } from 'child_process';
 import sharp from "sharp";
 
 
-export async function createImage(screen_hash, driver, device, depth) {
+export async function createImage(screen_hash, driver, device, depth, checked) {
   const screen_map = {};
   console.log("CREATE IMAGE ", screen_hash);
   const img = await getScreenshotAsBuffer(driver);
@@ -72,7 +72,8 @@ export async function createImage(screen_hash, driver, device, depth) {
           driver,
           device,
           screen_map,
-          depth
+          depth,
+          checked
           // buttonName
         );
       } catch (e) {
@@ -134,7 +135,8 @@ export async function takeAndStitchImages(
   driver,
   device,
   screen_map,
-  depth
+  depth,
+  checked
 ) {
   console.log("TAKE AND STITCH");
   console.log("CLEARING TMP FOLDER")
@@ -167,11 +169,15 @@ export async function takeAndStitchImages(
 
 
   // LOGIC FOR BYPASSING SCROLLABLE EDGECASES WITH SCROLLCAPTURE
-  if (merged_data.length < 3) {
+  if ((merged_data.length < 2) || (screen_hash === "settings-home_screen-contact_us") || 
+  (screen_hash === "settings-accounts_and_backup-restore_data") || (screen_hash === "settings-device_care-maintenance_mode") || 
+  (screen_hash === "settings-general_management-language_packs") || (screen_hash === "settings-general_management-contact_us") || 
+  (screen_hash === "settings-accessibility-contact_us") || (screen_hash === "settings-digital_wellbeing_and_parental_controls-members")
+  || (screen_hash === "settings-digital_wellbeing_and_parental_controls-productivity_and_finance")) {
 
     console.log("THIS SCREEN IS SCROLLABLE BUT TOO FEW BUTTONS FOR STITCHING.");
     console.log("NOW SCROLL CAPTURING INSTEAD");
-    const height = await scrollCapture(driver, screen_hash, scroll_bounds);
+    const height = await scrollCapture(driver, screen_hash, scroll_bounds, checked);
     await saveScrollImageAndData(
       null,
       height,
@@ -180,6 +186,7 @@ export async function takeAndStitchImages(
       merged_data,
       screen_map,
       device,
+      driver
     );
     return;
   }
@@ -324,14 +331,15 @@ export async function takeAndStitchImages(
   );
   const { height, img }= await getVerticallyStitchedImageBuffer2(filenames);
 
-  screen_map = saveScrollImageAndData(
+  screen_map = await saveScrollImageAndData(
     img,
     height,
     screen_hash,
     scroll_bounds,
     merged_data,
     screen_map,
-    device
+    device,
+    driver
   );
 }  
 
@@ -340,7 +348,7 @@ export async function takeAndStitchImages(
 // in an attempt to bypass the time inefficiency of stitching multiple screenshots together while scrolling incrementally.
 // Note: Since Smart Capture is native to Samsung as of 2024, the feature may not be available or accessible on other devices/models/versions.
 
-export async function scrollCapture(driver, screen_hash, scroll_bounds) {
+export async function scrollCapture(driver, screen_hash, scroll_bounds, checked) {
   try {
     // Quick settings instant access: Pull down from the top right corner of the screen to access the full quick settings panel without notifications
     let coords = {
@@ -372,7 +380,7 @@ export async function scrollCapture(driver, screen_hash, scroll_bounds) {
       console.log(`Screenshot saved to ${destinationFilePath}`);
 
       // Crop the image
-      const imageHeight = await cropImage(destinationFileName, scroll_bounds);
+      const imageHeight = await cropImage(destinationFileName, scroll_bounds, screen_hash, checked);
       return imageHeight;
 
       // Clear the scroll capture output directory
@@ -399,7 +407,7 @@ async function pullScreenshot(driver, sourcePath, destinationPath) {
   }
 }
 
-async function cropImage(fileName, scroll_bounds) {
+async function cropImage(fileName, scroll_bounds, screen_hash, checked) {
   try {
     const inputFilePath = path.join(paths.scrollCaptureOutputPath, fileName);
     const outputFilePath = path.join(paths.imageOutputPath, fileName);
@@ -417,13 +425,39 @@ async function cropImage(fileName, scroll_bounds) {
     const metadata = await image.metadata();
     
     // Define the cropping dimensions
-    const extractOptions = {
+
+    let extractOptions = null;
+
+
+    if (screen_hash === "settings-safety_and_emergency-medical_info") {
+        extractOptions = {
+        left: 0,
+        top: scroll_bounds.y, // Start cropping from 334 pixels from the top
+        width: metadata.width,
+        height: metadata.height - scroll_bounds.y - (2640-2328) // Reduce the height by 334 pixels
+      };
+    } else if (screen_hash === "settings-device_care-maintenance_mode") {
+      extractOptions = {
       left: 0,
       top: scroll_bounds.y, // Start cropping from 334 pixels from the top
       width: metadata.width,
-      height: metadata.height - scroll_bounds.y, // Reduce the height by 334 pixels
-    };
-
+      height: metadata.height - scroll_bounds.y - (2640-2268) // Reduce the height by 334 pixels
+      };
+    } else if (screen_hash === "settings-accounts_and_backup-back_up_data" && checked == false) {
+      extractOptions = {
+      left: 0,
+      top: scroll_bounds.y, // Start cropping from 334 pixels from the top
+      width: metadata.width,
+      height: metadata.height - scroll_bounds.y - (2640-2268) // Reduce the height by 334 pixels
+      };
+    } else {
+        extractOptions = {
+        left: 0,
+        top: scroll_bounds.y, // Start cropping from 334 pixels from the top
+        width: metadata.width,
+        height: metadata.height - scroll_bounds.y // Reduce the height by 334 pixels
+      };
+    }
     // Perform the crop operation
     await image.extract(extractOptions).toFile(outputFilePath);
 

@@ -20,22 +20,41 @@ const getClickablesFromXML = async (
   // console.log("THIS IS THE HIERARCHY: ", hierarchy);
 
   // Find the ScrollV
-  let sv = findElementByResourceId(hierarchy, "/scroll_area")
+  let sv = findElementByResourceId(hierarchy, "scroll_area")
 
   if (!sv) {
-    sv = findElementByResourceId(hierarchy, "/scroll_view");
+    sv = findElementByResourceId(hierarchy, "scroll_view");
   }
 
   // Find the RecyclerView or content_frame element
-  let rv = findElementByResourceId(hierarchy, "/recycler_view");
+  let rv = findElementByResourceId(hierarchy, "recycler_view");
 
-  let recycler = findElementByResourceId(hierarchy, "/recycler");
+  let nestedScroll = findElementByResourceId(hierarchy, "nested_scroll")
 
-  let appsList = findElementByResourceId(hierarchy, "id/apps_list");
+  let recycler = findElementByResourceId(hierarchy, "recycler");
 
-  let appPickerView = findElementByResourceId(hierarchy, "id/app_picker_view");
+  let appsList = findElementByResourceId(hierarchy, "apps_list");
+
+  let appPickerView = findElementByResourceId(hierarchy, "app_picker_view");
+
+  let widgetList = findElementByResourceId(hierarchy, "WidgetList");
+
+  let contentView = findElementByResourceId(hierarchy, "id/contentView");
 
   let cf = findElementByResourceId(hierarchy, "/content_frame");
+
+  let itemsContainer = findElementByResourceId(hierarchy, "setting_items_container");
+
+  let contentsContainer = findElementByResourceId(hierarchy, "id/contents_container");
+
+  let maintenanceMode = findElementByResourceId(hierarchy, "maintenance_mode_intro_body_container");
+
+  let fragmentFrame = findElementByResourceId(hierarchy, "id/fragment_frame");
+
+  let listItemView = findElementByResourceId(hierarchy, "list_item_view");
+
+  let listView = findElementByResourceId(hierarchy, "listView");
+
 
   let otherView = null;
 
@@ -44,14 +63,14 @@ const getClickablesFromXML = async (
   if (sv && !scroll_only) {
     isScrollable = "true";
     console.log(`${screen_hash} HAS A SCROLL VIEW`);
-  } else if (!sv && (rv || recycler || appsList || appPickerView) && !scroll_only) {
+  } else if (!sv && (rv || nestedScroll || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || maintenanceMode || contentsContainer || fragmentFrame || listItemView || listView) && !scroll_only) {
     // Scroll and compare hierarchies
     const initialHierarchy = hierarchy;
 
     // Perform the scroll
     const arg_1 = 1500; // Example starting y-coordinate
-    await scrollDown(driver, arg_1, device.scroll_distance);
 
+    await scrollDown(driver, arg_1, device.scroll_distance);
     // Wait for a moment to allow the screen to update
     await sleep(3000);
 
@@ -61,17 +80,22 @@ const getClickablesFromXML = async (
 
     // Compare the initial hierarchy with the new hierarchy
     if (JSON.stringify(initialHierarchy) !== JSON.stringify(newHierarchy)) {
-      isScrollable = "true";
-      console.log(`${screen_hash} HAS A SCROLLABLE RECYCLER VIEW`);
+        isScrollable = "true";
+        console.log(`${screen_hash} HAS A SCROLLABLE RECYCLER VIEW`);
 
-      // Scroll back up to the initial position
-      await scrollUp(driver, arg_1, device.scroll_distance);
+        // Scroll back up to the initial position
+        await scrollUp(driver, arg_1, device.scroll_distance);
     } else {
       isScrollable = "false";
     }
-  } else if (cf) {
+    if (nestedScroll || (screen_hash === "settings-location-app_permissions") || maintenanceMode) {
+    isScrollable = "true";
+    } 
+
+
+  } else if (cf && !nestedScroll) {
     isScrollable = "false";
-  } else if ((sv || rv || recycler || appsList || appPickerView) && scroll_only) {
+  } else if ((sv || nestedScroll || rv || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || contentsContainer || fragmentFrame || listItemView || listView) && scroll_only) {
       isScrollable = "true";
   } else {
       isScrollable = "false";
@@ -85,16 +109,36 @@ const getClickablesFromXML = async (
     view = sv;
   } else if (!sv && rv) {
     view = rv;
+  } else if (!sv && nestedScroll) {
+    view = nestedScroll;
   } else if (!sv && recycler) {
     view = recycler;
   } else if (!sv && appsList) {
     view = appsList;
   } else if (!sv && appPickerView) {
     view = appPickerView;
+  } else if (!sv && widgetList) {
+    view = widgetList;
+  } else if (!sv && widgetList) {
+    view = widgetList;
+  } else if (!sv && itemsContainer) {
+    view = itemsContainer;
+  } else if (!sv && listItemView) {
+    view = listItemView;
+  } else if (!sv && contentsContainer) {
+    view = contentsContainer;
+  } else if (!sv && listView) {
+    view = listView;
   } else if (!sv && !rv && cf) {
     view = cf;
+  } else if (!sv && contentView) {
+    view = contentView;
+  } else if (!sv && maintenanceMode) {
+    view = maintenanceMode;
+  } else if (!sv && fragmentFrame) {
+    view = fragmentFrame;
   } else if (otherView) {
-    view = otherView
+    view = otherView;
   }
 
   // Find the scroll bounds
@@ -116,6 +160,8 @@ const getClickablesFromXML = async (
     if (!isToggle) {
       const titleElement = await findTextInElement(el, "id/title");
 
+      const titletextElement = await findTextInElement(el, "id/title_text");
+
       // SETTINGS-JOHNADAMS-FAMILY-DEPTH3
       const familyElement = await findTextInElement(el, "_name");
       const inviteFamilyElement = await findTextInElement(el, "id/add_member_text");
@@ -126,15 +172,95 @@ const getClickablesFromXML = async (
       // SETTINGS-SOUNDSANDVIBRATION-DEPTH3
       const soundPickerElement = await findTextInElement(el, "id/radiobuttion_checkedtextview");
 
+      // SETTINGS-COVERSCREEN-DEPTH2
+      const newWallPaperElement = await findTextInElement(el, "id/add_new_wallpaper_btn");
+
+      // SETTINGS-DEVICECARE-DEPTH2
+      const categoryContainerElement = await findTextInElement(el, "id/category_container");
+      const categoryStorageElement = await findTextInElement(el, "id/category_storage");
+
+      // SETTINGS-APPS-DEPTH2
+      const appSettingsTitleElement = await findTextInElement(el, "app_settings_title");
+
+      // SETTINGS-APPS-TIPSANDUSERGUIDE-DEPTH2 
+      const listItemContainerElement = await findTextInElement(el, "list_item_title");
+
+      // SETTINGS-APPS-DIGITALWELLBEING-DEPTH2
+      const homeCardTitleElement = await findTextInElement(el, "home_card_title");
+      const homeMostUsedAppTitleElement = await findTextInElement(el, "home_most_used_app_title");
+      const goalNotSetButtonElement = await findTextInElement(el, "goal_not_set_button");
+      const appNameElement = await findTextInElement(el, "app_name");
+      const homeMonitorTitleElement = await findTextInElement(el, "home_monitor_title");
+
       // TOGGLES
       const hasToggle = await findElementByResourceId(el, "android:id/switch_widget");
       const hasSwitchDivider = await findElementByResourceId(el, "id/switch_divider_normal")
+      const isToggleOnlyButton = Boolean(hasToggle) && !hasSwitchDivider;
 
-      if (titleElement) {
-        title = titleElement;
-      } 
+
 
       const bounds = getBoundsFromElement(el);
+      
+
+      if (homeCardTitleElement) {
+        title = homeCardTitleElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (homeMostUsedAppTitleElement) {
+        title = homeMostUsedAppTitleElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (goalNotSetButtonElement) {
+        title = goalNotSetButtonElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (appNameElement) {
+        title = appNameElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (homeMonitorTitleElement) {
+        title = homeMonitorTitleElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
 
       if (
         quick_exit
@@ -148,28 +274,78 @@ const getClickablesFromXML = async (
         break;
       }
 
+      if (listItemContainerElement) {
+        title = listItemContainerElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
 
-      if (title) {
+      if (modeElement) {
+        title = modeElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (appSettingsTitleElement) {
+        title = appSettingsTitleElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (categoryContainerElement || categoryStorageElement) {
+        title = categoryContainerElement ? categoryContainerElement : categoryStorageElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (titleElement || titletextElement) {
+        title = titleElement ? titleElement : titletextElement;
           data.push({
             title,
-            complete: false,
+            complete: isToggleOnlyButton,
             width: bounds.width,
             height: bounds.height,
             x: bounds.x,
             y: bounds.y,
           });
-        } 
+        }
 
-      if (hasToggle && hasSwitchDivider) {
-        data.push({
-          title,
-          complete: false,
-          width: bounds.width,
-          height: bounds.height,
-          x: bounds.x,
-          y: bounds.y,
-        })
-      }
+      if (newWallPaperElement) {
+          title = newWallPaperElement;
+          data.push({
+            title,
+            complete: isToggleOnlyButton,
+            width: bounds.width,
+            height: bounds.height,
+            x: bounds.x,
+            y: bounds.y,
+          });
+        }
+
 
       if (depth >= 3) {
         if (!title && familyElement) {

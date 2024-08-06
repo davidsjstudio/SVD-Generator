@@ -13,7 +13,7 @@ let current_back = null;
 const device = {
     folder: "test",
     "device-name": "Test Device",
-    scroll_distance: 200,
+    scroll_distance: 500,
     add_to_bottom: 0,
     static_buttons: [
       {
@@ -82,7 +82,14 @@ async function getUserInput() {
         await navigateAndMap(driver, device, root_screen_hash, rootDepth, maxDepth);
         console.log(`FINISHED MAPPING SETTINGS TO DEPTH: ${maxDepth}`);
         continue;
-      } 
+      } else if (input.toLowerCase() === "fix") {
+        await navigateAndMap(driver, device, "settings-accessibility-contact_us", 3, maxDepth);
+        console.log('Data successfully fixed');
+      } else if (input.toLowerCase() === "home screen") {
+        await scrollCapture(driver, "settings-home_screen", {y: 334});
+        console.log('Data successfully fixed');
+        break;
+      }
       
       // Find the topic based on user input
       const selectedTopic = topics.find(
@@ -104,7 +111,7 @@ async function getUserInput() {
           console.log("Invalid topic name. Please try again.");
       }
     }
-}
+  }
   
   async function cleanup() {
     console.log("Cleaning up resources...");
