@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Define the path for the log file
-const logDir = path.join(__dirname, 'react-app', 'public', 'logs');
+const logDir = path.join(__dirname, 'console');
 const logFilePath = path.join(logDir, 'logs.md');
 
 // Ensure the directory exists

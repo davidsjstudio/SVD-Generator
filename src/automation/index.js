@@ -5,7 +5,7 @@ import { clearOutputFolders } from "../utils/file-ops.js";
 import { navigateAndMap } from './mapping/iddfs-logic.js';
 import { createImage, scrollCapture } from './image-processing/image-generator.js';
 import { paths } from '../../config/paths.js';
-import './../utils/logger.js';
+import '../utils/logger.js';
 import { root_screen_hash, rootDepth, maxDepth, loadTopics } from "../../config/apps/settings/config.js";
 
 let current_back = null;
@@ -83,7 +83,7 @@ async function getUserInput() {
         console.log(`FINISHED MAPPING SETTINGS TO DEPTH: ${maxDepth}`);
         continue;
       } else if (input.toLowerCase() === "fix") {
-        await navigateAndMap(driver, device, "settings-accessibility-contact_us", 3, maxDepth);
+        await navigateAndMap(driver, device, "settings-display-edge_panels", 3, maxDepth);
         console.log('Data successfully fixed');
       } else if (input.toLowerCase() === "home screen") {
         await scrollCapture(driver, "settings-home_screen", {y: 334});

@@ -1,7 +1,7 @@
 {
-  "settings-digital_wellbeing_and_parental_controls": {
+  "settings-battery": {
     "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls",
+    "img_filename": "settings-battery",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -35,174 +35,134 @@
     ],
     "scroll_area": {
       "x": 0,
-      "y": 334,
-      "width": 1080,
-      "height": 2162,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-stitched",
-      "img_height": 4093,
+      "y": 328,
+      "width": 1856,
+      "height": 1683,
+      "img_filename": "settings-battery-stitched",
+      "img_height": 3921,
       "buttons": [
         {
-          "title": "Most used apps",
+          "title": "Power saving",
           "complete": true,
-          "width": 1080,
-          "height": 515,
-          "x": 0,
-          "y": 812,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 524,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-most_used_apps",
+          "parent": "settings-battery",
+          "slug": "settings-battery-power_saving",
           "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-most_used_apps"
+          "target": "settings-battery-power_saving"
         },
         {
-          "title": "Settings",
+          "title": "Background usage limits",
           "complete": true,
-          "width": 1080,
-          "height": 515,
-          "x": 0,
-          "y": 812,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 698,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-settings",
+          "parent": "settings-battery",
+          "slug": "settings-battery-background_usage_limits",
           "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-settings"
+          "target": "settings-battery-background_usage_limits"
         },
         {
-          "title": "Members",
+          "title": "Battery protection",
           "complete": true,
-          "width": 1080,
-          "height": 1236,
-          "x": 0,
-          "y": 926,
+          "width": 1596,
+          "height": 215,
+          "x": 130,
+          "y": 934,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-members",
+          "parent": "settings-battery",
+          "slug": "settings-battery-battery_protection",
           "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-members"
+          "target": "settings-battery-battery_protection"
         },
         {
-          "title": "Tips",
+          "title": "Today",
           "complete": true,
-          "width": 360,
-          "height": 401,
-          "x": 720,
-          "y": 926,
+          "width": 1596,
+          "height": 1050,
+          "x": 130,
+          "y": 1211,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-tips",
+          "parent": "settings-battery",
+          "slug": "settings-battery-today",
           "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-tips"
+          "target": "settings-battery-today"
         },
         {
-          "title": "Screen time goal",
+          "title": "View details",
           "complete": true,
-          "width": 1080,
-          "height": 366,
-          "x": 0,
-          "y": 1387,
+          "width": 1596,
+          "height": 152,
+          "x": 130,
+          "y": 2445,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-screen_time_goal",
+          "parent": "settings-battery",
+          "slug": "settings-battery-view_details",
           "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-screen_time_goal"
+          "target": "settings-battery-view_details"
         },
         {
-          "title": "Set goal",
+          "title": "Charging settings",
           "complete": true,
-          "width": 1080,
-          "height": 366,
-          "x": 0,
-          "y": 1387,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 2659,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-set_goal",
+          "parent": "settings-battery",
+          "slug": "settings-battery-charging_settings",
           "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-set_goal"
+          "target": "settings-battery-charging_settings"
         },
         {
-          "title": "App timers",
+          "title": "Wireless power sharing",
           "complete": true,
-          "width": 1080,
-          "height": 660,
-          "x": 0,
-          "y": 1813,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 2895,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers",
+          "parent": "settings-battery",
+          "slug": "settings-battery-wireless_power_sharing",
           "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-app_timers"
+          "target": "settings-battery-wireless_power_sharing"
         },
         {
-          "title": "Productivity and finance",
+          "title": "Show battery percentage",
           "complete": true,
-          "width": 1080,
-          "height": 190,
-          "x": 0,
-          "y": 2283,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 3131,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance"
+          "parent": "settings-battery",
+          "slug": "settings-battery-show_battery_percentage",
+          "show": true
         },
         {
-          "title": "Screen time while driving",
+          "title": "Battery information",
           "complete": true,
-          "width": 1080,
-          "height": 190,
-          "x": 0,
-          "y": 2533,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 3305,
           "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-screen_time_while_driving",
+          "parent": "settings-battery",
+          "slug": "settings-battery-battery_information",
           "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-screen_time_while_driving"
-        },
-        {
-          "title": "Screen time while walking",
-          "complete": true,
-          "width": 1080,
-          "height": 190,
-          "x": 0,
-          "y": 2723,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-screen_time_while_walking",
-          "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-screen_time_while_walking"
-        },
-        {
-          "title": "Loud listening time",
-          "complete": true,
-          "width": 1080,
-          "height": 190,
-          "x": 0,
-          "y": 2913,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-loud_listening_time",
-          "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-loud_listening_time"
-        },
-        {
-          "title": "Parental controls",
-          "complete": true,
-          "width": 1080,
-          "height": 301,
-          "x": 0,
-          "y": 3163,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls",
-          "slug": "settings-digital_wellbeing_and_parental_controls-parental_controls",
-          "show": true,
-          "target": "settings-digital_wellbeing_and_parental_controls-parental_controls"
+          "target": "settings-battery-battery_information"
         }
       ]
     }
   },
-  "settings-digital_wellbeing_and_parental_controls-most_used_apps": {
+  "settings-battery-power_saving": {
     "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-most_used_apps",
+    "img_filename": "settings-battery-power_saving",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -235,18 +195,67 @@
       }
     ],
     "scroll_area": {
-      "x": 0,
-      "y": 453,
-      "width": 1080,
-      "height": 2043,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-most_used_apps-stitched",
-      "img_height": 3088,
-      "buttons": []
+      "x": 130,
+      "y": 570,
+      "width": 1596,
+      "height": 1441,
+      "img_filename": "settings-battery-power_saving-stitched",
+      "img_height": 1450,
+      "buttons": [
+        {
+          "title": "Turn off Always On Display",
+          "complete": true,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 599,
+          "from_scrollable": true,
+          "parent": "settings-battery-power_saving",
+          "slug": "settings-battery-power_saving-turn_off_always_on_display",
+          "show": false
+        },
+        {
+          "title": "Limit CPU speed to 70%",
+          "complete": true,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 773,
+          "from_scrollable": true,
+          "parent": "settings-battery-power_saving",
+          "slug": "settings-battery-power_saving-limit_cpu_speed_to_70%",
+          "show": false
+        },
+        {
+          "title": "Decrease brightness by 10%",
+          "complete": true,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 947,
+          "from_scrollable": true,
+          "parent": "settings-battery-power_saving",
+          "slug": "settings-battery-power_saving-decrease_brightness_by_10%",
+          "show": false
+        },
+        {
+          "title": "Limit apps and Home screen",
+          "complete": true,
+          "width": 1596,
+          "height": 267,
+          "x": 130,
+          "y": 1121,
+          "from_scrollable": true,
+          "parent": "settings-battery-power_saving",
+          "slug": "settings-battery-power_saving-limit_apps_and_home_screen",
+          "show": false
+        }
+      ]
     }
   },
-  "settings-digital_wellbeing_and_parental_controls-settings": {
+  "settings-battery-background_usage_limits": {
     "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-settings",
+    "img_filename": "settings-battery-background_usage_limits",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -278,107 +287,11 @@
         "complete": true
       }
     ],
-    "scroll_area": {
-      "x": 0,
-      "y": 453,
-      "width": 1080,
-      "height": 2043,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-settings-stitched",
-      "img_height": 2369,
-      "buttons": []
-    }
+    "buttons": []
   },
-  "settings-digital_wellbeing_and_parental_controls-members": {
+  "settings-battery-battery_protection": {
     "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-members",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "scroll_area": {
-      "x": 0,
-      "y": 453,
-      "width": 1080,
-      "height": 2043,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-members-stitched",
-      "img_height": 2548,
-      "buttons": []
-    }
-  },
-  "settings-digital_wellbeing_and_parental_controls-tips": {
-    "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-tips",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "scroll_area": {
-      "x": 0,
-      "y": 453,
-      "width": 1080,
-      "height": 2043,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-tips-stitched",
-      "img_height": 2547,
-      "buttons": []
-    }
-  },
-  "settings-digital_wellbeing_and_parental_controls-screen_time_goal": {
-    "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-screen_time_goal",
+    "img_filename": "settings-battery-battery_protection",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -412,22 +325,46 @@
     ],
     "buttons": [
       {
-        "title": "Set goal",
+        "title": "Basic",
         "complete": true,
-        "width": 266,
-        "height": 111,
-        "x": 742,
-        "y": 1654,
+        "width": 1596,
+        "height": 267,
+        "x": 130,
+        "y": 817,
         "from_scrollable": false,
-        "parent": "settings-digital_wellbeing_and_parental_controls-screen_time_goal",
-        "slug": "settings-digital_wellbeing_and_parental_controls-screen_time_goal-set_goal",
+        "parent": "settings-battery-battery_protection",
+        "slug": "settings-battery-battery_protection-basic",
+        "show": false
+      },
+      {
+        "title": "Adaptive",
+        "complete": true,
+        "width": 1596,
+        "height": 267,
+        "x": 130,
+        "y": 1084,
+        "from_scrollable": false,
+        "parent": "settings-battery-battery_protection",
+        "slug": "settings-battery-battery_protection-adaptive",
+        "show": false
+      },
+      {
+        "title": "Maximum",
+        "complete": true,
+        "width": 1596,
+        "height": 215,
+        "x": 130,
+        "y": 1351,
+        "from_scrollable": false,
+        "parent": "settings-battery-battery_protection",
+        "slug": "settings-battery-battery_protection-maximum",
         "show": false
       }
     ]
   },
-  "settings-digital_wellbeing_and_parental_controls-set_goal": {
+  "settings-battery-today": {
     "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-set_goal",
+    "img_filename": "settings-battery-today",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -459,11 +396,36 @@
         "complete": true
       }
     ],
-    "buttons": []
+    "buttons": [
+      {
+        "title": "Today",
+        "complete": true,
+        "width": 658,
+        "height": 149,
+        "x": 142,
+        "y": 1557,
+        "from_scrollable": false,
+        "parent": "settings-battery-today",
+        "slug": "settings-battery-today-today",
+        "show": false
+      },
+      {
+        "title": "Since last charge",
+        "complete": true,
+        "width": 658,
+        "height": 149,
+        "x": 142,
+        "y": 1706,
+        "from_scrollable": false,
+        "parent": "settings-battery-today",
+        "slug": "settings-battery-today-since_last_charge",
+        "show": false
+      }
+    ]
   },
-  "settings-digital_wellbeing_and_parental_controls-app_timers": {
+  "settings-battery-view_details": {
     "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-app_timers",
+    "img_filename": "settings-battery-view_details",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -496,1008 +458,91 @@
       }
     ],
     "scroll_area": {
-      "x": 0,
-      "y": 334,
-      "width": 1080,
-      "height": 2162,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-app_timers-stitched",
-      "img_height": 10610,
-      "buttons": [
-        {
-          "title": "Audio",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 109,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-audio",
-          "show": false
-        },
-        {
-          "title": "Spotify",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 277,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-spotify",
-          "show": false
-        },
-        {
-          "title": "YT Music",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 445,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-yt_music",
-          "show": false
-        },
-        {
-          "title": "Games",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 613,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-games",
-          "show": false
-        },
-        {
-          "title": "Blocks",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 781,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-blocks",
-          "show": false
-        },
-        {
-          "title": "Candy Crush Saga",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 949,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-candy_crush_saga",
-          "show": false
-        },
-        {
-          "title": "MONOPOLY GO",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1117,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-monopoly_go",
-          "show": false
-        },
-        {
-          "title": "Royal Match",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1285,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-royal_match",
-          "show": false
-        },
-        {
-          "title": "Slotomania",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1453,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-slotomania",
-          "show": false
-        },
-        {
-          "title": "Solitaire",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1621,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-solitaire",
-          "show": false
-        },
-        {
-          "title": "Two Square : 2248",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1789,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-two_square_:_2248",
-          "show": false
-        },
-        {
-          "title": "WoW",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1957,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-wow",
-          "show": false
-        },
-        {
-          "title": "Health and fitness",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 2042,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-health_and_fitness",
-          "show": false
-        },
-        {
-          "title": "Health",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 2210,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-health",
-          "show": false
-        },
-        {
-          "title": "Image",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 2378,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-image",
-          "show": false
-        },
-        {
-          "title": "Camera",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 2546,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-camera",
-          "show": false
-        },
-        {
-          "title": "Gallery",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 2714,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-gallery",
-          "show": false
-        },
-        {
-          "title": "Photos",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 2882,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-photos",
-          "show": false
-        },
-        {
-          "title": "Maps and travel",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 3050,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-maps_and_travel",
-          "show": false
-        },
-        {
-          "title": "Maps",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 3218,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-maps",
-          "show": false
-        },
-        {
-          "title": "Productivity and finance",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 3386,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-productivity_and_finance",
-          "show": false
-        },
-        {
-          "title": "AT&T Cloud",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 3554,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-at&t_cloud",
-          "show": false
-        },
-        {
-          "title": "ActiveArmor",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 3722,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-activearmor",
-          "show": false
-        },
-        {
-          "title": "Assistant",
-          "complete": true,
-          "width": 948,
-          "height": 120,
-          "x": 132,
-          "y": 3890,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-assistant",
-          "show": false
-        },
-        {
-          "title": "Calculator",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 3948,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-calculator",
-          "show": false
-        },
-        {
-          "title": "Calendar",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 4116,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-calendar",
-          "show": false
-        },
-        {
-          "title": "Device Help",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 4284,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-device_help",
-          "show": false
-        },
-        {
-          "title": "Drive",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 4452,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-drive",
-          "show": false
-        },
-        {
-          "title": "Dropbox",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 4620,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-dropbox",
-          "show": false
-        },
-        {
-          "title": "Gaming Hub",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 4788,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-gaming_hub",
-          "show": false
-        },
-        {
-          "title": "Global Goals",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 4956,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-global_goals",
-          "show": false
-        },
-        {
-          "title": "Google",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 5124,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-google",
-          "show": false
-        },
-        {
-          "title": "Members",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 5292,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-members",
-          "show": false
-        },
-        {
-          "title": "Microsoft 365 (Office)",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 5460,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-microsoft_365_(office)",
-          "show": false
-        },
-        {
-          "title": "My Files",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 5628,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-my_files",
-          "show": false
-        },
-        {
-          "title": "Notes",
-          "complete": true,
-          "width": 948,
-          "height": 147,
-          "x": 132,
-          "y": 5796,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-notes",
-          "show": false
-        },
-        {
-          "title": "OneDrive",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 5856,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-onedrive",
-          "show": false
-        },
-        {
-          "title": "Outlook",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 6024,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-outlook",
-          "show": false
-        },
-        {
-          "title": "Smart Switch",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 6192,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-smart_switch",
-          "show": false
-        },
-        {
-          "title": "SmartThings",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 6360,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-smartthings",
-          "show": false
-        },
-        {
-          "title": "Voice Recorder",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 6528,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-voice_recorder",
-          "show": false
-        },
-        {
-          "title": "Wallet",
-          "complete": true,
-          "width": 948,
-          "height": 336,
-          "x": 132,
-          "y": 6696,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-wallet",
-          "show": false
-        },
-        {
-          "title": "myAT&T",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 7032,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-myat&t",
-          "show": false
-        },
-        {
-          "title": "Shopping and food",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 7200,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-shopping_and_food",
-          "show": false
-        },
-        {
-          "title": "Amazon Shopping",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 7368,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-amazon_shopping",
-          "show": false
-        },
-        {
-          "title": "Social",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 7536,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-social",
-          "show": false
-        },
-        {
-          "title": "Chrome",
-          "complete": true,
-          "width": 948,
-          "height": 145,
-          "x": 132,
-          "y": 7704,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-chrome",
-          "show": false
-        },
-        {
-          "title": "Facebook",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 7786,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-facebook",
-          "show": false
-        },
-        {
-          "title": "Gmail",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 7954,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-gmail",
-          "show": false
-        },
-        {
-          "title": "Internet",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 8122,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-internet",
-          "show": false
-        },
-        {
-          "title": "Meet",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 8290,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-meet",
-          "show": false
-        },
-        {
-          "title": "Messages",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 8458,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-messages",
-          "show": false
-        },
-        {
-          "title": "Video",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 8626,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-video",
-          "show": false
-        },
-        {
-          "title": "Google TV",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 8794,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-google_tv",
-          "show": false
-        },
-        {
-          "title": "Mistplay",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 8962,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-mistplay",
-          "show": false
-        },
-        {
-          "title": "TV",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 9130,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-tv",
-          "show": false
-        },
-        {
-          "title": "YouTube",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 9298,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-youtube",
-          "show": false
-        },
-        {
-          "title": "Other",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 9466,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-other",
-          "show": false
-        },
-        {
-          "title": "Appium Settings",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 9634,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-appium_settings",
-          "show": false
-        },
-        {
-          "title": "Contacts",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 9802,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-contacts",
-          "show": false
-        },
-        {
-          "title": "Find",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 9970,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-find",
-          "show": false
-        },
-        {
-          "title": "News",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 10138,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-news",
-          "show": false
-        },
-        {
-          "title": "Store",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 10306,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-store",
-          "show": false
-        },
-        {
-          "title": "Tips",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 10474,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-tips",
-          "show": false
-        },
-        {
-          "title": "Visual Voicemail",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 10642,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-app_timers",
-          "slug": "settings-digital_wellbeing_and_parental_controls-app_timers-visual_voicemail",
-          "show": false
-        }
-      ]
-    }
-  },
-  "settings-digital_wellbeing_and_parental_controls-productivity_and_finance": {
-    "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "scroll_area": {
-      "x": 0,
-      "y": 334,
-      "width": 1080,
-      "height": 1994,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-stitched",
-      "img_height": 11827,
-      "buttons": [
-        {
-          "title": "Productivity and finance",
-          "complete": true,
-          "width": 192,
-          "height": 258,
-          "x": 36,
-          "y": 145,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-productivity_and_finance",
-          "show": false
-        },
-        {
-          "title": "Audio",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 572,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-audio",
-          "show": false
-        },
-        {
-          "title": "Spotify",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 740,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-spotify",
-          "show": false
-        },
-        {
-          "title": "YT Music",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 908,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-yt_music",
-          "show": false
-        },
-        {
-          "title": "Games",
-          "complete": true,
-          "width": 1080,
-          "height": 168,
-          "x": 0,
-          "y": 1076,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-games",
-          "show": false
-        },
-        {
-          "title": "Blocks",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1244,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-blocks",
-          "show": false
-        },
-        {
-          "title": "Candy Crush Saga",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1412,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-candy_crush_saga",
-          "show": false
-        },
-        {
-          "title": "MONOPOLY GO",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1580,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-monopoly_go",
-          "show": false
-        },
-        {
-          "title": "Royal Match",
-          "complete": true,
-          "width": 948,
-          "height": 168,
-          "x": 132,
-          "y": 1748,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-royal_match",
-          "show": false
-        },
-        {
-          "title": "Slotomania",
-          "complete": true,
-          "width": 948,
-          "height": 78,
-          "x": 132,
-          "y": 1916,
-          "from_scrollable": true,
-          "parent": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance",
-          "slug": "settings-digital_wellbeing_and_parental_controls-productivity_and_finance-slotomania",
-          "show": false
-        }
-      ]
-    }
-  },
-  "settings-digital_wellbeing_and_parental_controls-screen_time_while_driving": {
-    "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-screen_time_while_driving",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "scroll_area": {
-      "x": 0,
-      "y": 334,
-      "width": 1080,
-      "height": 2162,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-screen_time_while_driving-stitched",
-      "img_height": 2306,
+      "x": 130,
+      "y": 530,
+      "width": 1596,
+      "height": 1481,
+      "img_filename": "settings-battery-view_details-stitched",
+      "img_height": 2470,
       "buttons": []
     }
   },
-  "settings-digital_wellbeing_and_parental_controls-screen_time_while_walking": {
+  "settings-battery-charging_settings": {
     "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-screen_time_while_walking",
+    "img_filename": "settings-battery-charging_settings",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Show charging information",
+        "complete": true,
+        "width": 1596,
+        "height": 267,
+        "x": 130,
+        "y": 390,
+        "from_scrollable": false,
+        "parent": "settings-battery-charging_settings",
+        "slug": "settings-battery-charging_settings-show_charging_information",
+        "show": false
+      },
+      {
+        "title": "Fast charging",
+        "complete": true,
+        "width": 1596,
+        "height": 174,
+        "x": 130,
+        "y": 719,
+        "from_scrollable": false,
+        "parent": "settings-battery-charging_settings",
+        "slug": "settings-battery-charging_settings-fast_charging",
+        "show": false
+      },
+      {
+        "title": "Fast wireless charging",
+        "complete": true,
+        "width": 1596,
+        "height": 174,
+        "x": 130,
+        "y": 893,
+        "from_scrollable": false,
+        "parent": "settings-battery-charging_settings",
+        "slug": "settings-battery-charging_settings-fast_wireless_charging",
+        "show": false
+      }
+    ]
+  },
+  "settings-battery-wireless_power_sharing": {
+    "complete": true,
+    "img_filename": "settings-battery-wireless_power_sharing",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -1530,18 +575,18 @@
       }
     ],
     "scroll_area": {
-      "x": 0,
-      "y": 334,
-      "width": 1080,
-      "height": 2162,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-screen_time_while_walking-stitched",
-      "img_height": 2306,
+      "x": 130,
+      "y": 328,
+      "width": 1596,
+      "height": 1683,
+      "img_filename": "settings-battery-wireless_power_sharing-stitched",
+      "img_height": 2155,
       "buttons": []
     }
   },
-  "settings-digital_wellbeing_and_parental_controls-loud_listening_time": {
+  "settings-battery-battery_information": {
     "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-loud_listening_time",
+    "img_filename": "settings-battery-battery_information",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -1573,50 +618,43 @@
         "complete": true
       }
     ],
-    "scroll_area": {
-      "x": 0,
-      "y": 334,
-      "width": 1080,
-      "height": 2162,
-      "img_filename": "settings-digital_wellbeing_and_parental_controls-loud_listening_time-stitched",
-      "img_height": 2210,
-      "buttons": []
-    }
-  },
-  "settings-digital_wellbeing_and_parental_controls-parental_controls": {
-    "complete": true,
-    "img_filename": "settings-digital_wellbeing_and_parental_controls-parental_controls",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
+    "buttons": [
       {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
+        "title": "Battery status",
+        "complete": true,
+        "width": 1597,
+        "height": 215,
+        "x": 129,
+        "y": 328,
+        "from_scrollable": false,
+        "parent": "settings-battery-battery_information",
+        "slug": "settings-battery-battery_information-battery_status",
+        "show": false
       },
       {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
+        "title": "Battery level",
+        "complete": true,
+        "width": 1597,
+        "height": 215,
+        "x": 129,
+        "y": 543,
+        "from_scrollable": false,
+        "parent": "settings-battery-battery_information",
+        "slug": "settings-battery-battery_information-battery_level",
+        "show": false
       },
       {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
+        "title": "Battery capacity",
+        "complete": true,
+        "width": 1597,
+        "height": 215,
+        "x": 129,
+        "y": 758,
+        "from_scrollable": false,
+        "parent": "settings-battery-battery_information",
+        "slug": "settings-battery-battery_information-battery_capacity",
+        "show": false
       }
-    ],
-    "buttons": []
+    ]
   }
 }

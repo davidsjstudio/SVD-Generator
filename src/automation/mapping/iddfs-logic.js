@@ -67,10 +67,10 @@ export async function processScreen(driver, device, screen_hash, current_back, d
       // Check for completion dynamically
       if (!button.complete) {
         try {
-          if (button.title === "Power saving") {
-            await scrollUp(driver, 400, 2000);
-            await scrollUp(driver, 400, 2000);
-          }
+          // if (button.title === "Power saving") {
+          //   await scrollUp(driver, 400, 2000);
+          //   await scrollUp(driver, 400, 2000);
+          // }
           const buttonClicked = await findAndClickButton(driver, button.title, button.resourceId, checked);
           if (buttonClicked === true) {
 

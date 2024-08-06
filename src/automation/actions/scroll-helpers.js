@@ -19,8 +19,8 @@ export async function swipeCoords(driver, coords, speed = 5000, wait = 3000) {
 export async function scrollDown(driver, startY, scrollDistance) {
   console.log('SCROLLING DOWN');
   await swipeCoords(driver, {
-    x1: 200,
-    x2: 200,
+    x1: 900,
+    x2: 900,
     y1: startY + scrollDistance,
     y2: startY
     },
@@ -32,8 +32,8 @@ export async function scrollDown(driver, startY, scrollDistance) {
 export async function scrollUp(driver, startY, scrollDistance) {
   console.log('SCROLLING UP');
   await swipeCoords(driver, {
-    x1: 200,
-    x2: 200,
+    x1: 900,
+    x2: 900,
     y1: startY,
     y2: startY + scrollDistance
     },

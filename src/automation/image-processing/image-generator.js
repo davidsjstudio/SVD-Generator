@@ -169,7 +169,7 @@ export async function takeAndStitchImages(
 
 
   // LOGIC FOR BYPASSING SCROLLABLE EDGECASES WITH SCROLLCAPTURE
-  if ((merged_data.length < 2) || (screen_hash === "settings-home_screen-contact_us") || 
+  if ((merged_data.length <= 2) || (screen_hash === "settings-home_screen-contact_us") || 
   (screen_hash === "settings-accounts_and_backup-restore_data") || (screen_hash === "settings-device_care-maintenance_mode") || 
   (screen_hash === "settings-general_management-language_packs") || (screen_hash === "settings-general_management-contact_us") || 
   (screen_hash === "settings-accessibility-contact_us") || (screen_hash === "settings-digital_wellbeing_and_parental_controls-members")
@@ -351,12 +351,20 @@ export async function takeAndStitchImages(
 export async function scrollCapture(driver, screen_hash, scroll_bounds, checked) {
   try {
     // Quick settings instant access: Pull down from the top right corner of the screen to access the full quick settings panel without notifications
+    // let coords = {
+    //   x1: 990,
+    //   x2: 990,
+    //   y1: 45,
+    //   y2: 942
+    // };
+
     let coords = {
-      x1: 990,
-      x2: 990,
+      x1: 1780,
+      x2: 1780,
       y1: 45,
-      y2: 942
+      y2: 1500
     };
+
     await swipeCoords(driver, coords, 1000);
 
     // Click on Take screenshot button from quick settings panel (Preset required)

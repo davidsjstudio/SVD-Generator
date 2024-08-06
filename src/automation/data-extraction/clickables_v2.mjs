@@ -20,41 +20,46 @@ const getClickablesFromXML = async (
   // console.log("THIS IS THE HIERARCHY: ", hierarchy);
 
   // Find the ScrollV
-  let sv = findElementByResourceId(hierarchy, "scroll_area")
+  let sv = await findElementByResourceId(hierarchy, "scroll_area");
 
   if (!sv) {
-    sv = findElementByResourceId(hierarchy, "scroll_view");
+    sv = await findElementByResourceId(hierarchy, "scroll_view");
   }
 
   // Find the RecyclerView or content_frame element
-  let rv = findElementByResourceId(hierarchy, "recycler_view");
+  let rv = await findElementByResourceId(hierarchy, "recycler_view");
 
-  let nestedScroll = findElementByResourceId(hierarchy, "nested_scroll")
+  let nestedScroll = await findElementByResourceId(hierarchy, "nested_scroll");
 
-  let recycler = findElementByResourceId(hierarchy, "recycler");
+  let recycler = await findElementByResourceId(hierarchy, "recycler");
 
-  let appsList = findElementByResourceId(hierarchy, "apps_list");
+  let appsList = await findElementByResourceId(hierarchy, "apps_list");
 
-  let appPickerView = findElementByResourceId(hierarchy, "app_picker_view");
+  let appPickerView = await findElementByResourceId(hierarchy, "app_picker_view");
 
-  let widgetList = findElementByResourceId(hierarchy, "WidgetList");
+  let widgetList = await findElementByResourceId(hierarchy, "WidgetList");
 
-  let contentView = findElementByResourceId(hierarchy, "id/contentView");
+  let contentView = await findElementByResourceId(hierarchy, "id/contentView");
 
-  let cf = findElementByResourceId(hierarchy, "/content_frame");
+  let cf = await findElementByResourceId(hierarchy, "/content_frame");
 
-  let itemsContainer = findElementByResourceId(hierarchy, "setting_items_container");
+  let itemsContainer = await findElementByResourceId(hierarchy, "setting_items_container");
 
-  let contentsContainer = findElementByResourceId(hierarchy, "id/contents_container");
+  let contentsContainer = await findElementByResourceId(hierarchy, "id/contents_container");
 
-  let maintenanceMode = findElementByResourceId(hierarchy, "maintenance_mode_intro_body_container");
+  let maintenanceMode = await findElementByResourceId(hierarchy, "maintenance_mode_intro_body_container");
 
-  let fragmentFrame = findElementByResourceId(hierarchy, "id/fragment_frame");
+  let fragmentFrame = await findElementByResourceId(hierarchy, "id/fragment_frame");
 
-  let listItemView = findElementByResourceId(hierarchy, "list_item_view");
+  let fragmentContainer = await findElementByResourceId(hierarchy, "fragment_container");
 
-  let listView = findElementByResourceId(hierarchy, "listView");
+  let listItemView = await findElementByResourceId(hierarchy, "list_item_view");
 
+  let listView = await findElementByResourceId(hierarchy, "listView");
+
+  let previewLayout = await findElementByResourceId(hierarchy, "preview_layout");
+
+  let scrollContainer = await findElementByResourceId(hierarchy, "scroll_container");
 
   let otherView = null;
 
@@ -63,7 +68,7 @@ const getClickablesFromXML = async (
   if (sv && !scroll_only) {
     isScrollable = "true";
     console.log(`${screen_hash} HAS A SCROLL VIEW`);
-  } else if (!sv && (rv || nestedScroll || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || maintenanceMode || contentsContainer || fragmentFrame || listItemView || listView) && !scroll_only) {
+  } else if (!sv && (rv || nestedScroll || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || maintenanceMode || contentsContainer || fragmentFrame || listItemView || listView || previewLayout || scrollContainer || fragmentContainer) && !scroll_only) {
     // Scroll and compare hierarchies
     const initialHierarchy = hierarchy;
 
@@ -84,7 +89,7 @@ const getClickablesFromXML = async (
         console.log(`${screen_hash} HAS A SCROLLABLE RECYCLER VIEW`);
 
         // Scroll back up to the initial position
-        await scrollUp(driver, arg_1, device.scroll_distance);
+        await scrollUp(driver, (arg_1 - device.scroll_distance), device.scroll_distance);
     } else {
       isScrollable = "false";
     }
@@ -93,24 +98,28 @@ const getClickablesFromXML = async (
     } 
 
 
-  } else if (cf && !nestedScroll) {
-    isScrollable = "false";
-  } else if ((sv || nestedScroll || rv || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || contentsContainer || fragmentFrame || listItemView || listView) && scroll_only) {
+  } else if (!sv && !rv && cf && !nestedScroll) {
+      isScrollable = "false";
+  } else if ((sv || scrollContainer || fragmentContainer || nestedScroll || rv || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || contentsContainer || fragmentFrame || listItemView || listView || previewLayout) && scroll_only) {
       isScrollable = "true";
   } else {
       isScrollable = "false";
-      otherView = hierarchy
+      otherView = hierarchy;
   }
 
   // Determine the view to extract data from 
-  let view = null 
+  let view = null; 
 
   if (sv) {
     view = sv;
   } else if (!sv && rv) {
     view = rv;
+  } else if (!sv && scrollContainer) {
+    view = scrollContainer;
   } else if (!sv && nestedScroll) {
     view = nestedScroll;
+  } else if (!sv && previewLayout) {
+    view = previewLayout;
   } else if (!sv && recycler) {
     view = recycler;
   } else if (!sv && appsList) {
@@ -137,6 +146,8 @@ const getClickablesFromXML = async (
     view = maintenanceMode;
   } else if (!sv && fragmentFrame) {
     view = fragmentFrame;
+  } else if (!sv && fragmentContainer) {
+    view = fragmentContainer;
   } else if (otherView) {
     view = otherView;
   }
@@ -192,6 +203,10 @@ const getClickablesFromXML = async (
       const appNameElement = await findTextInElement(el, "app_name");
       const homeMonitorTitleElement = await findTextInElement(el, "home_monitor_title");
 
+      // SETTINGS-BATTERY-DEPTH2
+      const text1Element = await findTextInElement(el, "text1");
+      const viewDetailButtonElement = await findTextInElement(el, "view_detail_btn");
+
       // TOGGLES
       const hasToggle = await findElementByResourceId(el, "android:id/switch_widget");
       const hasSwitchDivider = await findElementByResourceId(el, "id/switch_divider_normal")
@@ -201,6 +216,30 @@ const getClickablesFromXML = async (
 
       const bounds = getBoundsFromElement(el);
       
+      if (text1Element) {
+        title = text1Element;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (viewDetailButtonElement) {
+        title = viewDetailButtonElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
 
       if (homeCardTitleElement) {
         title = homeCardTitleElement;
@@ -402,7 +441,7 @@ export function parseXML(xmlString) {
   });
 }
 
-function findElementByResourceId(element, resourceId) {
+async function findElementByResourceId(element, resourceId) {
   if (
     (element.$ &&
       element.$["resource-id"] &&
@@ -415,7 +454,7 @@ function findElementByResourceId(element, resourceId) {
   for (const childElement of Object.values(element)) {
     if (Array.isArray(childElement)) {
       for (const child of childElement) {
-        const found = findElementByResourceId(child, resourceId);
+        const found = await findElementByResourceId(child, resourceId);
         if (found) {
           return found;
         }
