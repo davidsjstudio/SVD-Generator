@@ -83,7 +83,7 @@ async function getUserInput() {
         console.log(`FINISHED MAPPING SETTINGS TO DEPTH: ${maxDepth}`);
         continue;
       } else if (input.toLowerCase() === "fix") {
-        await navigateAndMap(driver, device, "settings-google", 3, maxDepth);
+        await navigateAndMap(driver, device, "settings-digital_wellbeing_and_parental_controls", 3, maxDepth);
         console.log('Data successfully fixed');
       } 
       

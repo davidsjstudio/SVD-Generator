@@ -26,6 +26,14 @@ const getClickablesFromXML = async (
     sv = await findElementByResourceId(hierarchy, "scroll_view");
   }
 
+  if (!sv) {
+    sv = await findElementByResourceId(hierarchy, "scrollview");
+  }
+
+  if (!sv) {
+    sv = await findElementByResourceId(hierarchy, "ScrollView");
+  }
+
   // Find the RecyclerView or content_frame element
   let rv = await findElementByResourceId(hierarchy, "recycler_view");
 
@@ -69,6 +77,8 @@ const getClickablesFromXML = async (
 
   let cardsList = await findElementByResourceId(hierarchy, "cards_list");
 
+  let transcriptionAssistLayout = await findElementByResourceId(hierarchy, "transcription_assist_layout");
+
   let otherView = null;
 
   // console.log("THIS IS THE RV: ", rv);
@@ -76,7 +86,7 @@ const getClickablesFromXML = async (
   if (sv && !scroll_only && (sv.$["scrollable"] === "true")) {
     isScrollable = "true";
     console.log(`${screen_hash} HAS A SCROLL VIEW`);
-  } else if ((!(screen_hash.includes("settings-apps"))) && !sv && (rv || nestedScroll || viewContainer || cardsList || coverMainSyncView || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || maintenanceMode || contentsContainer || fragmentFrame || listItemView || listView || previewLayout || scrollContainer || fragmentContainer || homeScreenModeView) && !scroll_only) {
+  } else if ((!(screen_hash.includes("settings-apps"))) && !sv && (rv || transcriptionAssistLayout || nestedScroll || viewContainer || cardsList || coverMainSyncView || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || maintenanceMode || contentsContainer || fragmentFrame || listItemView || listView || previewLayout || scrollContainer || fragmentContainer || homeScreenModeView) && !scroll_only) {
     // Scroll and compare hierarchies
     const initialHierarchy = hierarchy;
 
@@ -108,7 +118,7 @@ const getClickablesFromXML = async (
 
   } else if (!sv && !rv && cf && !nestedScroll && !(screen_hash.includes("settings-apps"))) {
       isScrollable = "false";
-  } else if ((sv || scrollContainer || viewContainer || cardsList || coverMainSyncView || fragmentContainer || nestedScroll || rv || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || contentsContainer || fragmentFrame || listItemView || listView || previewLayout || homeScreenModeView) && scroll_only) {
+  } else if ((sv || transcriptionAssistLayout || scrollContainer || viewContainer || cardsList || coverMainSyncView || fragmentContainer || nestedScroll || rv || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || contentsContainer || fragmentFrame || listItemView || listView || previewLayout || homeScreenModeView) && scroll_only) {
       isScrollable = "true";
   } else if (screen_hash.includes("settings-apps")) {
       isScrollable = "true";
@@ -169,7 +179,9 @@ const getClickablesFromXML = async (
     view = cardsList;
   } else if (otherView) {
     view = otherView;
-  }
+  } else if (!sv && transcriptionAssistLayout) {
+    view = transcriptionAssistLayout;
+  } 
 
   // Find the scroll bounds
   const scroll_bounds = isScrollable === "true" ? getBoundsFromElement(view) : null;

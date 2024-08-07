@@ -172,7 +172,9 @@ export async function takeAndStitchImages(
   (screen_hash === "settings-general_management-language_packs") || (screen_hash === "settings-general_management-contact_us") || 
   (screen_hash === "settings-accessibility-contact_us") || (screen_hash === "settings-wallpaper_and_style-change_wallpapers") || 
   (screen_hash.includes("settings-digital_wellbeing_and_parental_controls") && depth >= 3) ||
-  (screen_hash.includes("settings-apps") && depth >= 3)) {
+  (screen_hash.includes("settings-apps") && depth >= 3) || (screen_hash === "settings-home_screen") ||
+  (screen_hash === "settings-connected_devices-android_auto") || (screen_hash === "settings-galaxy_ai-transcript_assist")
+  || (screen_hash === "settings-digital_wellbeing_and_parental_controls")) {
 
     console.log("THIS SCREEN IS SCROLLABLE BUT TOO FEW BUTTONS FOR STITCHING.");
     console.log("NOW SCROLL CAPTURING INSTEAD");
@@ -442,6 +444,13 @@ async function cropImage(fileName, scroll_bounds, screen_hash, depth) {
         top: scroll_bounds.y, // Start cropping from 334 pixels from the top
         width: metadata.width,
         height: metadata.height - scroll_bounds.y - (2160-1837) // Reduce the height by 334 pixels
+      };
+    } else if (screen_hash === "settings-home_screen") {
+      extractOptions = {
+      left: 0,
+      top: scroll_bounds.y, // Start cropping from 334 pixels from the top
+      width: metadata.width,
+      height: metadata.height - scroll_bounds.y // Reduce the height by 334 pixels
       };
     } else if (screen_hash === "settings-device_care-maintenance_mode") {
       extractOptions = {
