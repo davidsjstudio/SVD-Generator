@@ -14,7 +14,7 @@ export async function navigateAndMap(driver, device, root_screen_hash, startingD
 
   while (!data[root_screen_hash]?.complete) {
     console.log(`Processing App: Settings`);
-    await processScreen(driver, device, root_screen_hash, null, startingDepth, maxDepth, false);
+    await processScreen(driver, device, root_screen_hash, null, startingDepth, maxDepth);
   }
 
   // Final save to persist any changes
@@ -22,13 +22,13 @@ export async function navigateAndMap(driver, device, root_screen_hash, startingD
 }
 
 
-export async function processScreen(driver, device, screen_hash, current_back, depth, maxDepth, checked) {
+export async function processScreen(driver, device, screen_hash, current_back, depth, maxDepth) {
   console.log("PROCESSING: ", screen_hash, `at depth: ${depth}`);
 
 
   // Call createImage only if the screen has not been mapped
   if (!data[screen_hash]?.mapped) {
-    const screen_data = await createImage(screen_hash, driver, device, depth, checked);
+    const screen_data = await createImage(screen_hash, driver, device, depth);
     // saveScreenData(device.folder, screen_hash, screen_data);
 
     if (screen_data) {
@@ -71,13 +71,9 @@ export async function processScreen(driver, device, screen_hash, current_back, d
           //   await scrollUp(driver, 400, 2000);
           //   await scrollUp(driver, 400, 2000);
           // }
-          const buttonClicked = await findAndClickButton(driver, button.title, button.resourceId, checked);
+          const buttonClicked = await findAndClickButton(driver, button.title, button.resourceId);
           if (buttonClicked === true) {
 
-            if (button.title === "Back up data") {
-              checked = true;
-            }
-  
             console.log("SUCCESSFULLY CLICKED BUTTON: ", button.slug);
   
             const clicked_slug = button.slug;
@@ -88,12 +84,8 @@ export async function processScreen(driver, device, screen_hash, current_back, d
   
             // Recurse into the new screen with increased depth if depth < maxDepth
             if (depth < maxDepth) {
-              await processScreen(driver, device, button.slug, screen_hash, depth + 1, maxDepth, checked);
+              await processScreen(driver, device, button.slug, screen_hash, depth + 1, maxDepth);
             }
-  
-          } else if (buttonClicked === 'wifi-required') {
-            // Wi-Fi required popup detected, skip this button and continue with the next one
-            continue;
           } else if (buttonClicked === false) {
   
             console.log("BUTTON DOES NOT LEAD TO A NEW SCREEN: ", button.slug);
@@ -125,7 +117,7 @@ export async function processScreen(driver, device, screen_hash, current_back, d
     // Navigate back to the previous screen and continue processing
     if (current_back) {
       await driver.back();
-      await processScreen(driver, device, current_back, null, depth - 1, maxDepth, checked);
+      await processScreen(driver, device, current_back, null, depth - 1, maxDepth);
     } else {
       console.log("NO current_back STATED");
     }

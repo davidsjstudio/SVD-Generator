@@ -1,7 +1,221 @@
 {
-  "settings-battery": {
+  "settings-connected_devices": {
     "complete": true,
-    "img_filename": "settings-battery",
+    "img_filename": "settings-connected_devices",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "scroll_area": {
+      "x": 129,
+      "y": 328,
+      "width": 1597,
+      "height": 1683,
+      "img_filename": "settings-connected_devices-stitched",
+      "img_height": 3085,
+      "buttons": [
+        {
+          "title": "Quick Share",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 0,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-quick_share",
+          "show": true,
+          "target": "settings-connected_devices-quick_share"
+        },
+        {
+          "title": "Music Share",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 174,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-music_share",
+          "show": true,
+          "target": "settings-connected_devices-music_share"
+        },
+        {
+          "title": "Auto switch Buds",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 410,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-auto_switch_buds",
+          "show": true,
+          "target": "settings-connected_devices-auto_switch_buds"
+        },
+        {
+          "title": "Call & text on other devices",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 584,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-call_&_text_on_other_devices",
+          "show": true,
+          "target": "settings-connected_devices-call_&_text_on_other_devices"
+        },
+        {
+          "title": "Continue apps on other devices",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 758,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-continue_apps_on_other_devices",
+          "show": true,
+          "target": "settings-connected_devices-continue_apps_on_other_devices"
+        },
+        {
+          "title": "Camera sharing",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 932,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-camera_sharing",
+          "show": true,
+          "target": "settings-connected_devices-camera_sharing"
+        },
+        {
+          "title": "Link to Windows",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1168,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-link_to_windows",
+          "show": true,
+          "target": "settings-connected_devices-link_to_windows"
+        },
+        {
+          "title": "Multi control",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1342,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-multi_control",
+          "show": true,
+          "target": "settings-connected_devices-multi_control"
+        },
+        {
+          "title": "Samsung DeX",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1578,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-samsung_dex",
+          "show": true,
+          "target": "settings-connected_devices-samsung_dex"
+        },
+        {
+          "title": "Smart View",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1752,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-smart_view",
+          "show": true,
+          "target": "settings-connected_devices-smart_view"
+        },
+        {
+          "title": "Galaxy Wearable",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 1988,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-galaxy_wearable",
+          "show": true,
+          "target": "settings-connected_devices-galaxy_wearable"
+        },
+        {
+          "title": "SmartThings",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 2162,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-smartthings",
+          "show": true,
+          "target": "settings-connected_devices-smartthings"
+        },
+        {
+          "title": "Android Auto",
+          "complete": true,
+          "width": 1597,
+          "height": 174,
+          "x": 129,
+          "y": 2336,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices",
+          "slug": "settings-connected_devices-android_auto",
+          "show": true,
+          "target": "settings-connected_devices-android_auto"
+        }
+      ]
+    }
+  },
+  "settings-connected_devices-quick_share": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-quick_share",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -38,131 +252,159 @@
       "y": 328,
       "width": 1856,
       "height": 1683,
-      "img_filename": "settings-battery-stitched",
-      "img_height": 3921,
+      "img_filename": "settings-connected_devices-quick_share-stitched",
+      "img_height": 3059,
       "buttons": [
         {
-          "title": "Power saving",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 524,
-          "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-power_saving",
-          "show": true,
-          "target": "settings-battery-power_saving"
-        },
-        {
-          "title": "Background usage limits",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 698,
-          "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-background_usage_limits",
-          "show": true,
-          "target": "settings-battery-background_usage_limits"
-        },
-        {
-          "title": "Battery protection",
+          "title": "Share with Galaxy devices",
           "complete": true,
           "width": 1596,
           "height": 215,
           "x": 130,
-          "y": 934,
+          "y": 112,
           "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-battery_protection",
-          "show": true,
-          "target": "settings-battery-battery_protection"
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-share_with_galaxy_devices",
+          "show": false
         },
         {
-          "title": "Today",
+          "title": "Share with non-Galaxy devices",
           "complete": true,
           "width": 1596,
-          "height": 1050,
+          "height": 215,
           "x": 130,
-          "y": 1211,
+          "y": 327,
           "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-today",
-          "show": true,
-          "target": "settings-battery-today"
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-share_with_non_galaxy_devices",
+          "show": false
         },
         {
-          "title": "View details",
+          "title": "Who can share with you",
           "complete": true,
           "width": 1596,
-          "height": 152,
+          "height": 215,
           "x": 130,
-          "y": 2445,
+          "y": 654,
           "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-view_details",
-          "show": true,
-          "target": "settings-battery-view_details"
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-who_can_share_with_you",
+          "show": false
         },
         {
-          "title": "Charging settings",
+          "title": "Phone name",
           "complete": true,
           "width": 1596,
-          "height": 174,
+          "height": 215,
           "x": 130,
-          "y": 2659,
+          "y": 869,
           "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-charging_settings",
-          "show": true,
-          "target": "settings-battery-charging_settings"
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-phone_name",
+          "show": false
         },
         {
-          "title": "Wireless power sharing",
+          "title": "Show available devices on share panel",
           "complete": true,
           "width": 1596,
           "height": 174,
           "x": 130,
-          "y": 2895,
+          "y": 1084,
           "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-wireless_power_sharing",
-          "show": true,
-          "target": "settings-battery-wireless_power_sharing"
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-show_available_devices_on_share_panel",
+          "show": false
         },
         {
-          "title": "Show battery percentage",
+          "title": "Link sharing history",
+          "complete": true,
+          "width": 1596,
+          "height": 215,
+          "x": 130,
+          "y": 1370,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-link_sharing_history",
+          "show": false
+        },
+        {
+          "title": "Use Wi-Fi only",
           "complete": true,
           "width": 1596,
           "height": 174,
           "x": 130,
-          "y": 3131,
+          "y": 1585,
           "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-show_battery_percentage",
-          "show": true
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-use_wi_fi_only",
+          "show": false
         },
         {
-          "title": "Battery information",
+          "title": "Private sharing history",
           "complete": true,
           "width": 1596,
           "height": 174,
           "x": 130,
-          "y": 3305,
+          "y": 2086,
           "from_scrollable": true,
-          "parent": "settings-battery",
-          "slug": "settings-battery-battery_information",
-          "show": true,
-          "target": "settings-battery-battery_information"
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-private_sharing_history",
+          "show": false
+        },
+        {
+          "title": "Set expiration",
+          "complete": true,
+          "width": 1596,
+          "height": 215,
+          "x": 130,
+          "y": 2260,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-set_expiration",
+          "show": false
+        },
+        {
+          "title": "Privacy Notice",
+          "complete": true,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 2587,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-privacy_notice",
+          "show": false
+        },
+        {
+          "title": "About Quick Share",
+          "complete": true,
+          "width": 1596,
+          "height": 174,
+          "x": 130,
+          "y": 2823,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-about_quick_share",
+          "show": false
+        },
+        {
+          "title": "Auto delete expired files",
+          "complete": true,
+          "width": 1596,
+          "height": 215,
+          "x": 130,
+          "y": 1759,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-quick_share",
+          "slug": "settings-connected_devices-quick_share-auto_delete_expired_files",
+          "show": false
         }
       ]
     }
   },
-  "settings-battery-power_saving": {
+  "settings-connected_devices-music_share": {
     "complete": true,
-    "img_filename": "settings-battery-power_saving",
+    "img_filename": "settings-connected_devices-music_share",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -195,67 +437,62 @@
       }
     ],
     "scroll_area": {
-      "x": 130,
+      "x": 129,
       "y": 570,
-      "width": 1596,
+      "width": 1597,
       "height": 1441,
-      "img_filename": "settings-battery-power_saving-stitched",
-      "img_height": 1450,
-      "buttons": [
-        {
-          "title": "Turn off Always On Display",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 599,
-          "from_scrollable": true,
-          "parent": "settings-battery-power_saving",
-          "slug": "settings-battery-power_saving-turn_off_always_on_display",
-          "show": false
-        },
-        {
-          "title": "Limit CPU speed to 70%",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 773,
-          "from_scrollable": true,
-          "parent": "settings-battery-power_saving",
-          "slug": "settings-battery-power_saving-limit_cpu_speed_to_70%",
-          "show": false
-        },
-        {
-          "title": "Decrease brightness by 10%",
-          "complete": true,
-          "width": 1596,
-          "height": 174,
-          "x": 130,
-          "y": 947,
-          "from_scrollable": true,
-          "parent": "settings-battery-power_saving",
-          "slug": "settings-battery-power_saving-decrease_brightness_by_10%",
-          "show": false
-        },
-        {
-          "title": "Limit apps and Home screen",
-          "complete": true,
-          "width": 1596,
-          "height": 267,
-          "x": 130,
-          "y": 1121,
-          "from_scrollable": true,
-          "parent": "settings-battery-power_saving",
-          "slug": "settings-battery-power_saving-limit_apps_and_home_screen",
-          "show": false
-        }
-      ]
+      "img_filename": "settings-connected_devices-music_share-stitched",
+      "img_height": 1536,
+      "buttons": []
     }
   },
-  "settings-battery-background_usage_limits": {
+  "settings-connected_devices-auto_switch_buds": {
     "complete": true,
-    "img_filename": "settings-battery-background_usage_limits",
+    "img_filename": "settings-connected_devices-auto_switch_buds",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "scroll_area": {
+      "x": 129,
+      "y": 328,
+      "width": 1597,
+      "height": 1683,
+      "img_filename": "settings-connected_devices-auto_switch_buds-stitched",
+      "img_height": 2027,
+      "buttons": []
+    }
+  },
+  "settings-connected_devices-call_&_text_on_other_devices": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-call_&_text_on_other_devices",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -289,143 +526,9 @@
     ],
     "buttons": []
   },
-  "settings-battery-battery_protection": {
+  "settings-connected_devices-continue_apps_on_other_devices": {
     "complete": true,
-    "img_filename": "settings-battery-battery_protection",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "buttons": [
-      {
-        "title": "Basic",
-        "complete": true,
-        "width": 1596,
-        "height": 267,
-        "x": 130,
-        "y": 817,
-        "from_scrollable": false,
-        "parent": "settings-battery-battery_protection",
-        "slug": "settings-battery-battery_protection-basic",
-        "show": false
-      },
-      {
-        "title": "Adaptive",
-        "complete": true,
-        "width": 1596,
-        "height": 267,
-        "x": 130,
-        "y": 1084,
-        "from_scrollable": false,
-        "parent": "settings-battery-battery_protection",
-        "slug": "settings-battery-battery_protection-adaptive",
-        "show": false
-      },
-      {
-        "title": "Maximum",
-        "complete": true,
-        "width": 1596,
-        "height": 215,
-        "x": 130,
-        "y": 1351,
-        "from_scrollable": false,
-        "parent": "settings-battery-battery_protection",
-        "slug": "settings-battery-battery_protection-maximum",
-        "show": false
-      }
-    ]
-  },
-  "settings-battery-today": {
-    "complete": true,
-    "img_filename": "settings-battery-today",
-    "mapped": true,
-    "bg_els": [],
-    "statics": [
-      {
-        "title": "Recent",
-        "width": 130,
-        "height": 130,
-        "x": 1213,
-        "y": 2035,
-        "target": "recent",
-        "complete": true
-      },
-      {
-        "title": "Home",
-        "width": 130,
-        "height": 130,
-        "x": 1400,
-        "y": 2035,
-        "target": "home",
-        "complete": true
-      },
-      {
-        "title": "back",
-        "width": 130,
-        "height": 130,
-        "x": 1591,
-        "y": 2035,
-        "target": null,
-        "complete": true
-      }
-    ],
-    "buttons": [
-      {
-        "title": "Today",
-        "complete": true,
-        "width": 658,
-        "height": 149,
-        "x": 142,
-        "y": 1557,
-        "from_scrollable": false,
-        "parent": "settings-battery-today",
-        "slug": "settings-battery-today-today",
-        "show": false
-      },
-      {
-        "title": "Since last charge",
-        "complete": true,
-        "width": 658,
-        "height": 149,
-        "x": 142,
-        "y": 1706,
-        "from_scrollable": false,
-        "parent": "settings-battery-today",
-        "slug": "settings-battery-today-since_last_charge",
-        "show": false
-      }
-    ]
-  },
-  "settings-battery-view_details": {
-    "complete": true,
-    "img_filename": "settings-battery-view_details",
+    "img_filename": "settings-connected_devices-continue_apps_on_other_devices",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -458,18 +561,139 @@
       }
     ],
     "scroll_area": {
-      "x": 130,
-      "y": 530,
-      "width": 1596,
-      "height": 1481,
-      "img_filename": "settings-battery-view_details-stitched",
-      "img_height": 2470,
-      "buttons": []
+      "x": 129,
+      "y": 570,
+      "width": 1597,
+      "height": 1441,
+      "img_filename": "settings-connected_devices-continue_apps_on_other_devices-stitched",
+      "img_height": 2284,
+      "buttons": [
+        {
+          "title": "Pick up where you left off on other devices signed in to your Samsung account. Just tap the icon that appears on the Recents screen on your other devices.",
+          "complete": true,
+          "width": 1597,
+          "height": 1440,
+          "x": 129,
+          "y": 1,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-continue_apps_on_other_devices",
+          "slug": "settings-connected_devices-continue_apps_on_other_devices-pick_up_where_you_left_off_on_other_devices_signed_in_to_your_samsung_account._just_tap_the_icon_that_appears_on_the_recents_screen_on_your_other_devices.",
+          "show": false
+        }
+      ]
     }
   },
-  "settings-battery-charging_settings": {
+  "settings-connected_devices-camera_sharing": {
     "complete": true,
-    "img_filename": "settings-battery-charging_settings",
+    "img_filename": "settings-connected_devices-camera_sharing",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-connected_devices-link_to_windows": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-link_to_windows",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-connected_devices-multi_control": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-multi_control",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-connected_devices-samsung_dex": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-samsung_dex",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -503,46 +727,107 @@
     ],
     "buttons": [
       {
-        "title": "Show charging information",
+        "title": "Auto start when HDMI is connected",
         "complete": true,
-        "width": 1596,
-        "height": 267,
-        "x": 130,
-        "y": 390,
-        "from_scrollable": false,
-        "parent": "settings-battery-charging_settings",
-        "slug": "settings-battery-charging_settings-show_charging_information",
-        "show": false
-      },
-      {
-        "title": "Fast charging",
-        "complete": true,
-        "width": 1596,
+        "width": 1597,
         "height": 174,
-        "x": 130,
-        "y": 719,
+        "x": 129,
+        "y": 1189,
         "from_scrollable": false,
-        "parent": "settings-battery-charging_settings",
-        "slug": "settings-battery-charging_settings-fast_charging",
-        "show": false
-      },
-      {
-        "title": "Fast wireless charging",
-        "complete": true,
-        "width": 1596,
-        "height": 174,
-        "x": 130,
-        "y": 893,
-        "from_scrollable": false,
-        "parent": "settings-battery-charging_settings",
-        "slug": "settings-battery-charging_settings-fast_wireless_charging",
+        "parent": "settings-connected_devices-samsung_dex",
+        "slug": "settings-connected_devices-samsung_dex-auto_start_when_hdmi_is_connected",
         "show": false
       }
     ]
   },
-  "settings-battery-wireless_power_sharing": {
+  "settings-connected_devices-smart_view": {
     "complete": true,
-    "img_filename": "settings-battery-wireless_power_sharing",
+    "img_filename": "settings-connected_devices-smart_view",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": [
+      {
+        "title": "Streaming Stick 4K",
+        "complete": true,
+        "width": 1597,
+        "height": 229,
+        "x": 129,
+        "y": 610,
+        "from_scrollable": false,
+        "parent": "settings-connected_devices-smart_view",
+        "slug": "settings-connected_devices-smart_view-streaming_stick_4k",
+        "show": false
+      }
+    ]
+  },
+  "settings-connected_devices-galaxy_wearable": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-galaxy_wearable",
+    "mapped": true,
+    "bg_els": [],
+    "statics": [
+      {
+        "title": "Recent",
+        "width": 130,
+        "height": 130,
+        "x": 1213,
+        "y": 2035,
+        "target": "recent",
+        "complete": true
+      },
+      {
+        "title": "Home",
+        "width": 130,
+        "height": 130,
+        "x": 1400,
+        "y": 2035,
+        "target": "home",
+        "complete": true
+      },
+      {
+        "title": "back",
+        "width": 130,
+        "height": 130,
+        "x": 1591,
+        "y": 2035,
+        "target": null,
+        "complete": true
+      }
+    ],
+    "buttons": []
+  },
+  "settings-connected_devices-smartthings": {
+    "complete": true,
+    "img_filename": "settings-connected_devices-smartthings",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -575,18 +860,31 @@
       }
     ],
     "scroll_area": {
-      "x": 130,
-      "y": 328,
-      "width": 1596,
-      "height": 1683,
-      "img_filename": "settings-battery-wireless_power_sharing-stitched",
-      "img_height": 2155,
-      "buttons": []
+      "x": 0,
+      "y": 664,
+      "width": 1856,
+      "height": 1161,
+      "img_filename": "settings-connected_devices-smartthings-stitched",
+      "img_height": 1683,
+      "buttons": [
+        {
+          "title": "Family room",
+          "complete": true,
+          "width": 400,
+          "height": 358,
+          "x": 62,
+          "y": 306,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-smartthings",
+          "slug": "settings-connected_devices-smartthings-family_room",
+          "show": false
+        }
+      ]
     }
   },
-  "settings-battery-battery_information": {
+  "settings-connected_devices-android_auto": {
     "complete": true,
-    "img_filename": "settings-battery-battery_information",
+    "img_filename": "settings-connected_devices-android_auto",
     "mapped": true,
     "bg_els": [],
     "statics": [
@@ -618,43 +916,243 @@
         "complete": true
       }
     ],
-    "buttons": [
-      {
-        "title": "Battery status",
-        "complete": true,
-        "width": 1597,
-        "height": 215,
-        "x": 129,
-        "y": 328,
-        "from_scrollable": false,
-        "parent": "settings-battery-battery_information",
-        "slug": "settings-battery-battery_information-battery_status",
-        "show": false
-      },
-      {
-        "title": "Battery level",
-        "complete": true,
-        "width": 1597,
-        "height": 215,
-        "x": 129,
-        "y": 543,
-        "from_scrollable": false,
-        "parent": "settings-battery-battery_information",
-        "slug": "settings-battery-battery_information-battery_level",
-        "show": false
-      },
-      {
-        "title": "Battery capacity",
-        "complete": true,
-        "width": 1597,
-        "height": 215,
-        "x": 129,
-        "y": 758,
-        "from_scrollable": false,
-        "parent": "settings-battery-battery_information",
-        "slug": "settings-battery-battery_information-battery_capacity",
-        "show": false
-      }
-    ]
+    "scroll_area": {
+      "x": 0,
+      "y": 551,
+      "width": 1856,
+      "height": 1609,
+      "img_filename": "settings-connected_devices-android_auto-stitched",
+      "img_height": 5538,
+      "buttons": [
+        {
+          "title": "Previously connected cars",
+          "complete": true,
+          "width": 1856,
+          "height": 167,
+          "x": 0,
+          "y": 414,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-previously_connected_cars",
+          "show": false
+        },
+        {
+          "title": "Connection help",
+          "complete": true,
+          "width": 1856,
+          "height": 167,
+          "x": 0,
+          "y": 581,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-connection_help",
+          "show": false
+        },
+        {
+          "title": "Start Android Auto automatically",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 906,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-start_android_auto_automatically",
+          "show": false
+        },
+        {
+          "title": "Start Android Auto while locked",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 1131,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-start_android_auto_while_locked",
+          "show": false
+        },
+        {
+          "title": "Start music automatically",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 1356,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-start_music_automatically",
+          "show": false
+        },
+        {
+          "title": "Customize launcher",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 1739,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-customize_launcher",
+          "show": false
+        },
+        {
+          "title": "Taskbar widgets",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 1964,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-taskbar_widgets",
+          "show": false
+        },
+        {
+          "title": "“Hey Google” detection",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 2347,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-“hey_google”_detection",
+          "show": false
+        },
+        {
+          "title": "Google Assistant",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 2572,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-google_assistant",
+          "show": false
+        },
+        {
+          "title": "Day/Night mode for maps",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 2955,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-day/night_mode_for_maps",
+          "show": false
+        },
+        {
+          "title": "Show message notifications",
+          "complete": true,
+          "width": 1856,
+          "height": 167,
+          "x": 0,
+          "y": 3338,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-show_message_notifications",
+          "show": false
+        },
+        {
+          "title": "Show group conversations",
+          "complete": true,
+          "width": 1856,
+          "height": 167,
+          "x": 0,
+          "y": 3505,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-show_group_conversations",
+          "show": false
+        },
+        {
+          "title": "Show first line of messages",
+          "complete": true,
+          "width": 1856,
+          "height": 167,
+          "x": 0,
+          "y": 3672,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-show_first_line_of_messages",
+          "show": false
+        },
+        {
+          "title": "Play message chime",
+          "complete": true,
+          "width": 1856,
+          "height": 167,
+          "x": 0,
+          "y": 3839,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-play_message_chime",
+          "show": false
+        },
+        {
+          "title": "Driver seat location",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 4164,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-driver_seat_location",
+          "show": false
+        },
+        {
+          "title": "Change layout",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 4389,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-change_layout",
+          "show": false
+        },
+        {
+          "title": "Privacy Policy",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 4772,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-privacy_policy",
+          "show": false
+        },
+        {
+          "title": "Safety, Data, and Legal Notices",
+          "complete": true,
+          "width": 1856,
+          "height": 225,
+          "x": 0,
+          "y": 4997,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-safety,_data,_and_legal_notices",
+          "show": false
+        },
+        {
+          "title": "Version",
+          "complete": true,
+          "width": 1856,
+          "height": 167,
+          "x": 0,
+          "y": 5222,
+          "from_scrollable": true,
+          "parent": "settings-connected_devices-android_auto",
+          "slug": "settings-connected_devices-android_auto-version",
+          "show": false
+        }
+      ]
+    }
   }
 }

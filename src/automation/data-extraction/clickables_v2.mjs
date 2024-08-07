@@ -33,6 +33,8 @@ const getClickablesFromXML = async (
 
   let recycler = await findElementByResourceId(hierarchy, "recycler");
 
+  let viewContainer = await findElementByResourceId(hierarchy, "view_container");
+
   let appsList = await findElementByResourceId(hierarchy, "apps_list");
 
   let appPickerView = await findElementByResourceId(hierarchy, "app_picker_view");
@@ -45,7 +47,7 @@ const getClickablesFromXML = async (
 
   let itemsContainer = await findElementByResourceId(hierarchy, "setting_items_container");
 
-  let contentsContainer = await findElementByResourceId(hierarchy, "id/contents_container");
+  let contentsContainer = await findElementByResourceId(hierarchy, "contents_container");
 
   let maintenanceMode = await findElementByResourceId(hierarchy, "maintenance_mode_intro_body_container");
 
@@ -61,19 +63,25 @@ const getClickablesFromXML = async (
 
   let scrollContainer = await findElementByResourceId(hierarchy, "scroll_container");
 
+  let homeScreenModeView = await findElementByResourceId(hierarchy, "home_screen_mode_view");
+
+  let coverMainSyncView = await findElementByResourceId(hierarchy, "cover_main_sync_view");
+
+  let cardsList = await findElementByResourceId(hierarchy, "cards_list");
+
   let otherView = null;
 
   // console.log("THIS IS THE RV: ", rv);
 
-  if (sv && !scroll_only) {
+  if (sv && !scroll_only && (sv.$["scrollable"] === "true")) {
     isScrollable = "true";
     console.log(`${screen_hash} HAS A SCROLL VIEW`);
-  } else if (!sv && (rv || nestedScroll || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || maintenanceMode || contentsContainer || fragmentFrame || listItemView || listView || previewLayout || scrollContainer || fragmentContainer) && !scroll_only) {
+  } else if ((!(screen_hash.includes("settings-apps"))) && !sv && (rv || nestedScroll || viewContainer || cardsList || coverMainSyncView || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || maintenanceMode || contentsContainer || fragmentFrame || listItemView || listView || previewLayout || scrollContainer || fragmentContainer || homeScreenModeView) && !scroll_only) {
     // Scroll and compare hierarchies
     const initialHierarchy = hierarchy;
 
     // Perform the scroll
-    const arg_1 = 1500; // Example starting y-coordinate
+    const arg_1 = 1000; // Example starting y-coordinate
 
     await scrollDown(driver, arg_1, device.scroll_distance);
     // Wait for a moment to allow the screen to update
@@ -89,7 +97,7 @@ const getClickablesFromXML = async (
         console.log(`${screen_hash} HAS A SCROLLABLE RECYCLER VIEW`);
 
         // Scroll back up to the initial position
-        await scrollUp(driver, (arg_1 - device.scroll_distance), device.scroll_distance);
+        await scrollUp(driver, arg_1, device.scroll_distance);
     } else {
       isScrollable = "false";
     }
@@ -98,10 +106,13 @@ const getClickablesFromXML = async (
     } 
 
 
-  } else if (!sv && !rv && cf && !nestedScroll) {
+  } else if (!sv && !rv && cf && !nestedScroll && !(screen_hash.includes("settings-apps"))) {
       isScrollable = "false";
-  } else if ((sv || scrollContainer || fragmentContainer || nestedScroll || rv || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || contentsContainer || fragmentFrame || listItemView || listView || previewLayout) && scroll_only) {
+  } else if ((sv || scrollContainer || viewContainer || cardsList || coverMainSyncView || fragmentContainer || nestedScroll || rv || recycler || appsList || appPickerView || contentView || widgetList || itemsContainer || contentsContainer || fragmentFrame || listItemView || listView || previewLayout || homeScreenModeView) && scroll_only) {
       isScrollable = "true";
+  } else if (screen_hash.includes("settings-apps")) {
+      isScrollable = "true";
+      console.log("THIS IS THE APPS TOPIC")
   } else {
       isScrollable = "false";
       otherView = hierarchy;
@@ -124,6 +135,8 @@ const getClickablesFromXML = async (
     view = recycler;
   } else if (!sv && appsList) {
     view = appsList;
+  } else if (!sv && viewContainer) {
+    view = viewContainer;
   } else if (!sv && appPickerView) {
     view = appPickerView;
   } else if (!sv && widgetList) {
@@ -142,12 +155,18 @@ const getClickablesFromXML = async (
     view = cf;
   } else if (!sv && contentView) {
     view = contentView;
+  } else if (!sv && coverMainSyncView) {
+    view = coverMainSyncView;
+  } else if (!sv && homeScreenModeView) {
+    view = homeScreenModeView;
   } else if (!sv && maintenanceMode) {
     view = maintenanceMode;
   } else if (!sv && fragmentFrame) {
     view = fragmentFrame;
   } else if (!sv && fragmentContainer) {
     view = fragmentContainer;
+  } else if (!sv && cardsList) {
+    view = cardsList;
   } else if (otherView) {
     view = otherView;
   }
@@ -195,6 +214,9 @@ const getClickablesFromXML = async (
 
       // SETTINGS-APPS-TIPSANDUSERGUIDE-DEPTH2 
       const listItemContainerElement = await findTextInElement(el, "list_item_title");
+      const slideCardTitleElement = await findTextInElement(el, "slide_card_title");
+      const userManualTitleElement = await findTextInElement(el, "user_manual_title");
+      const remoteSupportTitleElement = await findTextInElement(el, "remote_support_title");
 
       // SETTINGS-APPS-DIGITALWELLBEING-DEPTH2
       const homeCardTitleElement = await findTextInElement(el, "home_card_title");
@@ -313,8 +335,32 @@ const getClickablesFromXML = async (
         break;
       }
 
+      if (slideCardTitleElement) {
+        title = slideCardTitleElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
       if (listItemContainerElement) {
         title = listItemContainerElement;
+        data.push({
+          title,
+          complete: isToggleOnlyButton,
+          width: bounds.width,
+          height: bounds.height,
+          x: bounds.x,
+          y: bounds.y,
+        });
+      }
+
+      if (userManualTitleElement || remoteSupportTitleElement) {
+        title = userManualTitleElement ? userManualTitleElement : remoteSupportTitleElement;
         data.push({
           title,
           complete: isToggleOnlyButton,

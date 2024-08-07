@@ -83,13 +83,9 @@ async function getUserInput() {
         console.log(`FINISHED MAPPING SETTINGS TO DEPTH: ${maxDepth}`);
         continue;
       } else if (input.toLowerCase() === "fix") {
-        await navigateAndMap(driver, device, "settings-display-edge_panels", 3, maxDepth);
+        await navigateAndMap(driver, device, "settings-google", 3, maxDepth);
         console.log('Data successfully fixed');
-      } else if (input.toLowerCase() === "home screen") {
-        await scrollCapture(driver, "settings-home_screen", {y: 334});
-        console.log('Data successfully fixed');
-        break;
-      }
+      } 
       
       // Find the topic based on user input
       const selectedTopic = topics.find(

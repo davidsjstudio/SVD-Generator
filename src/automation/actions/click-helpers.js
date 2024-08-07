@@ -1,28 +1,15 @@
 import { sleep } from './../../utils/misc.js';
 import { parseXML } from '../data-extraction/clickables_v2.mjs';
 
-export async function findAndClickButton(driver, buttonText, resourceId = null, checked) {
-
-  let twins = null;
-  let button = null;
-  let existsTwins = null 
-
-  if (buttonText === "Back up data") {
-     twins = await driver.$$(`android=new UiSelector().text("${buttonText}")`);
-  }
+export async function findAndClickButton(driver, buttonText, resourceId = null) {
 
   try {
     // First, use UiScrollable to scroll to the button by text
-    if (buttonText !== "Back up data") {
-       existsTwins = true
-       button = await driver.$(`android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("${buttonText}")`);
-    } else {
-      button = checked ? twins[1] : twins[0];
-    }
+      let button = await driver.$(`android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("${buttonText}")`);
 
       // If still not found, fallback to finding by text
       if (!button || !(await button.isDisplayed())) {
-        button = existsTwins ? button : await driver.$(`android=new UiSelector().text("${buttonText}")`);
+        button = await driver.$(`android=new UiSelector().text("${buttonText}")`);
         if (button && !(await button.isDisplayed())) {
           await button.scrollIntoView();
         }
@@ -43,14 +30,6 @@ export async function findAndClickButton(driver, buttonText, resourceId = null, 
       }
 
       const afterClickHierarchy = await driver.getPageSource();
-
-      // Check for the Wi-Fi required popup message
-      const popup = await driver.$(`android=new UiSelector().text("Wi-Fi connection required. Connect to Wi-Fi network and try again.")`);
-      if (await popup.isDisplayed()) {
-        await driver.back(); // Close the popup
-        console.warn(`${buttonText} button clicked but Wi-Fi connection required popup appeared.`);
-        return 'wifi-required';
-      }
 
       // Compare the before and after UI hierarchies
       if (beforeClickHierarchy !== afterClickHierarchy) {

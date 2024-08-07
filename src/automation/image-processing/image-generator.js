@@ -11,7 +11,7 @@ import { execSync } from 'child_process';
 import sharp from "sharp";
 
 
-export async function createImage(screen_hash, driver, device, depth, checked) {
+export async function createImage(screen_hash, driver, device, depth) {
   const screen_map = {};
   console.log("CREATE IMAGE ", screen_hash);
   const img = await getScreenshotAsBuffer(driver);
@@ -73,7 +73,6 @@ export async function createImage(screen_hash, driver, device, depth, checked) {
           device,
           screen_map,
           depth,
-          checked
           // buttonName
         );
       } catch (e) {
@@ -100,7 +99,7 @@ export async function createImage(screen_hash, driver, device, depth, checked) {
         screen_map[screen_hash].statics = device.static_buttons;
         screen_map[screen_hash].buttons = data.map((el) => ({ 
           ...el, 
-          complete: false, 
+          complete: el.complete === true ? true : false, 
           from_scrollable: false,
           parent: screen_hash,
           slug: `${screen_hash}-` + el.title.toLowerCase().replaceAll(" ", "_").replaceAll("-", "_"),
@@ -136,7 +135,6 @@ export async function takeAndStitchImages(
   device,
   screen_map,
   depth,
-  checked
 ) {
   console.log("TAKE AND STITCH");
   console.log("CLEARING TMP FOLDER")
@@ -172,12 +170,13 @@ export async function takeAndStitchImages(
   if ((merged_data.length <= 2) || (screen_hash === "settings-home_screen-contact_us") || 
   (screen_hash === "settings-accounts_and_backup-restore_data") || (screen_hash === "settings-device_care-maintenance_mode") || 
   (screen_hash === "settings-general_management-language_packs") || (screen_hash === "settings-general_management-contact_us") || 
-  (screen_hash === "settings-accessibility-contact_us") || (screen_hash === "settings-digital_wellbeing_and_parental_controls-members")
-  || (screen_hash === "settings-digital_wellbeing_and_parental_controls-productivity_and_finance")) {
+  (screen_hash === "settings-accessibility-contact_us") || (screen_hash === "settings-wallpaper_and_style-change_wallpapers") || 
+  (screen_hash.includes("settings-digital_wellbeing_and_parental_controls") && depth >= 3) ||
+  (screen_hash.includes("settings-apps") && depth >= 3)) {
 
     console.log("THIS SCREEN IS SCROLLABLE BUT TOO FEW BUTTONS FOR STITCHING.");
     console.log("NOW SCROLL CAPTURING INSTEAD");
-    const height = await scrollCapture(driver, screen_hash, scroll_bounds, checked);
+    const height = await scrollCapture(driver, screen_hash, scroll_bounds, depth);
     await saveScrollImageAndData(
       null,
       height,
@@ -348,7 +347,7 @@ export async function takeAndStitchImages(
 // in an attempt to bypass the time inefficiency of stitching multiple screenshots together while scrolling incrementally.
 // Note: Since Smart Capture is native to Samsung as of 2024, the feature may not be available or accessible on other devices/models/versions.
 
-export async function scrollCapture(driver, screen_hash, scroll_bounds, checked) {
+export async function scrollCapture(driver, screen_hash, scroll_bounds, depth) {
   try {
     // Quick settings instant access: Pull down from the top right corner of the screen to access the full quick settings panel without notifications
     // let coords = {
@@ -388,7 +387,7 @@ export async function scrollCapture(driver, screen_hash, scroll_bounds, checked)
       console.log(`Screenshot saved to ${destinationFilePath}`);
 
       // Crop the image
-      const imageHeight = await cropImage(destinationFileName, scroll_bounds, screen_hash, checked);
+      const imageHeight = await cropImage(destinationFileName, scroll_bounds, screen_hash, depth);
       return imageHeight;
 
       // Clear the scroll capture output directory
@@ -415,7 +414,7 @@ async function pullScreenshot(driver, sourcePath, destinationPath) {
   }
 }
 
-async function cropImage(fileName, scroll_bounds, screen_hash, checked) {
+async function cropImage(fileName, scroll_bounds, screen_hash, depth) {
   try {
     const inputFilePath = path.join(paths.scrollCaptureOutputPath, fileName);
     const outputFilePath = path.join(paths.imageOutputPath, fileName);
@@ -442,21 +441,44 @@ async function cropImage(fileName, scroll_bounds, screen_hash, checked) {
         left: 0,
         top: scroll_bounds.y, // Start cropping from 334 pixels from the top
         width: metadata.width,
-        height: metadata.height - scroll_bounds.y - (2640-2328) // Reduce the height by 334 pixels
+        height: metadata.height - scroll_bounds.y - (2160-1837) // Reduce the height by 334 pixels
       };
     } else if (screen_hash === "settings-device_care-maintenance_mode") {
       extractOptions = {
       left: 0,
       top: scroll_bounds.y, // Start cropping from 334 pixels from the top
       width: metadata.width,
-      height: metadata.height - scroll_bounds.y - (2640-2268) // Reduce the height by 334 pixels
+      height: metadata.height - scroll_bounds.y - (2160-1775) // Reduce the height by 334 pixels
       };
-    } else if (screen_hash === "settings-accounts_and_backup-back_up_data" && checked == false) {
+    } else if (screen_hash.includes("settings-digital_wellbeing_and_parental_controls") && depth >= 3 && ((scroll_bounds.y + scroll_bounds.height) !== 2011)) {
       extractOptions = {
       left: 0,
       top: scroll_bounds.y, // Start cropping from 334 pixels from the top
       width: metadata.width,
-      height: metadata.height - scroll_bounds.y - (2640-2268) // Reduce the height by 334 pixels
+      height: metadata.height - scroll_bounds.y - (2160-1838) // Reduce the height by 334 pixels
+      };
+    } else if (screen_hash === "settings-accounts_and_backup-back_up_data") {
+      extractOptions = {
+      left: 0,
+      top: scroll_bounds.y, // Start cropping from 334 pixels from the top
+      width: metadata.width,
+      height: metadata.height - scroll_bounds.y - (2160-1775) // Reduce the height by 334 pixels
+      };
+    } else if (screen_hash === "settings-connected_devices-galaxy_wearable") {
+      extractOptions = {
+      left: 0,
+      top: scroll_bounds.y, // Start cropping from 334 pixels from the top
+      width: metadata.width,
+      height: metadata.height - scroll_bounds.y - (2160-1726) // Reduce the height by 334 pixels
+      };
+    } else if (screen_hash.includes("settings-apps") && depth >=3 && (screen_hash !== 
+      "settings-apps-choose_default_apps") && (screen_hash !== "settings-apps-samsung_app_settings")
+    ) {
+      extractOptions = {
+      left: 0,
+      top: scroll_bounds.y, // Start cropping from 334 pixels from the top
+      width: metadata.width,
+      height: metadata.height - scroll_bounds.y - (2160-1843) // Reduce the height by 334 pixels
       };
     } else {
         extractOptions = {
@@ -465,7 +487,7 @@ async function cropImage(fileName, scroll_bounds, screen_hash, checked) {
         width: metadata.width,
         height: metadata.height - scroll_bounds.y // Reduce the height by 334 pixels
       };
-    }
+    } 
     // Perform the crop operation
     await image.extract(extractOptions).toFile(outputFilePath);
 
