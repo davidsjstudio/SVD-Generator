@@ -1,9 +1,7 @@
 import readline from "readline";
 import { remote } from "webdriverio";
-import { getClickablesFromXML } from "./data-extraction/clickables_v2.mjs";
 import { clearOutputFolders } from "../utils/file-ops.js";
 import { navigateAndMap } from './mapping/iddfs-logic.js';
-import { createImage, scrollCapture } from './image-processing/image-generator.js';
 import { paths } from '../../config/paths.js';
 import '../utils/logger.js';
 import { root_screen_hash, rootDepth, maxDepth, loadTopics } from "../../config/apps/settings/config.js";
