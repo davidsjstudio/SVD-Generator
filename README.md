@@ -48,18 +48,18 @@ SVD-Generator/
 ## Installation
 
 1. **Clone the repository**:
-    ```javascript
+    ```
     git clone https://github.com/davidsjstudio/SVD-Generator.git
     cd SVD-Generator
     ```
 
 2. **Install dependencies**:
-    ```javascript
+    ```
     npm install
     ```
 
 3. **Ensure Appium is installed and running**:
-    ```javascript
+    ```
     npm install -g appium
     appium
     ```
@@ -71,13 +71,13 @@ SVD-Generator/
 ## Usage
 
 1. **Start the Appium server**:
-    ```javascript
+    ```
     appium
     ```
 
 2. **Run the script**:
     Open the terminal in Visual Studio Code and run:
-    ```javascript
+    ```
     node src/automation/index.js
     ```
 
